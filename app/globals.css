@@ -1,0 +1,118 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 245 245 245;
+    --foreground: 0 58 77;
+    --card: 255 255 255;
+    --card-foreground: 0 58 77;
+    --popover: 255 255 255;
+    --popover-foreground: 0 58 77;
+    --primary: 0 58 77;
+    --primary-foreground: 245 245 245;
+    --secondary: 0 166 166;
+    --secondary-foreground: 245 245 245;
+    --muted: 229 229 229;
+    --muted-foreground: 107 114 128;
+    --accent: 0 166 166;
+    --accent-foreground: 245 245 245;
+    --destructive: 239 68 68;
+    --destructive-foreground: 245 245 245;
+    --border: 229 229 229;
+    --input: 229 229 229;
+    --ring: 0 166 166;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  .ocean-gradient {
+    background: linear-gradient(135deg, #003A4D 0%, #00536B 25%, #00A6A6 50%, #00C4C4 75%, #003A4D 100%);
+    animation: oceanWave 8s ease-in-out infinite;
+  }
+  
+  .ocean-gradient-subtle {
+    background: linear-gradient(135deg, rgba(0, 58, 77, 0.1) 0%, rgba(0, 166, 166, 0.1) 50%, rgba(0, 58, 77, 0.1) 100%);
+  }
+  
+  @keyframes oceanWave {
+    0%, 100% { transform: translateX(0) translateY(0); }
+    25% { transform: translateX(-2px) translateY(-1px); }
+    50% { transform: translateX(2px) translateY(1px); }
+    75% { transform: translateX(-1px) translateY(-2px); }
+  }
+  
+  .parallax {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  .glow-effect {
+    box-shadow: 0 0 20px rgba(0, 166, 166, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .glow-effect:hover {
+    box-shadow: 0 0 30px rgba(0, 166, 166, 0.5);
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .animate-count-up {
+    animation: countUp 2s ease-out;
+  }
+  
+  @keyframes countUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+.font-montserrat {
+  font-family: var(--font-montserrat);
+}
+
+.font-poppins {
+  font-family: var(--font-poppins);
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00A6A6;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #003A4D;
+}

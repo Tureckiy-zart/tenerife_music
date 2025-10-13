@@ -1,0 +1,104 @@
+TENERIFE.MUSIC - Инструкция по установке и работе с проектом
+
+==========================================
+СТРУКТУРА ПРОЕКТА
+==========================================
+
+Главные компоненты проекта:
+
+1. app/
+   - page.tsx - Главная страница
+   - layout.tsx - Корневой layout
+   - globals.css - Глобальные стили
+   - api/subscribe/ - API подписки
+   - api/contact/ - API контактной формы
+   - contact/page.tsx - Страница контактов
+
+2. components/
+   - hero.tsx - Главный баннер с каруселью
+   - navigation.tsx - Навигация с мобильным меню
+   - events.tsx - События с фильтрами
+   - venues.tsx - Музыкальные площадки
+   - articles.tsx - Статьи
+   - footer.tsx - Футер
+   - subscription-modal.tsx - Модальное окно
+   - ui/ - 50+ UI компонентов Shadcn
+
+3. public/
+   - hero-1.jpg, hero-2.jpg, ... hero-5.jpg
+   - favicon.svg
+   - manifest.json
+
+==========================================
+КАК СКАЧАТЬ ПРОЕКТ
+==========================================
+
+1. Нажмите кнопку "Files" в правом верхнем углу
+2. Найдите файл: tenerife_music_project.tar.gz
+3. Скачайте его на свой компьютер
+
+==========================================
+УСТАНОВКА И ЗАПУСК
+==========================================
+
+1. Распаковка архива:
+   tar -xzf tenerife_music_project.tar.gz
+   cd nextjs_space
+
+2. Установка зависимостей:
+   npm install -g yarn
+   yarn install
+
+3. Запуск в режиме разработки:
+   yarn dev
+
+4. Откройте браузер:
+   http://localhost:3000
+
+==========================================
+РАБОТА В VSCODE
+==========================================
+
+Рекомендуемые расширения:
+- ESLint
+- Prettier
+- Tailwind CSS IntelliSense
+- TypeScript and JavaScript Language Features
+
+==========================================
+ОСНОВНЫЕ ФАЙЛЫ ДЛЯ РЕДАКТИРОВАНИЯ
+==========================================
+
+Для изменения контента:
+- components/hero.tsx - Главный баннер
+- components/events.tsx - События (здесь массив mockEvents)
+- components/venues.tsx - Площадки
+- components/articles.tsx - Статьи (массив mockArticles)
+
+Для стилей:
+- app/globals.css - Глобальные стили
+- tailwind.config.ts - Конфигурация Tailwind
+
+Цветовая схема:
+- Основной: #003A4D (тёмно-синий)
+- Акцент: #00A6A6 (бирюзовый)
+- Hover: #00C4C4 (светло-бирюзовый)
+
+==========================================
+ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ
+==========================================
+
+Проект использует:
+- Next.js 14.2.28
+- TypeScript
+- Tailwind CSS
+- Shadcn UI
+- Framer Motion (анимации)
+
+Команды:
+- yarn dev - Development сервер
+- yarn build - Production build
+- yarn start - Запуск production
+- yarn lint - Проверка кода
+
+==========================================

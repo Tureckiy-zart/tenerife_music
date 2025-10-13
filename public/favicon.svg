@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#003A4D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00A6A6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" fill="#003A4D"/>
+  <path d="M 40 180 Q 80 160 120 180 T 200 180 L 200 200 Q 160 220 120 200 T 40 200 Z" fill="#00A6A6" opacity="0.3"/>
+  <path d="M 30 190 Q 70 170 110 190 T 190 190 L 190 210 Q 150 230 110 210 T 30 210 Z" fill="#00A6A6" opacity="0.2"/>
+  <g transform="translate(128, 128)">
+    <path d="M -50 -35 L -50 35 L -35 35 L -35 -10 L -10 20 L -10 35 L 5 35 L 5 20 L 30 -10 L 30 35 L 45 35 L 45 -35 L 30 -35 L -2.5 10 L -35 -35 Z" fill="#003A4D" stroke="#00A6A6" stroke-width="2"/>
+    <circle cx="-25" cy="-45" r="4" fill="#00A6A6"/>
+    <circle cx="10" cy="-50" r="3" fill="#00A6A6"/>
+    <circle cx="35" cy="-42" r="3.5" fill="#00A6A6"/>
+    <path d="M -60 -20 L -55 -15 M -58 -10 L -53 -5" stroke="#00A6A6" stroke-width="2" stroke-linecap="round"/>
+    <path d="M 50 -15 L 55 -10 M 52 -5 L 57 0" stroke="#00A6A6" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</svg>
