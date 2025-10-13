@@ -1,5 +1,7 @@
 {
-  "buildCommand": "next build || true",
-  "ignoreCommand": "false",
-  "cleanUrls": true
+  "build": {
+    "env": {
+      "NEXT_IGNORE_ERRORS": "ENOENT"
+    }
+  }
 }
