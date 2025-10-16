@@ -1,117 +1,136 @@
+"use client";
 
-'use client'
-
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
-import Image from 'next/image'
-import { Calendar, MapPin, Music, Filter, X, Bell } from 'lucide-react'
+import { motion } from "framer-motion";
+import { Bell, Calendar, Filter, MapPin, Music, X } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
+import { useInView } from "react-intersection-observer";
 
 interface Event {
-  id: number
-  title: string
-  date: string
-  venue: string
-  genre: string
-  image: string
-  description: string
+  id: number;
+  title: string;
+  date: string;
+  venue: string;
+  genre: string;
+  image: string;
+  description: string;
 }
 
 const mockEvents: Event[] = [
   {
     id: 1,
-    title: 'Sunset Techno Session',
-    date: 'Nov 15, 2024',
-    venue: 'Papagayo Beach Club',
-    genre: 'Techno',
-    image: 'https://i.ytimg.com/vi/BPc7JErNdHI/maxresdefault.jpg',
-    description: 'Experience the ultimate sunset techno session with international DJs'
+    title: "Sunset Techno Session",
+    date: "Nov 15, 2024",
+    venue: "Papagayo Beach Club",
+    genre: "Techno",
+    image: "https://i.ytimg.com/vi/BPc7JErNdHI/maxresdefault.jpg",
+    description:
+      "Experience the ultimate sunset techno session with international DJs",
   },
   {
     id: 2,
-    title: 'Carnival Beats Festival',
-    date: 'Dec 20, 2024',
-    venue: 'Plaza del Adelantado',
-    genre: 'Folk',
-    image: 'https://www.opodo.co.uk/blog/wp-content/uploads/sites/12/2024/02/carnaval_tenerife.jpg',
-    description: 'Traditional Canarian music meets modern beats in this cultural celebration'
+    title: "Carnival Beats Festival",
+    date: "Dec 20, 2024",
+    venue: "Plaza del Adelantado",
+    genre: "Folk",
+    image:
+      "https://www.opodo.co.uk/blog/wp-content/uploads/sites/12/2024/02/carnaval_tenerife.jpg",
+    description:
+      "Traditional Canarian music meets modern beats in this cultural celebration",
   },
   {
     id: 3,
-    title: 'Electronic Waves',
-    date: 'Jan 10, 2025',
-    venue: 'Tramps Tenerife',
-    genre: 'Electronic',
-    image: 'https://i3.wp.com/estaticos-cdn.prensaiberica.es/clip/51955172-575c-4b21-aa6b-e262d7a072a0_16-9-discover-aspect-ratio_default_0.jpg',
-    description: 'Underground electronic music showcase featuring local and international artists'
+    title: "Electronic Waves",
+    date: "Jan 10, 2025",
+    venue: "Tramps Tenerife",
+    genre: "Electronic",
+    image:
+      "https://i3.wp.com/estaticos-cdn.prensaiberica.es/clip/51955172-575c-4b21-aa6b-e262d7a072a0_16-9-discover-aspect-ratio_default_0.jpg",
+    description:
+      "Underground electronic music showcase featuring local and international artists",
   },
   {
     id: 4,
-    title: 'Jazz Under the Stars',
-    date: 'Feb 5, 2025',
-    venue: 'Auditorio de Tenerife',
-    genre: 'Jazz',
-    image: 'https://www.auditoriodetenerife.com/wp-content/uploads/2025/02/20241205132043_(c)%20Auditorio%20de%20Tenerife-Efra%C3%ADn%20Pinto-scaled.jpg',
-    description: 'An elegant evening of jazz music in Tenerife\'s premier concert hall'
+    title: "Jazz Under the Stars",
+    date: "Feb 5, 2025",
+    venue: "Auditorio de Tenerife",
+    genre: "Jazz",
+    image:
+      "https://www.auditoriodetenerife.com/wp-content/uploads/2025/02/20241205132043_(c)%20Auditorio%20de%20Tenerife-Efra%C3%ADn%20Pinto-scaled.jpg",
+    description:
+      "An elegant evening of jazz music in Tenerife's premier concert hall",
   },
   {
     id: 5,
-    title: 'Beach House Vibes',
-    date: 'Feb 20, 2025',
-    venue: 'Monkey Beach Club',
-    genre: 'House',
-    image: 'https://i.ytimg.com/vi/cpwBoLvNQIM/maxresdefault.jpg',
-    description: 'House music party right on the beach with ocean views and sunset vibes'
+    title: "Beach House Vibes",
+    date: "Feb 20, 2025",
+    venue: "Monkey Beach Club",
+    genre: "House",
+    image: "https://i.ytimg.com/vi/cpwBoLvNQIM/maxresdefault.jpg",
+    description:
+      "House music party right on the beach with ocean views and sunset vibes",
   },
   {
     id: 6,
-    title: 'Underground Pulse',
-    date: 'Mar 8, 2025',
-    venue: 'NRG Club',
-    genre: 'Techno',
-    image: 'https://canaryvip.com/wp-content/uploads/2024/03/24673.jpg',
-    description: 'Deep techno sounds in Tenerife\'s hottest underground venue'
+    title: "Underground Pulse",
+    date: "Mar 8, 2025",
+    venue: "NRG Club",
+    genre: "Techno",
+    image: "https://canaryvip.com/wp-content/uploads/2024/03/24673.jpg",
+    description: "Deep techno sounds in Tenerife's hottest underground venue",
   },
   {
     id: 7,
-    title: 'Canarian Folk Night',
-    date: 'Mar 25, 2025',
-    venue: 'Casa de la Cultura',
-    genre: 'Folk',
-    image: 'https://i.ytimg.com/vi/jVrUwebo2NY/maxresdefault.jpg',
-    description: 'Celebrate traditional Canarian music with authentic instruments and performances'
+    title: "Canarian Folk Night",
+    date: "Mar 25, 2025",
+    venue: "Casa de la Cultura",
+    genre: "Folk",
+    image: "https://i.ytimg.com/vi/jVrUwebo2NY/maxresdefault.jpg",
+    description:
+      "Celebrate traditional Canarian music with authentic instruments and performances",
   },
   {
     id: 8,
-    title: 'Ocean House Festival',
-    date: 'Apr 12, 2025',
-    venue: 'Costa Adeje',
-    genre: 'House',
-    image: 'https://whenincanarias.wordpress.com/wp-content/uploads/2024/03/tenerife-music-festivals.jpg',
-    description: 'Multi-day house music festival with ocean backdrop and world-class DJs'
-  }
-]
+    title: "Ocean House Festival",
+    date: "Apr 12, 2025",
+    venue: "Costa Adeje",
+    genre: "House",
+    image:
+      "https://whenincanarias.wordpress.com/wp-content/uploads/2024/03/tenerife-music-festivals.jpg",
+    description:
+      "Multi-day house music festival with ocean backdrop and world-class DJs",
+  },
+];
 
-const genres = ['All', 'Techno', 'House', 'Electronic', 'Jazz', 'Folk', 'Live Music']
+const genres = [
+  "All",
+  "Techno",
+  "House",
+  "Electronic",
+  "Jazz",
+  "Folk",
+  "Live Music",
+];
 
 export default function Events() {
-  const [selectedGenre, setSelectedGenre] = useState('All')
-  const [showComingSoon, setShowComingSoon] = useState(false)
+  const [selectedGenre, setSelectedGenre] = useState("All");
+  const [showComingSoon, setShowComingSoon] = useState(false);
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
-  })
+  });
 
-  const filteredEvents = selectedGenre === 'All' 
-    ? mockEvents 
-    : mockEvents.filter(event => event.genre === selectedGenre)
+  const filteredEvents =
+    selectedGenre === "All"
+      ? mockEvents
+      : mockEvents.filter((event) => event.genre === selectedGenre);
 
   const ComingSoonModal = () => {
-    if (!showComingSoon) return null
+    if (!showComingSoon) return null;
 
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center">
-        <div 
+        <div
           className="absolute inset-0 bg-black/60 backdrop-blur-sm"
           onClick={() => setShowComingSoon(false)}
         />
@@ -130,8 +149,9 @@ export default function Events() {
               Tickets Coming Soon!
             </h3>
             <p className="text-gray-600 mb-6">
-              We're working with event organizers to bring you seamless ticket purchasing. 
-              Subscribe to get notified when tickets become available for this event!
+              We're working with event organizers to bring you seamless ticket
+              purchasing. Subscribe to get notified when tickets become
+              available for this event!
             </p>
             <button
               onClick={() => setShowComingSoon(false)}
@@ -142,11 +162,15 @@ export default function Events() {
           </div>
         </div>
       </div>
-    )
-  }
+    );
+  };
 
   return (
-    <section id="events" className="py-20 bg-gradient-to-b from-gray-50 to-white" ref={ref}>
+    <section
+      id="events"
+      className="py-20 bg-gradient-to-b from-gray-50 to-white"
+      ref={ref}
+    >
       <div className="max-w-6xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -170,8 +194,8 @@ export default function Events() {
                 onClick={() => setSelectedGenre(genre)}
                 className={`px-4 py-2 rounded-full font-poppins font-medium transition-all duration-300 border-2 ${
                   selectedGenre === genre
-                    ? 'bg-[#00A6A6] text-white border-[#00A6A6] shadow-lg'
-                    : 'bg-white text-[#003A4D] border-gray-300 hover:bg-[#00A6A6] hover:text-white hover:border-[#00A6A6] shadow-md'
+                    ? "bg-[#00A6A6] text-white border-[#00A6A6] shadow-lg"
+                    : "bg-white text-[#003A4D] border-gray-300 hover:bg-[#00A6A6] hover:text-white hover:border-[#00A6A6] shadow-md"
                 }`}
               >
                 {genre}
@@ -209,7 +233,7 @@ export default function Events() {
                 <h3 className="text-lg font-montserrat font-bold text-[#003A4D] mb-3 min-h-[3rem]">
                   {event.title}
                 </h3>
-                
+
                 <div className="space-y-2 mb-4">
                   <div className="flex items-center text-gray-600 text-sm">
                     <Calendar className="w-4 h-4 mr-2 text-[#00A6A6]" />
@@ -225,10 +249,10 @@ export default function Events() {
                   {event.description}
                 </p>
 
-                <button 
+                <button
                   onClick={(e) => {
-                    e.stopPropagation()
-                    setShowComingSoon(true)
+                    e.stopPropagation();
+                    setShowComingSoon(true);
                   }}
                   className="w-full bg-gradient-to-r from-[#003A4D] to-[#00536B] text-white py-2 rounded-lg font-poppins font-medium hover:shadow-lg transition-all duration-300 hover:from-[#00536B] hover:to-[#00A6A6] mt-auto"
                 >
@@ -252,14 +276,15 @@ export default function Events() {
               Full Agenda Coming Soon
             </h3>
             <p className="text-gray-600 max-w-md mx-auto">
-              We're curating the complete events calendar for Tenerife. Stay tuned for ticket sales and more events!
+              We're curating the complete events calendar for Tenerife. Stay
+              tuned for ticket sales and more events!
             </p>
           </div>
         </motion.div>
       </div>
 
       {/* Coming Soon Modal */}
-      <ComingSoonModal />
+      {/* <ComingSoonModal /> */}
     </section>
-  )
+  );
 }
