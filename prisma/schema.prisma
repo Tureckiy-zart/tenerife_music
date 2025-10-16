@@ -26,3 +26,55 @@ model Contact {
 
   @@map("contacts")
 }
+
+model Event {
+  id          String   @id @default(cuid())
+  title       String
+  date        String
+  venue       String
+  genre       String
+  image       String
+  description String
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("events")
+}
+
+model Venue {
+  id          String   @id @default(cuid())
+  name        String
+  location    String
+  type        String
+  capacity    String
+  image       String
+  description String
+  genres      String[]
+  address     String
+  phone       String?
+  website     String?
+  hours       String?
+  features    String[]
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("venues")
+}
+
+model Article {
+  id        String   @id @default(cuid())
+  title     String
+  excerpt   String
+  content   String
+  image     String
+  date      String
+  readTime  String
+  icon      String
+  published Boolean  @default(true)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("articles")
+}

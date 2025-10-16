@@ -1,14 +1,14 @@
 
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
 import { MapPin, Music, Users, Star, Navigation, X, Clock, Phone, Globe } from 'lucide-react'
 
 interface Venue {
-  id: number
+  id: string
   name: string
   location: string
   type: string
@@ -16,130 +16,77 @@ interface Venue {
   image: string
   description: string
   genres: string[]
-  details: {
-    address: string
-    phone: string
-    website: string
-    hours: string
-    features: string[]
-  }
+  address: string
+  phone: string | null
+  website: string | null
+  hours: string | null
+  features: string[]
 }
 
-const mockVenues: Venue[] = [
-  {
-    id: 1,
-    name: 'Auditorio de Tenerife',
-    location: 'Santa Cruz de Tenerife',
-    type: 'Concert Hall',
-    capacity: '1,600',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/a/a2/Auditorio_de_Tenerife_2015_%2850MP%29.jpg',
-    description: 'Iconic architectural masterpiece hosting world-class performances',
-    genres: ['Classical', 'Jazz', 'Opera', 'Contemporary'],
-    details: {
-      address: 'Av. de la Constitución, 1, 38003 Santa Cruz de Tenerife',
-      phone: '+34 922 568 600',
-      website: 'auditoriodetenerife.com',
-      hours: 'Mon-Sat: 10:00-20:00, Sun: Closed',
-      features: ['World-class acoustics', 'Santiago Calatrava design', 'Premium seating', 'Full orchestra capabilities']
-    }
-  },
-  {
-    id: 2,
-    name: 'Papagayo Beach Club',
-    location: 'Playa de las Américas',
-    type: 'Beach Club',
-    capacity: '500',
-    image: 'https://welikecanarias.com/wp-content/uploads/2025/05/Papagayo-Beach-Club-tenerife-1024x768.jpeg',
-    description: 'Spectacular beachfront venue with sunset views and electronic vibes',
-    genres: ['House', 'Electronic', 'Chill-out', 'Techno'],
-    details: {
-      address: 'Playa de Las Vistas, 38650 Arona',
-      phone: '+34 922 787 549',
-      website: 'papagayobeachclub.com',
-      hours: 'Daily: 10:00-02:00',
-      features: ['Oceanfront location', 'Sunset sessions', 'Premium sound system', 'VIP areas']
-    }
-  },
-  {
-    id: 3,
-    name: 'Tramps Tenerife',
-    location: 'Playa de las Américas',
-    type: 'Nightclub',
-    capacity: '800',
-    image: 'https://mindtrip.ai/cdn-cgi/image/format=webp,w=720/https://tcdn.mindtrip.ai/images/317571/1jpo5c4.png',
-    description: 'Underground electronic music temple with cutting-edge sound system',
-    genres: ['Techno', 'Electronic', 'Underground', 'Progressive'],
-    details: {
-      address: 'Av. Rafael Puig Lluvina, 38660 Playa de las Américas',
-      phone: '+34 922 796 234',
-      website: 'trampstenerife.com',
-      hours: 'Thu-Sat: 23:00-06:00',
-      features: ['International DJs', 'State-of-the-art lighting', 'Multiple dance floors', 'VIP bottle service']
-    }
-  },
-  {
-    id: 4,
-    name: 'Monkey Beach Club',
-    location: 'Playa de Troya',
-    type: 'Beach Club',
-    capacity: '400',
-    image: 'https://c8.alamy.com/comp/2PF86K5/monkey-beach-club-from-playa-de-troya-public-beach-playa-de-las-amrcias-tenerife-canary-islands-kingdom-of-spain-2PF86K5.jpg',
-    description: 'Relaxed beachfront atmosphere with premium dining and live music',
-    genres: ['House', 'Jazz', 'Acoustic', 'Chill-out'],
-    details: {
-      address: 'Playa de Troya, 38660 Adeje',
-      phone: '+34 922 715 888',
-      website: 'monkeybeachclub.com',
-      hours: 'Daily: 09:00-01:00',
-      features: ['Beachfront dining', 'Live music nights', 'Premium cocktails', 'Sunset views']
-    }
-  },
-  {
-    id: 5,
-    name: 'NRG Club',
-    location: 'Costa Adeje',
-    type: 'Nightclub',
-    capacity: '300',
-    image: 'https://a.storyblok.com/f/116532/853x568/2c359b60f3/nrg-atl-atlanta.webp',
-    description: 'Intimate club setting for underground electronic music experiences',
-    genres: ['Techno', 'House', 'Electronic', 'Deep House'],
-    details: {
-      address: 'Calle Alcalde Walter Paetzmann, 38670 Adeje',
-      phone: '+34 922 712 456',
-      website: 'nrgclub.es',
-      hours: 'Fri-Sat: 22:00-05:00',
-      features: ['Intimate setting', 'Underground vibes', 'Quality sound system', 'Resident DJs']
-    }
-  }
-]
-
 export default function Venues() {
+  const [venues, setVenues] = useState<Venue[]>([])
+  const [loading, setLoading] = useState(true)
+  
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
   })
+
+  // Загрузка площадок из API
+  useEffect(() => {
+    const fetchVenues = async () => {
+      try {
+        const response = await fetch('/api/venues')
+        const data = await response.json()
+        setVenues(data)
+      } catch (error) {
+        console.error('Error fetching venues:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchVenues()
+  }, [])
   const [selectedVenue, setSelectedVenue] = useState<Venue | null>(null)
 
   const VenueModal = ({ venue, onClose }: { venue: Venue | null, onClose: () => void }) => {
+    useEffect(() => {
+      if (venue) {
+        // Получаем ширину scrollbar
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
+        // Добавляем padding, чтобы компенсировать исчезновение scrollbar
+        document.body.style.paddingRight = `${scrollbarWidth}px`
+        document.body.style.overflow = 'hidden'
+      } else {
+        document.body.style.paddingRight = ''
+        document.body.style.overflow = 'unset'
+      }
+      return () => {
+        document.body.style.paddingRight = ''
+        document.body.style.overflow = 'unset'
+      }
+    }, [venue])
+
     if (!venue) return null
 
     return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto">
         <div 
           className="absolute inset-0 bg-black/60 backdrop-blur-sm"
           onClick={onClose}
         />
-        <div className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden">
+        <div className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full my-8 flex flex-col max-h-[90vh]">
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 z-10 p-2 text-gray-400 hover:text-gray-600 transition-colors duration-200 bg-white/80 rounded-full"
+            className="absolute top-4 right-4 z-10 p-2 text-white hover:text-gray-200 transition-colors duration-200 bg-black/30 hover:bg-black/50 rounded-full"
           >
             <X className="w-5 h-5" />
           </button>
           
-          <div className="relative aspect-[4/3] bg-gray-200">
+          {/* Fixed Header with Image */}
+          <div className="relative h-64 bg-gray-200 rounded-t-2xl overflow-hidden flex-shrink-0">
             <Image
-              src={venue.image}
+              src={venue.image || 'https://cdn.abacus.ai/images/38bd6fd6-e080-4a5c-a282-20b1344d6117.png'}
               alt={venue.name}
               fill
               className="object-cover"
@@ -157,68 +104,73 @@ export default function Venues() {
             </div>
           </div>
           
-          <div className="p-6 pb-8 max-h-96 overflow-y-auto">
+          {/* Scrollable Content */}
+          <div className="p-6 overflow-y-auto flex-1">
             <p className="text-gray-600 mb-6 leading-relaxed">{venue.description}</p>
             
             <div className="space-y-4">
-              <div className="flex items-center">
-                <MapPin className="w-5 h-5 text-[#00A6A6] mr-3" />
+              <div className="flex items-start">
+                <MapPin className="w-5 h-5 text-[#00A6A6] mr-3 flex-shrink-0 mt-0.5" />
                 <div>
                   <div className="font-semibold text-[#003A4D]">Address</div>
-                  <div className="text-gray-600 text-sm">{venue.details.address}</div>
+                  <div className="text-gray-600 text-sm">{venue.address}</div>
                 </div>
               </div>
               
-              <div className="flex items-center">
-                <Phone className="w-5 h-5 text-[#00A6A6] mr-3" />
+              <div className="flex items-start">
+                <Phone className="w-5 h-5 text-[#00A6A6] mr-3 flex-shrink-0 mt-0.5" />
                 <div>
                   <div className="font-semibold text-[#003A4D]">Phone</div>
-                  <div className="text-gray-600 text-sm">{venue.details.phone}</div>
+                  <div className="text-gray-600 text-sm">{venue.phone}</div>
                 </div>
               </div>
               
-              <div className="flex items-center">
-                <Clock className="w-5 h-5 text-[#00A6A6] mr-3" />
+              <div className="flex items-start">
+                <Clock className="w-5 h-5 text-[#00A6A6] mr-3 flex-shrink-0 mt-0.5" />
                 <div>
                   <div className="font-semibold text-[#003A4D]">Hours</div>
-                  <div className="text-gray-600 text-sm">{venue.details.hours}</div>
+                  <div className="text-gray-600 text-sm">{venue.hours}</div>
                 </div>
               </div>
               
-              <div className="flex items-center">
-                <Globe className="w-5 h-5 text-[#00A6A6] mr-3" />
+              <div className="flex items-start">
+                <Globe className="w-5 h-5 text-[#00A6A6] mr-3 flex-shrink-0 mt-0.5" />
                 <div>
                   <div className="font-semibold text-[#003A4D]">Website</div>
-                  <div className="text-gray-600 text-sm">{venue.details.website}</div>
+                  <div className="text-gray-600 text-sm">{venue.website}</div>
                 </div>
               </div>
             </div>
             
-            <div className="mt-6">
-              <h4 className="font-montserrat font-bold text-[#003A4D] mb-3">Music Genres</h4>
-              <div className="flex flex-wrap gap-2">
-                {venue.genres.map((genre) => (
-                  <span
-                    key={genre}
-                    className="bg-[#00A6A6]/10 text-[#003A4D] px-3 py-1 rounded-full text-sm font-medium"
-                  >
-                    {genre}
-                  </span>
-                ))}
+            {Array.isArray(venue.genres) && venue.genres.length > 0 && (
+              <div className="mt-6">
+                <h4 className="font-montserrat font-bold text-[#003A4D] mb-3">Music Genres</h4>
+                <div className="flex flex-wrap gap-2">
+                  {venue.genres.map((genre) => (
+                    <span
+                      key={genre}
+                      className="bg-[#00A6A6]/10 text-[#003A4D] px-3 py-1 rounded-full text-sm font-medium"
+                    >
+                      {genre}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
             
-            <div className="mt-6 mb-4">
-              <h4 className="font-montserrat font-bold text-[#003A4D] mb-3">Features</h4>
-              <ul className="space-y-2">
-                {venue.details.features.map((feature) => (
-                  <li key={feature} className="flex items-center text-gray-600 text-sm">
-                    <Star className="w-4 h-4 text-[#00A6A6] mr-2" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {Array.isArray(venue.features) && venue.features.length > 0 && (
+              <div className="mt-6 pb-4">
+                <h4 className="font-montserrat font-bold text-[#003A4D] mb-3">Features</h4>
+                <ul className="space-y-2">
+                  {venue.features.map((feature) => (
+                    <li key={feature} className="flex items-center text-gray-600 text-sm">
+                      <Star className="w-4 h-4 text-[#00A6A6] mr-2 flex-shrink-0" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -263,7 +215,18 @@ export default function Venues() {
 
         {/* Venues Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {mockVenues.map((venue, index) => (
+          {loading ? (
+            <div className="col-span-full text-center py-12">
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-[#00A6A6]"></div>
+              <p className="mt-4 text-gray-600">Loading venues...</p>
+            </div>
+          ) : venues.length === 0 ? (
+            <div className="col-span-full text-center py-12">
+              <MapPin className="w-16 h-16 mx-auto text-gray-300 mb-4" />
+              <p className="text-xl text-gray-600">No venues found</p>
+            </div>
+          ) : (
+            venues.map((venue, index) => (
             <motion.div
               key={venue.id}
               initial={{ opacity: 0, y: 30 }}
@@ -276,7 +239,7 @@ export default function Venues() {
               {/* Venue Image */}
               <div className="relative aspect-[4/3] bg-gray-200 flex-shrink-0">
                 <Image
-                  src={venue.image}
+                  src={venue.image || 'https://cdn.abacus.ai/images/38bd6fd6-e080-4a5c-a282-20b1344d6117.png'}
                   alt={venue.name}
                   fill
                   className="object-cover"
@@ -312,7 +275,7 @@ export default function Venues() {
 
                 {/* Genre Tags */}
                 <div className="flex flex-wrap gap-2 mb-4 flex-grow">
-                  {venue.genres.slice(0, 3).map((genre) => (
+                  {venue.genres?.slice(0, 3).map((genre) => (
                     <span
                       key={genre}
                       className="bg-[#00A6A6]/10 text-[#003A4D] px-2 py-1 rounded-full text-xs font-medium h-fit"
@@ -320,9 +283,9 @@ export default function Venues() {
                       {genre}
                     </span>
                   ))}
-                  {venue.genres.length > 3 && (
+                  {(venue.genres?.length ?? 0) > 3 && (
                     <span className="text-gray-500 text-xs">
-                      +{venue.genres.length - 3} more
+                      +{(venue.genres?.length ?? 0) - 3} more
                     </span>
                   )}
                 </div>
@@ -344,7 +307,8 @@ export default function Venues() {
                 </div>
               </div>
             </motion.div>
-          ))}
+          ))
+          )}
         </div>
 
         {/* Quick Venue Access */}

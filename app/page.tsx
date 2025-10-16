@@ -1,7 +1,7 @@
 
 import Hero from '@/components/hero'
 import About from '@/components/about'
-import Events from '@/components/events'
+import EventsRefactored from '@/components/events-refactored'
 import Articles from '@/components/articles'
 import Venues from '@/components/venues'
 import Footer from '@/components/footer'
@@ -14,7 +14,7 @@ export default function HomePage() {
       <main>
         <Hero />
         <About />
-        <Events />
+        <EventsRefactored />
         <Articles />
         <Venues />
       </main>

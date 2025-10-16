@@ -83,20 +83,29 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-sm rounded-lg mt-2 shadow-lg">
-            <div className="py-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="block px-4 py-2 text-[#003A4D] font-poppins font-medium hover:bg-[#00A6A6]/10 transition-colors duration-200"
-                >
-                  {link.name}
-                </Link>
-              ))}
+          <>
+            {/* Backdrop overlay */}
+            <div 
+              className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 md:hidden"
+              onClick={() => setIsOpen(false)}
+            />
+            
+            {/* Menu content */}
+            <div className="relative z-50 md:hidden bg-white/95 backdrop-blur-sm rounded-lg mt-2 shadow-lg">
+              <div className="py-4">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className="block px-4 py-2 text-[#003A4D] font-poppins font-medium hover:bg-[#00A6A6]/10 transition-colors duration-200"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
+          </>
         )}
       </div>
     </nav>

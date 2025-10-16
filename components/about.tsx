@@ -1,41 +1,38 @@
-"use client";
 
-import { motion } from "framer-motion";
-import { Calendar, MapPin, Music2, Users } from "lucide-react";
-import { useInView } from "react-intersection-observer";
+'use client'
+
+import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+import { Music2, Users, MapPin, Calendar } from 'lucide-react'
 
 export default function About() {
   const [ref, inView] = useInView({
     threshold: 0.2,
     triggerOnce: true,
-  });
+  })
 
   const features = [
     {
       icon: Music2,
-      title: "All Music Genres",
-      description:
-        "From carnival bands to techno events, discover every style of music on the island.",
+      title: 'All Music Genres',
+      description: 'From carnival bands to techno events, discover every style of music on the island.',
     },
     {
       icon: Calendar,
-      title: "Complete Events",
-      description:
-        "Never miss a concert, festival, or underground party happening in Tenerife.",
+      title: 'Complete Events',
+      description: 'Never miss a concert, festival, or underground party happening in Tenerife.',
     },
     {
       icon: MapPin,
-      title: "Local Venues",
-      description:
-        "Explore the best music venues from beach clubs to concert halls.",
+      title: 'Local Venues',
+      description: 'Explore the best music venues from beach clubs to concert halls.',
     },
     {
       icon: Users,
-      title: "Artist Hub",
-      description:
-        "Connect with local artists and discover emerging talent on the island.",
+      title: 'Artist Hub',
+      description: 'Connect with local artists and discover emerging talent on the island.',
     },
-  ];
+  ]
 
   return (
     <section className="py-20 bg-white" ref={ref}>
@@ -50,9 +47,8 @@ export default function About() {
             Your Island Music Hub
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Tenerife.Music — the island's music hub covering everything from
-            carnival bands to techno events. Explore concerts, festivals and
-            local artists in one place.
+            Tenerife.Music — the island's music hub covering everything from carnival bands to techno events. 
+            Explore concerts, festivals and local artists in one place.
           </p>
         </motion.div>
 
@@ -89,12 +85,12 @@ export default function About() {
             Launching Soon
           </h3>
           <p className="text-lg text-gray-200 mb-6 max-w-2xl mx-auto">
-            We're working hard to bring you the most comprehensive music
-            platform Tenerife has ever seen. Stay tuned for something amazing.
+            We're working hard to bring you the most comprehensive music platform Tenerife has ever seen. 
+            Stay tuned for something amazing.
           </p>
           <div className="flex justify-center items-center space-x-8">
             <div className="text-center">
-              <div className="text-2xl font-bold text-[#00A6A6]">Q4 2025</div>
+              <div className="text-2xl font-bold text-[#00A6A6]">Q1 2025</div>
               <div className="text-sm text-gray-300">Launch Date</div>
             </div>
             <div className="w-px h-12 bg-gray-500"></div>
@@ -106,5 +102,5 @@ export default function About() {
         </motion.div>
       </div>
     </section>
-  );
+  )
 }

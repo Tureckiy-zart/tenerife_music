@@ -1,7 +1,7 @@
 
 'use client'
 
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
@@ -9,144 +9,87 @@ import { Calendar, ArrowRight, Music, Users, Building, X } from 'lucide-react'
 import Link from 'next/link'
 
 interface Article {
-  id: number
+  id: string
   title: string
   excerpt: string
   content: string
   image: string
   date: string
   readTime: string
-  icon: any
+  icon: string
 }
 
-const mockArticles: Article[] = [
-  {
-    id: 1,
-    title: 'Top Music Festivals in Tenerife',
-    excerpt: 'Discover the island\'s most spectacular music festivals that attract thousands of music lovers from around the world.',
-    image: 'https://www.canarianweekly.com/img/media/articles/27567/c0a35d0108369b02-800.webp',
-    date: 'Oct 20, 2024',
-    readTime: '5 min read',
-    icon: Music,
-    content: `Tenerife's music festival scene is nothing short of spectacular. From intimate jazz gatherings to massive electronic dance festivals, the island offers a diverse range of musical experiences that cater to every taste.
-
-## The Festival Landscape
-
-The island's unique geography creates perfect venues for outdoor festivals. Beach locations provide stunning backdrops for summer events, while the mountains offer intimate settings for acoustic performances. The year-round pleasant climate means festivals happen throughout all seasons.
-
-## Major Festivals to Watch
-
-**Arona Summer Festival** - This multi-genre festival brings together international artists and local talent. The oceanfront location in Los Cristianos creates an magical atmosphere as the sun sets behind the stage.
-
-**Canarias Jazz Festival** - Held at various venues across the island, this prestigious jazz festival attracts world-renowned musicians and jazz enthusiasts from across Europe.
-
-**Heineken Jazzaldia Tenerife** - A branch of the famous San Sebastián festival, featuring cutting-edge jazz performances in intimate settings.
-
-## Emerging Electronic Scene
-
-Tenerife's electronic music scene is rapidly growing, with underground venues hosting international DJs and local electronic artists gaining recognition beyond the island. Beach clubs have become epicenters for house and techno events.
-
-## Local Cultural Integration
-
-What makes Tenerife's festivals unique is the integration of traditional Canarian music with modern genres. Many festivals feature folk performances alongside contemporary acts, creating a rich cultural tapestry that reflects the island's diverse heritage.`
-  },
-  {
-    id: 2,
-    title: 'The Rhythms of Canarian Folk and Modern Sound',
-    excerpt: 'Explore how traditional Canarian music influences the contemporary sound of the islands and shapes its unique musical identity.',
-    image: 'https://cdn.abacus.ai/images/60dfb9a3-5893-4fe7-aaf7-7ef9ee464d5a.png',
-    date: 'Oct 18, 2024',
-    readTime: '4 min read',
-    icon: Users,
-    content: `The Canary Islands possess a rich musical heritage that spans centuries, blending Spanish, African, and Latin American influences into a unique sound that continues to evolve in the modern era.
-
-## Traditional Instruments and Sounds
-
-The **timple**, a small four-stringed instrument similar to a ukulele, is perhaps the most iconic of Canarian instruments. Its distinctive sound can be heard in traditional folk performances and increasingly in contemporary fusion projects.
-
-**Bandurria** and **laúd** provide the harmonic foundation for many traditional ensembles, while percussion instruments like the **chácaras** (wooden clappers) and various drums maintain the rhythmic pulse of Canarian music.
-
-## Isa and Folía Traditions
-
-Traditional dance forms like the **Isa** and **Folía** are not merely historical artifacts but living traditions that influence modern compositions. These dance rhythms provide templates that contemporary musicians build upon.
-
-## Modern Fusion Movement
-
-Today's Canarian musicians are creating exciting fusions that honor tradition while embracing innovation. Electronic producers are sampling timple melodies, rock bands are incorporating folk rhythms, and jazz musicians are exploring Canarian scales and harmonies.
-
-## Cultural Events and Festivals
-
-The island's numerous folk festivals keep these traditions alive while providing platforms for modern interpretations. The contrast between a traditional folk group and a contemporary fusion band on the same stage creates magical moments of cultural dialogue.
-
-## Preserving Heritage Through Innovation
-
-Rather than being preserved in museums, Canarian music lives and breathes through constant reinterpretation. Young musicians learn traditional forms while adding their own contemporary expressions, ensuring the music remains relevant for new generations.`
-  },
-  {
-    id: 3,
-    title: 'From Beach Clubs to Auditorio: Where Music Meets the Ocean',
-    excerpt: 'A comprehensive guide to Tenerife\'s diverse music venues, from intimate beach clubs to world-class concert halls.',
-    image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/90/83/af/seen-beach-club-night.jpg',
-    date: 'Oct 15, 2024',
-    readTime: '6 min read',
-    icon: Building,
-    content: `Tenerife's music venues are as diverse as its musical offerings, ranging from intimate beachside clubs to internationally acclaimed concert halls. Each venue contributes its own character to the island's vibrant music scene.
-
-## Iconic Concert Halls
-
-**Auditorio de Tenerife Adán Martín** stands as a architectural masterpiece and acoustic marvel. Designed by Santiago Calatrava, this venue hosts everything from classical symphonies to contemporary performances. Its distinctive white curves have become a symbol of the island's cultural sophistication.
-
-**Teatro Guimerá** in Santa Cruz offers a more traditional theater experience, perfect for intimate jazz performances and chamber music concerts.
-
-## Beach Club Revolution
-
-The island's beach clubs have revolutionized the outdoor music experience. **Papagayo Beach Club** offers sunset sessions where electronic music blends with ocean sounds. **Monkey Beach Club** provides a more relaxed atmosphere for house music and acoustic performances.
-
-These venues capitalize on Tenerife's year-round mild climate, allowing for open-air events throughout the year. The combination of ocean breezes, stunning sunsets, and high-quality sound systems creates unforgettable experiences.
-
-## Underground and Alternative Spaces
-
-**Tramps Tenerife** has become the epicenter of the island's underground electronic scene. This venue regularly hosts international DJs and provides a platform for local electronic artists to showcase their talents.
-
-Smaller venues like **NRG Club** cater to more intimate electronic events, creating spaces where music lovers can experience cutting-edge sounds in close-up settings.
-
-## Outdoor Festivals and Natural Venues
-
-The island's natural amphitheaters provide stunning backdrops for outdoor festivals. Volcanic landscapes, coastal cliffs, and forest clearings become temporary concert venues for special events.
-
-## The Future of Music Venues
-
-New venues are constantly emerging, with developers recognizing the island's potential as a music tourism destination. The integration of technology, sustainable practices, and unique architectural designs promises to keep Tenerife at the forefront of music venue innovation.`
-  }
-]
+// Маппинг иконок
+const iconMap: { [key: string]: any } = {
+  'Music': Music,
+  'Users': Users,
+  'Building': Building
+}
 
 export default function Articles() {
+  const [articles, setArticles] = useState<Article[]>([])
+  const [loading, setLoading] = useState(true)
+  
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
   })
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null)
 
+  // Загрузка статей из API
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const response = await fetch('/api/articles')
+        const data = await response.json()
+        setArticles(data)
+      } catch (error) {
+        console.error('Error fetching articles:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchArticles()
+  }, [])
+
   const ArticleModal = ({ article, onClose }: { article: Article | null, onClose: () => void }) => {
+    useEffect(() => {
+      if (article) {
+        // Получаем ширину scrollbar
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
+        // Добавляем padding, чтобы компенсировать исчезновение scrollbar
+        document.body.style.paddingRight = `${scrollbarWidth}px`
+        document.body.style.overflow = 'hidden'
+      } else {
+        document.body.style.paddingRight = ''
+        document.body.style.overflow = 'unset'
+      }
+      return () => {
+        document.body.style.paddingRight = ''
+        document.body.style.overflow = 'unset'
+      }
+    }, [article])
+
     if (!article) return null
 
     return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto">
         <div 
           className="absolute inset-0 bg-black/60 backdrop-blur-sm"
           onClick={onClose}
         />
-        <div className="relative bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+        <div className="relative bg-white rounded-2xl shadow-2xl max-w-4xl w-full my-8 flex flex-col max-h-[90vh]">
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 z-10 p-2 text-gray-400 hover:text-gray-600 transition-colors duration-200 bg-white/80 rounded-full"
+            className="absolute top-4 right-4 z-10 p-2 text-white hover:text-gray-200 transition-colors duration-200 bg-black/30 hover:bg-black/50 rounded-full"
           >
             <X className="w-5 h-5" />
           </button>
           
-          <div className="relative aspect-[21/9] bg-gray-200">
+          {/* Fixed Header with Image */}
+          <div className="relative h-64 bg-gray-200 rounded-t-2xl overflow-hidden flex-shrink-0">
             <Image
-              src={article.image}
+              src={article.image || 'https://cdn.abacus.ai/images/38bd6fd6-e080-4a5c-a282-20b1344d6117.png'}
               alt={article.title}
               fill
               className="object-cover"
@@ -161,7 +104,8 @@ export default function Articles() {
             </div>
           </div>
           
-          <div className="p-6 pb-8 max-h-96 overflow-y-auto">
+          {/* Scrollable Content */}
+          <div className="p-6 overflow-y-auto flex-1">
             <div className="prose max-w-none">
               {article.content.split('\n\n').map((paragraph, index) => (
                 <div key={index} className="mb-4">
@@ -205,7 +149,18 @@ export default function Articles() {
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          {mockArticles.map((article, index) => (
+          {loading ? (
+            <div className="col-span-full text-center py-12">
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-[#00A6A6]"></div>
+              <p className="mt-4 text-gray-600">Loading articles...</p>
+            </div>
+          ) : articles.length === 0 ? (
+            <div className="col-span-full text-center py-12">
+              <Music className="w-16 h-16 mx-auto text-gray-300 mb-4" />
+              <p className="text-xl text-gray-600">No articles found</p>
+            </div>
+          ) : (
+            articles.map((article, index) => (
             <motion.article
               key={article.id}
               initial={{ opacity: 0, y: 30 }}
@@ -218,14 +173,14 @@ export default function Articles() {
               {/* Article Image */}
               <div className="relative aspect-video bg-gray-200 overflow-hidden">
                 <Image
-                  src={article.image}
+                  src={article.image || 'https://cdn.abacus.ai/images/38bd6fd6-e080-4a5c-a282-20b1344d6117.png'}
                   alt={article.title}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="absolute top-4 left-4 bg-[#00A6A6]/90 backdrop-blur-sm p-2 rounded-full">
-                  <article.icon className="w-5 h-5 text-white" />
+                  {iconMap[article.icon] && React.createElement(iconMap[article.icon], { className: "w-5 h-5 text-white" })}
                 </div>
               </div>
 
@@ -258,7 +213,8 @@ export default function Articles() {
                 </button>
               </div>
             </motion.article>
-          ))}
+          ))
+          )}
         </div>
 
         {/* Call to Action */}
@@ -277,7 +233,7 @@ export default function Articles() {
               to contribute to our blog.
             </p>
             <Link href="/contact">
-              <button className="bg-[#00A6A6] hover:bg-[#00C4C4] text-white px-8 py-3 rounded-full font-poppins font-semibold transition-colors duration-300">
+              <button className="bg-[#003A4D] hover:bg-[#00536B] text-white px-8 py-3 rounded-full font-poppins font-semibold transition-colors duration-300 shadow-lg hover:shadow-xl">
                 Get in Touch
               </button>
             </Link>
