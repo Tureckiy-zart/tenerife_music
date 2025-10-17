@@ -1,0 +1,11 @@
+{
+  "name": "@tenerife.music/packages",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Tenerife.music monorepo packages",
+  "workspaces": [
+    "db",
+    "domain",
+    "shared"
+  ]
+}

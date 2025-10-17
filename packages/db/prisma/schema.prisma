@@ -1,0 +1,960 @@
+// Tenerife.music - DDD-aligned Prisma Schema
+// PostgreSQL + Neon compatible
+// Supports Day/Night split, ratings, CMS, radio, ads, moderation, i18n, search, geo
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================================================
+// ENUMS
+// ============================================================================
+
+enum UserRole {
+  USER
+  MODERATOR
+  ADMIN
+}
+
+enum OrgRole {
+  ORG_ADMIN
+  ORG_EDITOR
+  ORG_VIEWER
+}
+
+enum Plan {
+  FREE
+  PRO
+  VIP
+}
+
+enum EventStatus {
+  DRAFT
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum DayNight {
+  DAY
+  NIGHT
+}
+
+enum Visibility {
+  PUBLIC
+  UNLISTED
+  PRIVATE
+}
+
+enum AdStatus {
+  DRAFT
+  ACTIVE
+  PAUSED
+  ENDED
+}
+
+enum OwnerType {
+  EVENT
+  ARTICLE
+  ARTIST
+  ORG
+  USER
+}
+
+enum MediaType {
+  IMAGE
+  VIDEO
+  AUDIO
+}
+
+enum MediaStorage {
+  LOCAL
+  S3
+  CLOUDINARY
+  CDN
+}
+
+enum ArticleStatus {
+  DRAFT
+  PENDING
+  PUBLISHED
+  ARCHIVED
+}
+
+enum RadioStatus {
+  ACTIVE
+  INACTIVE
+  MAINTENANCE
+}
+
+enum BillingStatus {
+  ACTIVE
+  PAST_DUE
+  CANCELED
+  UNPAID
+}
+
+enum InvoiceStatus {
+  DRAFT
+  OPEN
+  PAID
+  VOID
+  UNCOLLECTIBLE
+}
+
+enum NotificationType {
+  EVENT_APPROVED
+  EVENT_REJECTED
+  EVENT_REMINDER
+  ORG_INVITE
+  RATING_RECEIVED
+  SYSTEM
+}
+
+enum NotificationSeverity {
+  INFO
+  WARNING
+  ERROR
+  SUCCESS
+}
+
+enum ActorType {
+  USER
+  SYSTEM
+}
+
+enum AdSlot {
+  HOME_HERO
+  LIST_SPONSORED
+  EVENT_INLINE
+  SIDEBAR_BANNER
+  RADIO_PRE_ROLL
+}
+
+// ============================================================================
+// USERS DOMAIN
+// ============================================================================
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  password  String? // nullable for OAuth users
+  role      UserRole @default(USER)
+  
+  // Profile & Settings (embedded JSON for simplicity)
+  profile   Json? // {bio, avatar, socials: {instagram, facebook, twitter}}
+  settings  Json? // {preferredLocale: "en"|"ru"|"es", preferredDayNight: "DAY"|"NIGHT", emailNotifications: bool}
+  
+  // Soft delete
+  isDeleted Boolean  @default(false)
+  deletedAt DateTime?
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  orgMemberships  OrgMember[]
+  notifications   Notification[]
+  favorites       Favorite[]
+  ratings         Rating[]
+  articles        Article[]
+  auditLogs       AuditLog[]
+  moderationLogs  ModerationLog[]
+
+  @@index([email])
+  @@index([role])
+  @@index([isDeleted])
+  @@map("users")
+}
+
+model Notification {
+  id        String               @id @default(cuid())
+  userId    String
+  user      User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  type      NotificationType
+  severity  NotificationSeverity @default(INFO)
+  payload   Json // {title, message, link, entityType, entityId}
+  
+  isRead    Boolean              @default(false)
+  readAt    DateTime?
+  
+  createdAt DateTime             @default(now())
+
+  @@index([userId, isRead])
+  @@index([createdAt])
+  @@map("notifications")
+}
+
+model Favorite {
+  id         String    @id @default(cuid())
+  userId     String
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  targetType OwnerType
+  targetId   String
+  
+  createdAt  DateTime  @default(now())
+
+  @@unique([userId, targetType, targetId])
+  @@index([userId])
+  @@index([targetType, targetId])
+  @@map("favorites")
+}
+
+model Rating {
+  id         String    @id @default(cuid())
+  userId     String
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  targetType OwnerType // EVENT, ORG, ARTIST, ARTICLE
+  targetId   String
+  
+  score      Int // 1-5
+  review     String?
+  
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  @@unique([userId, targetType, targetId])
+  @@index([targetType, targetId])
+  @@index([score])
+  @@map("ratings")
+}
+
+model AuditLog {
+  id         String    @id @default(cuid())
+  
+  actorType  ActorType
+  actorId    String?
+  actor      User?     @relation(fields: [actorId], references: [id], onDelete: SetNull)
+  
+  action     String // CREATE, UPDATE, DELETE, APPROVE, REJECT, etc.
+  entityType String
+  entityId   String
+  
+  meta       Json? // {changes, reason, ip, userAgent}
+  
+  createdAt  DateTime  @default(now())
+
+  @@index([entityType, entityId])
+  @@index([actorId])
+  @@index([createdAt])
+  @@map("audit_logs")
+}
+
+// ============================================================================
+// ORGANIZATIONS DOMAIN
+// ============================================================================
+
+model Organization {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  
+  plan        Plan     @default(FREE)
+  
+  // Contact & Location
+  contact     Json? // {email, phone, website}
+  location    Json? // {city, island, address, postalCode, lat, lng, geoHash}
+  
+  about       String?
+  logoUrl     String?
+  
+  // Quotas (based on plan)
+  quotas      Json? // {maxEvents: int, maxArticles: int, featuredSlots: int}
+  
+  // Soft delete
+  isDeleted   Boolean  @default(false)
+  deletedAt   DateTime?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  members           OrgMember[]
+  events            Event[]
+  articles          Article[]
+  billingCustomer   BillingCustomer?
+  subscriptions     BillingSubscription[]
+  invoices          BillingInvoice[]
+  adPlacements      AdPlacement[]
+
+  @@index([slug])
+  @@index([plan])
+  @@index([isDeleted])
+  @@map("organizations")
+}
+
+model OrgMember {
+  id    String  @id @default(cuid())
+  
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  orgId  String
+  org    Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  role   OrgRole @default(ORG_VIEWER)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, orgId])
+  @@index([orgId])
+  @@map("org_members")
+}
+
+// Billing (mirrors Stripe data)
+model BillingCustomer {
+  id               String       @id @default(cuid())
+  orgId            String       @unique
+  org              Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  stripeCustomerId String       @unique
+  
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
+
+  @@map("billing_customers")
+}
+
+model BillingSubscription {
+  id              String        @id @default(cuid())
+  orgId           String
+  org             Organization  @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  stripeSubId     String        @unique
+  plan            Plan
+  status          BillingStatus
+  
+  currentPeriodStart DateTime
+  currentPeriodEnd   DateTime
+  cancelAt           DateTime?
+  
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  @@index([orgId])
+  @@index([status])
+  @@map("billing_subscriptions")
+}
+
+model BillingInvoice {
+  id              String        @id @default(cuid())
+  orgId           String
+  org             Organization  @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  stripeInvoiceId String        @unique
+  
+  amount          Decimal       @db.Decimal(10, 2)
+  currency        String        @default("EUR")
+  status          InvoiceStatus
+  
+  periodStart     DateTime
+  periodEnd       DateTime
+  paidAt          DateTime?
+  
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  @@index([orgId])
+  @@index([status])
+  @@map("billing_invoices")
+}
+
+// ============================================================================
+// EVENTS DOMAIN
+// ============================================================================
+
+model Genre {
+  id       String @id @default(cuid())
+  slug     String @unique
+  
+  // i18n: JSONB approach for simplicity
+  name     Json // {en: "Techno", es: "Techno", ru: "Техно"}
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  events   EventGenre[]
+  artists  ArtistGenre[]
+
+  @@map("genres")
+}
+
+model Tag {
+  id       String @id @default(cuid())
+  slug     String @unique
+  
+  name     Json // {en: "Underground", es: "Subterráneo", ru: "Андеграунд"}
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  events   EventTag[]
+  articles ArticleTag[]
+
+  @@map("tags")
+}
+
+model Artist {
+  id          String  @id @default(cuid())
+  name        String
+  slug        String  @unique
+  
+  bio         String?
+  links       Json? // {instagram, spotify, soundcloud, website}
+  
+  // Rating aggregates
+  ratingAvg   Decimal? @db.Decimal(2, 1)
+  ratingCount Int      @default(0)
+  
+  // Soft delete
+  isDeleted   Boolean  @default(false)
+  deletedAt   DateTime?
+  version     Int      @default(1)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  genres      ArtistGenre[]
+  events      EventArtist[]
+
+  @@index([slug])
+  @@index([isDeleted])
+  @@map("artists")
+}
+
+model ArtistGenre {
+  id       String @id @default(cuid())
+  
+  artistId String
+  artist   Artist @relation(fields: [artistId], references: [id], onDelete: Cascade)
+  
+  genreId  String
+  genre    Genre  @relation(fields: [genreId], references: [id], onDelete: Cascade)
+
+  @@unique([artistId, genreId])
+  @@map("artist_genres")
+}
+
+model Venue {
+  id        String  @id @default(cuid())
+  name      String
+  slug      String  @unique
+  
+  address   String?
+  city      String
+  island    String  @default("Tenerife")
+  
+  lat       Decimal @db.Decimal(10, 7)
+  lng       Decimal @db.Decimal(10, 7)
+  geoHash   String // for fast geo queries
+  
+  capacity  Int?
+  website   String?
+  
+  // Soft delete
+  isDeleted Boolean  @default(false)
+  deletedAt DateTime?
+  version   Int      @default(1)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  events    Event[]
+
+  @@index([slug])
+  @@index([city])
+  @@index([geoHash])
+  @@index([isDeleted])
+  @@map("venues")
+}
+
+model Event {
+  id          String      @id @default(cuid())
+  
+  orgId       String
+  org         Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  title       String
+  description String?
+  dayNight    DayNight
+  
+  // Date & Time
+  startAt     DateTime
+  endAt       DateTime?
+  
+  // Location
+  venueId     String?
+  venue       Venue?   @relation(fields: [venueId], references: [id], onDelete: SetNull)
+  address     String?
+  city        String
+  island      String   @default("Tenerife")
+  lat         Decimal? @db.Decimal(10, 7)
+  lng         Decimal? @db.Decimal(10, 7)
+  geoHash     String?
+  
+  // Pricing
+  priceFrom   Decimal? @db.Decimal(8, 2)
+  currency    String   @default("EUR")
+  ticketUrl   String?
+  
+  coverUrl    String?
+  
+  // Moderation
+  status      EventStatus @default(DRAFT)
+  visibility  Visibility  @default(PUBLIC)
+  featured    Boolean     @default(false)
+  
+  // Metrics (can be moved to separate table for scale)
+  views       Int      @default(0)
+  clicks      Int      @default(0)
+  
+  // Rating aggregates
+  ratingAvg   Decimal? @db.Decimal(2, 1)
+  ratingCount Int      @default(0)
+  
+  // Soft delete
+  isDeleted   Boolean  @default(false)
+  deletedAt   DateTime?
+  version     Int      @default(1)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  genres      EventGenre[]
+  tags        EventTag[]
+  artists     EventArtist[]
+  moderationLogs ModerationLog[]
+  metricsDaily   MetricsEventDaily[]
+
+  @@index([orgId])
+  @@index([startAt])
+  @@index([city])
+  @@index([dayNight])
+  @@index([status])
+  @@index([visibility])
+  @@index([featured])
+  @@index([city, dayNight, startAt])
+  @@index([geoHash])
+  @@index([isDeleted])
+  @@map("events")
+}
+
+model EventGenre {
+  id      String @id @default(cuid())
+  
+  eventId String
+  event   Event  @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  
+  genreId String
+  genre   Genre  @relation(fields: [genreId], references: [id], onDelete: Cascade)
+
+  @@unique([eventId, genreId])
+  @@map("event_genres")
+}
+
+model EventTag {
+  id      String @id @default(cuid())
+  
+  eventId String
+  event   Event  @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  
+  tagId   String
+  tag     Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@unique([eventId, tagId])
+  @@map("event_tags")
+}
+
+model EventArtist {
+  id       String @id @default(cuid())
+  
+  eventId  String
+  event    Event  @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  
+  artistId String
+  artist   Artist @relation(fields: [artistId], references: [id], onDelete: Cascade)
+  
+  order    Int    @default(0) // for lineup ordering
+
+  @@unique([eventId, artistId])
+  @@map("event_artists")
+}
+
+model Media {
+  id         String      @id @default(cuid())
+  
+  ownerType  OwnerType
+  ownerId    String
+  
+  url        String
+  type       MediaType
+  storage    MediaStorage @default(CDN)
+  
+  width      Int?
+  height     Int?
+  alt        Json? // {en, es, ru}
+  
+  isPrimary  Boolean  @default(false)
+  sort       Int      @default(0)
+  
+  // Soft delete
+  isDeleted  Boolean  @default(false)
+  deletedAt  DateTime?
+  version    Int      @default(1)
+  
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  
+  // Note: Polymorphic relation via ownerType/ownerId
+  // Query via: Media.findMany({ where: { ownerType: 'EVENT', ownerId: eventId } })
+
+  @@index([ownerType, ownerId])
+  @@index([isDeleted])
+  @@map("media")
+}
+
+model ModerationLog {
+  id          String   @id @default(cuid())
+  
+  targetType  String // EVENT, ARTICLE, etc.
+  targetId    String
+  
+  moderatorId String?
+  moderator   User?    @relation(fields: [moderatorId], references: [id], onDelete: SetNull)
+  
+  fromStatus  String?
+  toStatus    String
+  reason      String?
+  
+  createdAt   DateTime @default(now())
+  
+  event       Event?   @relation(fields: [targetId], references: [id], onDelete: Cascade)
+
+  @@index([targetType, targetId])
+  @@index([moderatorId])
+  @@index([createdAt])
+  @@map("moderation_logs")
+}
+
+model MetricsEventDaily {
+  id      String   @id @default(cuid())
+  
+  eventId String
+  event   Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  
+  date    DateTime @db.Date
+  
+  views   Int      @default(0)
+  clicks  Int      @default(0)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([eventId, date])
+  @@index([date])
+  @@map("metrics_event_daily")
+}
+
+// ============================================================================
+// CONTENT DOMAIN (CMS)
+// ============================================================================
+
+model Category {
+  id       String  @id @default(cuid())
+  slug     String  @unique
+  
+  name     Json // {en, es, ru}
+  
+  parentId String?
+  parent   Category?  @relation("CategoryHierarchy", fields: [parentId], references: [id], onDelete: SetNull)
+  children Category[] @relation("CategoryHierarchy")
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  articles ArticleCategory[]
+
+  @@index([parentId])
+  @@map("categories")
+}
+
+model Article {
+  id          String        @id @default(cuid())
+  
+  authorId    String
+  author      User          @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  
+  orgId       String?
+  org         Organization? @relation(fields: [orgId], references: [id], onDelete: SetNull)
+  
+  status      ArticleStatus @default(DRAFT)
+  
+  // i18n fields - per-locale content stored in ArticleI18n
+  coverUrl    String?
+  
+  publishedAt DateTime?
+  
+  // Rating aggregates
+  ratingAvg   Decimal? @db.Decimal(2, 1)
+  ratingCount Int      @default(0)
+  
+  // Soft delete
+  isDeleted   Boolean  @default(false)
+  deletedAt   DateTime?
+  version     Int      @default(1)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  i18n        ArticleI18n[]
+  categories  ArticleCategory[]
+  tags        ArticleTag[]
+
+  @@index([authorId])
+  @@index([orgId])
+  @@index([status])
+  @@index([publishedAt])
+  @@index([isDeleted])
+  @@map("articles")
+}
+
+model ArticleI18n {
+  id        String @id @default(cuid())
+  
+  articleId String
+  article   Article @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  
+  locale    String // en, es, ru
+  
+  slug      String
+  title     String
+  summary   String?
+  body      String // Markdown or HTML
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([articleId, locale])
+  @@unique([locale, slug])
+  @@index([locale])
+  @@map("article_i18n")
+}
+
+model ArticleCategory {
+  id         String   @id @default(cuid())
+  
+  articleId  String
+  article    Article  @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  
+  categoryId String
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@unique([articleId, categoryId])
+  @@map("article_categories")
+}
+
+model ArticleTag {
+  id        String  @id @default(cuid())
+  
+  articleId String
+  article   Article @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  
+  tagId     String
+  tag       Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@unique([articleId, tagId])
+  @@map("article_tags")
+}
+
+// ============================================================================
+// RADIO DOMAIN
+// ============================================================================
+
+model RadioStation {
+  id        String      @id @default(cuid())
+  name      String
+  slug      String      @unique
+  
+  streamUrl String
+  logoUrl   String?
+  description String?
+  
+  status    RadioStatus @default(ACTIVE)
+  
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  
+  shows       RadioShow[]
+  tracks      RadioTrack[]
+  nowPlaying  RadioNowPlaying?
+  statsDaily  RadioStatsDaily[]
+
+  @@map("radio_stations")
+}
+
+model RadioShow {
+  id         String      @id @default(cuid())
+  
+  stationId  String
+  station    RadioStation @relation(fields: [stationId], references: [id], onDelete: Cascade)
+  
+  name       String
+  slug       String
+  
+  description String?
+  schedule   Json? // {dayOfWeek: int, startTime: "20:00", endTime: "22:00"}
+  
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  
+  episodes   RadioEpisode[]
+
+  @@unique([stationId, slug])
+  @@map("radio_shows")
+}
+
+model RadioEpisode {
+  id           String    @id @default(cuid())
+  
+  showId       String
+  show         RadioShow @relation(fields: [showId], references: [id], onDelete: Cascade)
+  
+  title        String
+  airStart     DateTime
+  airEnd       DateTime
+  recordingUrl String?
+  
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  
+  tracks       RadioTrack[]
+
+  @@index([showId])
+  @@index([airStart])
+  @@map("radio_episodes")
+}
+
+model RadioTrack {
+  id         String        @id @default(cuid())
+  
+  stationId  String?
+  station    RadioStation? @relation(fields: [stationId], references: [id], onDelete: Cascade)
+  
+  episodeId  String?
+  episode    RadioEpisode? @relation(fields: [episodeId], references: [id], onDelete: Cascade)
+  
+  artist     String
+  title      String
+  album      String?
+  durationMs Int?
+  
+  playedAt   DateTime
+  
+  createdAt  DateTime      @default(now())
+
+  @@index([stationId, playedAt])
+  @@index([episodeId])
+  @@map("radio_tracks")
+}
+
+model RadioNowPlaying {
+  id         String       @id @default(cuid())
+  
+  stationId  String       @unique
+  station    RadioStation @relation(fields: [stationId], references: [id], onDelete: Cascade)
+  
+  trackId    String?
+  artist     String?
+  title      String?
+  
+  startedAt  DateTime
+  listeners  Int          @default(0)
+  
+  updatedAt  DateTime     @updatedAt
+
+  @@map("radio_now_playing")
+}
+
+model RadioStatsDaily {
+  id          String       @id @default(cuid())
+  
+  stationId   String
+  station     RadioStation @relation(fields: [stationId], references: [id], onDelete: Cascade)
+  
+  date        DateTime     @db.Date
+  
+  listeners   Int          @default(0)
+  playTimeMs  BigInt       @default(0)
+  
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  @@unique([stationId, date])
+  @@index([date])
+  @@map("radio_stats_daily")
+}
+
+// ============================================================================
+// ADS DOMAIN
+// ============================================================================
+
+model AdPlacement {
+  id         String       @id @default(cuid())
+  
+  slot       AdSlot
+  
+  ownerType  OwnerType // EVENT, ORG, ARTICLE
+  ownerId    String
+  
+  orgId      String
+  org        Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  startAt    DateTime
+  endAt      DateTime
+  
+  budget     Decimal      @db.Decimal(10, 2)
+  currency   String       @default("EUR")
+  
+  status     AdStatus     @default(DRAFT)
+  
+  meta       Json? // {targeting: {city, dayNight, genres}, creativeUrl, clickUrl}
+  
+  // Metrics
+  impressions Int         @default(0)
+  clicks      Int         @default(0)
+  
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+
+  @@index([slot, status, startAt, endAt])
+  @@index([orgId])
+  @@map("ad_placements")
+}
+
+// ============================================================================
+// SEARCH DOMAIN
+// ============================================================================
+
+model SearchIndexMeta {
+  id           String   @id @default(cuid())
+  
+  collection   String   @unique // events, articles, artists, venues
+  version      Int      @default(1)
+  lastSyncAt   DateTime?
+  
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("search_index_meta")
+}
