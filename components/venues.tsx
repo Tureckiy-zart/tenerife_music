@@ -271,7 +271,7 @@ export default function Venues() {
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.3 }}
               onClick={() => setSelectedVenue(venue)}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden group cursor-pointer h-[580px] flex flex-col"
+              className="bg-white rounded-2xl shadow-lg overflow-hidden group cursor-pointer flex flex-col"
             >
               {/* Venue Image */}
               <div className="relative aspect-[4/3] bg-gray-200 flex-shrink-0">

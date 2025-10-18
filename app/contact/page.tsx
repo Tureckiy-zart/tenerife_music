@@ -80,6 +80,7 @@ export default function ContactPage() {
                   <div className="flex space-x-4">
                     <a 
                       href="#" 
+                      aria-label="Instagram"
                       className="bg-white p-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:bg-[#00A6A6] hover:text-white group"
                     >
                       <svg className="w-5 h-5 text-[#003A4D] group-hover:text-white" viewBox="0 0 24 24" fill="currentColor">
@@ -88,6 +89,7 @@ export default function ContactPage() {
                     </a>
                     <a 
                       href="#" 
+                      aria-label="TikTok"
                       className="bg-white p-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:bg-[#00A6A6] hover:text-white group"
                     >
                       <svg className="w-5 h-5 text-[#003A4D] group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -96,6 +98,7 @@ export default function ContactPage() {
                     </a>
                     <a 
                       href="#" 
+                      aria-label="Twitter/X"
                       className="bg-white p-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:bg-[#00A6A6] hover:text-white group"
                     >
                       <svg className="w-5 h-5 text-[#003A4D] group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
