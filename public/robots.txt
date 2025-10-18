@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tenerife.music/sitemap.xml
+Host: tenerife.music
+
+
