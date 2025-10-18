@@ -2,6 +2,7 @@
 import type { Metadata } from 'next'
 import { Montserrat, Poppins } from 'next/font/google'
 import './globals.css'
+import Script from 'next/script'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -64,6 +65,33 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${montserrat.variable} ${poppins.variable}`}>
       <body className="min-h-screen bg-gray-50 font-poppins antialiased">
+        <Script id="ld-org" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'Tenerife.Music',
+            url: 'https://tenerife.music',
+            logo: 'https://tenerife.music/og.jpg',
+            sameAs: [
+              'https://instagram.com/',
+              'https://tiktok.com/',
+              'https://twitter.com/'
+            ]
+          })}
+        </Script>
+        <Script id="ld-website" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            url: 'https://tenerife.music',
+            name: 'Tenerife.Music',
+            potentialAction: {
+              '@type': 'SearchAction',
+              target: 'https://tenerife.music/?q={search_term_string}',
+              'query-input': 'required name=search_term_string'
+            }
+          })}
+        </Script>
         {children}
       </body>
     </html>

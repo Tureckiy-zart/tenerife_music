@@ -2,13 +2,14 @@
 
 import { Bell, Calendar, MapPin, Music, Play, X } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SubscriptionModal from "./subscription-modal";
 
 export default function Hero() {
   const [showModal, setShowModal] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const previewPreviouslyFocusedRef = useRef<HTMLElement | null>(null);
 
   const heroImages = [
     "https://cdn.abacus.ai/images/906a0156-c4ba-43ff-8c30-45143b6c3c22.png",
@@ -30,12 +31,19 @@ export default function Hero() {
     if (!showPreview) return null;
 
     return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center">
+      <div className="fixed inset-0 z-50 flex items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="preview-title">
         <div
           className="absolute inset-0 bg-black/60 backdrop-blur-sm"
           onClick={() => setShowPreview(false)}
         />
-        <div className="relative bg-white rounded-2xl shadow-2xl p-8 max-w-lg w-full mx-4">
+        <div className="relative bg-white rounded-2xl shadow-2xl p-8 max-w-lg w-full mx-4" tabIndex={-1}
+          onKeyDown={(e) => {
+            if (e.key === 'Escape') {
+              setShowPreview(false);
+              previewPreviouslyFocusedRef.current?.focus();
+            }
+          }}
+        >
           <button
             onClick={() => setShowPreview(false)}
             className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 transition-colors duration-200"
@@ -46,7 +54,7 @@ export default function Hero() {
             <div className="bg-[#00A6A6] p-3 rounded-full w-fit mx-auto mb-4">
               <Play className="w-8 h-8 text-white" />
             </div>
-            <h3 className="text-2xl font-montserrat font-bold text-[#003A4D] mb-4">
+            <h3 id="preview-title" className="text-2xl font-montserrat font-bold text-[#003A4D] mb-4">
               Coming Soon!
             </h3>
             <p className="text-gray-600 mb-6">
@@ -143,7 +151,10 @@ export default function Hero() {
             </button>
 
             <button
-              onClick={() => setShowPreview(true)}
+              onClick={(e) => {
+                previewPreviouslyFocusedRef.current = e.currentTarget as HTMLElement;
+                setShowPreview(true);
+              }}
               className="group flex items-center space-x-3 text-white hover:text-[#00A6A6] transition-all duration-300"
             >
               <div className="bg-white/20 hover:bg-[#00A6A6]/20 p-3 rounded-full backdrop-blur-sm">
