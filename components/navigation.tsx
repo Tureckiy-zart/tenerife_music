@@ -1,13 +1,15 @@
 
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { Menu, X, Music } from 'lucide-react'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const toggleButtonRef = useRef<HTMLButtonElement | null>(null)
+  const mobileMenuRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +18,51 @@ export default function Navigation() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Close on Escape and trap focus in mobile menu
+  useEffect(() => {
+    if (!isOpen) return
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsOpen(false)
+        toggleButtonRef.current?.focus()
+      }
+
+      if (e.key === 'Tab' && mobileMenuRef.current) {
+        const focusable = mobileMenuRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+        if (focusable.length === 0) return
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
+        const active = document.activeElement as HTMLElement | null
+        if (e.shiftKey) {
+          if (active === first || !mobileMenuRef.current.contains(active)) {
+            last.focus()
+            e.preventDefault()
+          }
+        } else {
+          if (active === last) {
+            first.focus()
+            e.preventDefault()
+          }
+        }
+      }
+    }
+
+    // Move focus to first link when opened
+    const timer = window.setTimeout(() => {
+      const firstLink = mobileMenuRef.current?.querySelector<HTMLElement>('a, button')
+      firstLink?.focus()
+    }, 0)
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => {
+      window.clearTimeout(timer)
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [isOpen])
 
   const navLinks = [
     { name: 'Home', href: '/' },
@@ -67,11 +114,15 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
+            ref={toggleButtonRef}
             className={`md:hidden p-2 rounded-lg transition-colors duration-300 backdrop-blur-sm border-2 ${
               isScrolled 
                 ? 'text-[#003A4D] bg-white/80 border-[#003A4D]/20' 
                 : 'text-white bg-[#003A4D]/50 border-white/30'
             }`}
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
           >
             {isOpen ? (
               <X className="w-7 h-7" />
@@ -83,7 +134,13 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-sm rounded-lg mt-2 shadow-lg">
+          <div
+            id="mobile-menu"
+            ref={mobileMenuRef}
+            role="dialog"
+            aria-modal="true"
+            className="md:hidden bg-white/95 backdrop-blur-sm rounded-lg mt-2 shadow-lg"
+          >
             <div className="py-4">
               {navLinks.map((link) => (
                 <Link
