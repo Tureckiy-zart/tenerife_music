@@ -17,12 +17,16 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://tenerife.music'),
   title: 'Tenerife.Music - Your Music Guide to Tenerife',
   description: 'Your complete festival and party aggregator for Tenerife. Discover concerts, festivals, and local artists in one place.',
   keywords: 'Tenerife, music, festivals, concerts, events, parties, techno, house, folk, Canarian music',
   authors: [{ name: 'Tenerife.Music' }],
   creator: 'Tenerife.Music',
   publisher: 'Tenerife.Music',
+  alternates: {
+    canonical: 'https://tenerife.music',
+  },
   openGraph: {
     title: 'Tenerife.Music - Your Music Guide to Tenerife',
     description: 'Your complete festival and party aggregator for Tenerife. Discover concerts, festivals, and local artists in one place.',
@@ -30,10 +34,10 @@ export const metadata: Metadata = {
     siteName: 'Tenerife.Music',
     images: [
       {
-        url: 'https://cdn.abacus.ai/images/38bd6fd6-e080-4a5c-a282-20b1344d6117.png',
-        width: 3136,
-        height: 1344,
-        alt: 'Tenerife Music Scene',
+        url: 'https://tenerife.music/og.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Tenerife.Music — Your Music Guide to Tenerife',
       },
     ],
     locale: 'en_US',
@@ -43,7 +47,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Tenerife.Music - Your Music Guide to Tenerife',
     description: 'Your complete festival and party aggregator for Tenerife',
-    images: ['https://cdn.abacus.ai/images/38bd6fd6-e080-4a5c-a282-20b1344d6117.png'],
+    images: ['https://tenerife.music/og.jpg'],
   },
   icons: {
     icon: '/favicon.svg',
