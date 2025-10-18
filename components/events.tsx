@@ -214,7 +214,7 @@ export default function Events() {
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.3 }}
               onClick={() => setShowComingSoon(true)}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden group cursor-pointer h-[480px] flex flex-col"
+              className="bg-white rounded-2xl shadow-lg overflow-hidden group cursor-pointer flex flex-col"
             >
               <div className="relative aspect-video bg-gray-200 overflow-hidden flex-shrink-0">
                 <Image
