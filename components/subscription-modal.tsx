@@ -1,7 +1,7 @@
 
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { X, Mail, CheckCircle } from 'lucide-react'
 
 interface SubscriptionModalProps {
@@ -14,6 +14,8 @@ export default function SubscriptionModal({ isOpen, onClose }: SubscriptionModal
   const [isLoading, setIsLoading] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
   const [error, setError] = useState('')
+  const modalRef = useRef<HTMLDivElement | null>(null)
+  const previouslyFocusedElRef = useRef<HTMLElement | null>(null)
 
   if (!isOpen) return null
 
@@ -50,8 +52,48 @@ export default function SubscriptionModal({ isOpen, onClose }: SubscriptionModal
     }
   }
 
+  useEffect(() => {
+    previouslyFocusedElRef.current = document.activeElement as HTMLElement | null
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose()
+        previouslyFocusedElRef.current?.focus()
+      }
+      if (e.key === 'Tab' && modalRef.current) {
+        const focusable = modalRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+        )
+        if (focusable.length === 0) return
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
+        const active = document.activeElement as HTMLElement | null
+        if (e.shiftKey) {
+          if (active === first || !modalRef.current.contains(active)) {
+            last.focus()
+            e.preventDefault()
+          }
+        } else {
+          if (active === last) {
+            first.focus()
+            e.preventDefault()
+          }
+        }
+      }
+    }
+    const timer = window.setTimeout(() => {
+      const first = modalRef.current?.querySelector<HTMLElement>('input, button, a')
+      first?.focus()
+    }, 0)
+    document.addEventListener('keydown', handleKeyDown)
+    return () => {
+      window.clearTimeout(timer)
+      document.removeEventListener('keydown', handleKeyDown)
+      previouslyFocusedElRef.current?.focus()
+    }
+  }, [onClose])
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="subscribe-title">
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
@@ -59,7 +101,7 @@ export default function SubscriptionModal({ isOpen, onClose }: SubscriptionModal
       />
       
       {/* Modal */}
-      <div className="relative bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full mx-4">
+      <div ref={modalRef} className="relative bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full mx-4">
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -74,7 +116,7 @@ export default function SubscriptionModal({ isOpen, onClose }: SubscriptionModal
               <div className="bg-[#00A6A6] p-3 rounded-full w-fit mx-auto mb-4">
                 <Mail className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-2xl font-montserrat font-bold text-[#003A4D] mb-2">
+              <h2 id="subscribe-title" className="text-2xl font-montserrat font-bold text-[#003A4D] mb-2">
                 Join the Movement
               </h2>
               <p className="text-gray-600">

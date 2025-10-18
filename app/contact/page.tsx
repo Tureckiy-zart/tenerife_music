@@ -1,10 +1,17 @@
 
 export const dynamic = 'force-dynamic'
+import type { Metadata } from 'next'
 
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import ContactForm from '@/components/contact-form'
 import { Mail, MapPin, Phone } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'Contact — Tenerife.Music',
+  description: "Have questions or want to promote your event? Contact Tenerife.Music.",
+  alternates: { canonical: '/contact' },
+}
 
 export default function ContactPage() {
   return (

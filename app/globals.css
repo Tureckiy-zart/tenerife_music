@@ -99,6 +99,18 @@
   font-family: var(--font-poppins);
 }
 
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .ocean-gradient { animation: none !important; }
+  .animate-float { animation: none !important; }
+  .animate-count-up { animation: none !important; }
+}
+
 /* Scrollbar styles */
 ::-webkit-scrollbar {
   width: 6px;
