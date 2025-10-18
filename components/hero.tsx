@@ -155,7 +155,7 @@ export default function Hero() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-4 md:gap-8 mt-16 max-w-2xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-8 mt-16 max-w-2xl mx-auto">
           <div className="text-center bg-black/30 backdrop-blur-md rounded-2xl p-4 md:p-6">
             <div className="text-3xl md:text-4xl font-montserrat font-bold text-[#00A6A6] mb-2 drop-shadow-lg">
               100+
