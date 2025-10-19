@@ -17,7 +17,6 @@ export default async function NewsPage() {
       <section className="max-w-6xl mx-auto px-4 py-16">
         <h1 className="text-3xl md:text-4xl font-montserrat font-bold text-[#003A4D] mb-2">News</h1>
         <p className="text-gray-600 mb-8">Editorial highlights, venue guides, and festival tips. Also see <Link href="/events" className="underline">events</Link> and <Link href="/venues" className="underline">venues</Link>.</p>
-
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {list.map((p) => (
             <article key={p.slug} className="bg-white rounded-2xl shadow-md p-5 flex flex-col">
