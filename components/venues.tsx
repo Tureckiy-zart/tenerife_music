@@ -276,9 +276,10 @@ export default function Venues() {
               {/* Venue Image */}
               <div className="relative aspect-[4/3] bg-gray-200 flex-shrink-0">
                 <Image
-                  src={venue.image}
+                  src={venue.image || '/images/hero-ocean-night.jpg'}
                   alt={venue.name}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
