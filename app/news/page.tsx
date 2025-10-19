@@ -6,7 +6,7 @@ export const revalidate = 1800
 
 export const metadata: Metadata = {
   title: 'News — Tenerife.Music',
-  description: 'Latest news and articles about Tenerife’s music scene.',
+  description: 'Latest news and articles about Tenerife music scene.',
   alternates: { canonical: '/news' },
 }
 
