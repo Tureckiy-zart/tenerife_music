@@ -31,6 +31,7 @@ const nextConfig = {
       { protocol: 'https', hostname: 'canaryvip.com' },
       { protocol: 'https', hostname: 'a.storyblok.com' },
       { protocol: 'https', hostname: 'www.canarianweekly.com' }
+      ,{ protocol: 'https', hostname: 'upload.wikimedia.org' }
     ],
   },
   async headers() {
