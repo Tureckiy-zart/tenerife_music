@@ -218,9 +218,10 @@ export default function Events() {
             >
               <div className="relative aspect-video bg-gray-200 overflow-hidden flex-shrink-0">
                 <Image
-                  src={event.image}
+                  src={event.image || '/images/hero-festival.jpg'}
                   alt={event.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />

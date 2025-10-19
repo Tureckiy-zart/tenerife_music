@@ -13,8 +13,33 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
-  images: { unoptimized: true },
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    remotePatterns: [
+      { protocol: 'https', hostname: 'cdn.abacus.ai' },
+      { protocol: 'https', hostname: 'i.ytimg.com' },
+      { protocol: 'https', hostname: 'www.opodo.co.uk' },
+      { protocol: 'https', hostname: 'estaticos-cdn.prensaiberica.es' },
+      { protocol: 'https', hostname: 'www.auditoriodetenerife.com' },
+      { protocol: 'https', hostname: 'welikecanarias.com' },
+      { protocol: 'https', hostname: 'mindtrip.ai' },
+      { protocol: 'https', hostname: 'tcdn.mindtrip.ai' },
+      { protocol: 'https', hostname: 'c8.alamy.com' },
+      { protocol: 'https', hostname: 'whenincanarias.wordpress.com' },
+      { protocol: 'https', hostname: 'dynamic-media-cdn.tripadvisor.com' },
+      { protocol: 'https', hostname: 'i3.wp.com' },
+      { protocol: 'https', hostname: 'canaryvip.com' },
+      { protocol: 'https', hostname: 'a.storyblok.com' },
+      { protocol: 'https', hostname: 'www.canarianweekly.com' }
+      ,{ protocol: 'https', hostname: 'upload.wikimedia.org' }
+    ],
+  },
   async headers() {
+    const isDev = process.env.NODE_ENV !== 'production'
+    const connectSrc = ["'self'", 'https:']
+    if (isDev) {
+      connectSrc.push('ws:', 'wss:')
+    }
     const csp = [
       "default-src 'self'",
       "base-uri 'self'",
@@ -23,7 +48,7 @@ const nextConfig = {
       "style-src 'self' 'unsafe-inline' https:",
       "script-src 'self' 'unsafe-inline' 'unsafe-eval' https: blob:",
       "font-src 'self' https: data:",
-      "connect-src 'self' https:",
+      `connect-src ${connectSrc.join(' ')}`,
       "object-src 'none'",
       "form-action 'self'"
     ].join('; ');

@@ -12,11 +12,11 @@ export default function Hero() {
   const previewPreviouslyFocusedRef = useRef<HTMLElement | null>(null);
 
   const heroImages = [
-    "https://cdn.abacus.ai/images/906a0156-c4ba-43ff-8c30-45143b6c3c22.png",
-    "https://cdn.abacus.ai/images/267e4eea-3b3f-4f5d-8ddb-53d1bfadb399.png",
-    "https://cdn.abacus.ai/images/57a74454-0e31-4476-9643-0c5f518b36ad.png",
-    "https://cdn.abacus.ai/images/de2ee128-4b98-450a-b278-2f8fdb5829e7.png",
-    "https://cdn.abacus.ai/images/fa8964d4-c52e-42d0-815b-3d3c007c6d9d.png",
+    "/images/hero-festival.jpg",
+    "/images/hero-auditorio.jpg",
+    "/images/hero-dj-beach-club.jpg",
+    "/images/hero-coastal-nightlife.jpg",
+    "/images/hero-ocean-night.jpg",
   ];
 
   // Auto-rotate images

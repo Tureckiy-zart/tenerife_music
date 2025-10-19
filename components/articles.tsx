@@ -218,9 +218,10 @@ export default function Articles() {
               {/* Article Image */}
               <div className="relative aspect-video bg-gray-200 overflow-hidden">
                 <Image
-                  src={article.image}
+                  src={article.image || '/images/hero-coastal-nightlife.jpg'}
                   alt={article.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
