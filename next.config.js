@@ -13,7 +13,25 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
-  images: { unoptimized: true },
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    remotePatterns: [
+      { protocol: 'https', hostname: 'cdn.abacus.ai' },
+      { protocol: 'https', hostname: 'i.ytimg.com' },
+      { protocol: 'https', hostname: 'www.opodo.co.uk' },
+      { protocol: 'https', hostname: 'estaticos-cdn.prensaiberica.es' },
+      { protocol: 'https', hostname: 'www.auditoriodetenerife.com' },
+      { protocol: 'https', hostname: 'welikecanarias.com' },
+      { protocol: 'https', hostname: 'mindtrip.ai' },
+      { protocol: 'https', hostname: 'tcdn.mindtrip.ai' },
+      { protocol: 'https', hostname: 'c8.alamy.com' },
+      { protocol: 'https', hostname: 'whenincanarias.wordpress.com' },
+      { protocol: 'https', hostname: 'dynamic-media-cdn.tripadvisor.com' },
+      { protocol: 'https', hostname: 'i3.wp.com' },
+      { protocol: 'https', hostname: 'canaryvip.com' },
+      { protocol: 'https', hostname: 'a.storyblok.com' }
+    ],
+  },
   async headers() {
     const csp = [
       "default-src 'self'",
