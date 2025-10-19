@@ -17,7 +17,7 @@ export default function SubscriptionModal({ isOpen, onClose }: SubscriptionModal
   const modalRef = useRef<HTMLDivElement | null>(null)
   const previouslyFocusedElRef = useRef<HTMLElement | null>(null)
 
-  if (!isOpen) return null
+  // Don't early-return before hooks; render conditionally at the bottom
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -53,6 +53,8 @@ export default function SubscriptionModal({ isOpen, onClose }: SubscriptionModal
   }
 
   useEffect(() => {
+    if (!isOpen) return
+
     previouslyFocusedElRef.current = document.activeElement as HTMLElement | null
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -90,9 +92,9 @@ export default function SubscriptionModal({ isOpen, onClose }: SubscriptionModal
       document.removeEventListener('keydown', handleKeyDown)
       previouslyFocusedElRef.current?.focus()
     }
-  }, [onClose])
+  }, [isOpen, onClose])
 
-  return (
+  return isOpen ? (
     <div className="fixed inset-0 z-50 flex items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="subscribe-title">
       {/* Backdrop */}
       <div 
@@ -172,5 +174,5 @@ export default function SubscriptionModal({ isOpen, onClose }: SubscriptionModal
         )}
       </div>
     </div>
-  )
+  ) : null
 }
