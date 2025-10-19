@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "lhci": "next build && lhci autorun",
+    "lhci": "next build && CHROME_PATH=$(node -e \"console.log(require('puppeteer').executablePath())\") lhci autorun",
+    "postinstall": "puppeteer browsers install chrome",
     "start": "next start",
     "lint": "next lint"
   },
@@ -29,7 +30,8 @@
     "ts-node": "10.9.2",
     "tsx": "4.20.3",
     "typescript": "5.2.2",
-    "@lhci/cli": "0.14.0"
+    "@lhci/cli": "0.14.0",
+    "puppeteer": "23.9.0"
   },
   "dependencies": {
     "@floating-ui/react": "0.26.0",
