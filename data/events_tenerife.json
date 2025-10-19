@@ -1,0 +1,2933 @@
+[
+  {
+    "event_id": "tenerife_music_20251016_001",
+    "name": "Yerma",
+    "type": "opera",
+    "genres": [
+      "opera",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2025-10-16T20:00:00+00:00",
+    "end_date": "2025-10-18T23:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 20,
+    "price_max": 60,
+    "currency": "EUR",
+    "description": "European premiere of Yerma by Heitor Villa-Lobos, based on Federico García Lorca's play. Performed by Sinfónica de Tenerife Orchestra and Main Choir Ópera de Tenerife.",
+    "performers": [
+      "Sinfónica de Tenerife",
+      "Main Choir Ópera de Tenerife",
+      "Luiz Fernando Malheiro",
+      "Pablo Urbina"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/opera/",
+    "created_at": "2025-10-16T10:26:40.369217Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251021_002",
+    "name": "Behzod Abduraimov - Piano Recital",
+    "type": "concert",
+    "genres": [
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2025-10-21T19:30:00+00:00",
+    "end_date": "2025-10-21T22:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_5b469797",
+      "name": "Auditorio de Tenerife - Sala de Cámara",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 30,
+    "currency": "EUR",
+    "description": "Piano recital by renowned pianist Behzod Abduraimov at the Chamber Hall.",
+    "performers": [
+      "Behzod Abduraimov"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369252Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251023_003",
+    "name": "Mark Padmore & Andrew West - Lied Recital",
+    "type": "concert",
+    "genres": [
+      "opera",
+      "classical",
+      "lied"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2025-10-23T19:30:00+00:00",
+    "end_date": "2025-10-23T22:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_5b469797",
+      "name": "Auditorio de Tenerife - Sala de Cámara",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 30,
+    "currency": "EUR",
+    "description": "Opera and Lied recital featuring tenor Mark Padmore and pianist Andrew West.",
+    "performers": [
+      "Mark Padmore",
+      "Andrew West"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369274Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251024_004",
+    "name": "La consagración de lo nuevo",
+    "type": "concert",
+    "genres": [
+      "symphonic",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2025-10-24T20:00:00+00:00",
+    "end_date": "2025-10-24T22:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 45,
+    "currency": "EUR",
+    "description": "Symphonic concert conducted by Pablo González with the Sinfónica de Tenerife Orchestra.",
+    "performers": [
+      "Pablo González",
+      "Sinfónica de Tenerife"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369295Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251026_005",
+    "name": "Prélude - Dance Performance",
+    "type": "dance performance",
+    "genres": [
+      "electronic",
+      "contemporary"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2025-10-26T18:00:00+00:00",
+    "end_date": "2025-10-26T20:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 40,
+    "currency": "EUR",
+    "description": "Dance performance by Accrorap Company, choreographed by Kader Attou.",
+    "performers": [
+      "Accrorap Company",
+      "Kader Attou"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369319Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251031_006",
+    "name": "La pregunta sin respuesta",
+    "type": "concert",
+    "genres": [
+      "symphonic",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2025-10-31T20:00:00+00:00",
+    "end_date": "2025-10-31T22:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 45,
+    "currency": "EUR",
+    "description": "Symphonic concert conducted by Juanjo Mena featuring guitarist Rafael Aguirre.",
+    "performers": [
+      "Juanjo Mena",
+      "Rafael Aguirre",
+      "Sinfónica de Tenerife"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369333Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251103_007",
+    "name": "Ramón Gener and 'The Flying Dutchman'",
+    "type": "lecture",
+    "genres": [
+      "opera",
+      "educational",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2025-11-03T19:30:00+00:00",
+    "end_date": "2025-11-03T21:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_5b469797",
+      "name": "Auditorio de Tenerife - Sala de Cámara",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 5,
+    "price_max": 15,
+    "currency": "EUR",
+    "description": "Educational talk by musical disseminator Ramón Gener about Wagner's The Flying Dutchman opera.",
+    "performers": [
+      "Ramón Gener"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369347Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251104_008",
+    "name": "Esther Ropón and Ernst Surberg - Piano Recital",
+    "type": "concert",
+    "genres": [
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2025-11-04T19:30:00+00:00",
+    "end_date": "2025-11-04T21:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_5b469797",
+      "name": "Auditorio de Tenerife - Sala de Cámara",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 30,
+    "currency": "EUR",
+    "description": "Piano recital featuring Esther Ropón and Ernst Surberg.",
+    "performers": [
+      "Esther Ropón",
+      "Ernst Surberg"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369365Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251108_009",
+    "name": "Chico Pinheiro Trio - Festival Tensamba",
+    "type": "concert",
+    "genres": [
+      "brazilian",
+      "jazz"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2025-11-08T19:30:00+00:00",
+    "end_date": "2025-11-08T22:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_5b469797",
+      "name": "Auditorio de Tenerife - Sala de Cámara",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 35,
+    "currency": "EUR",
+    "description": "Jazz festival featuring Brazilian guitarist Chico Pinheiro and his trio.",
+    "performers": [
+      "Chico Pinheiro"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369379Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251115_010",
+    "name": "Cuatro cuerdas y pico - Family Concert",
+    "type": "concert",
+    "genres": [
+      "educational",
+      "classical",
+      "family"
+    ],
+    "tags": [
+      "indoor",
+      "family"
+    ],
+    "start_date": "2025-11-15T18:00:00+00:00",
+    "end_date": "2025-11-15T19:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 10,
+    "price_max": 20,
+    "currency": "EUR",
+    "description": "Family-friendly symphonic concert by Sinfónica de Tenerife.",
+    "performers": [
+      "Sinfónica de Tenerife"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369395Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251116_011",
+    "name": "The Flying Dutchman (Der fliegende Holländer)",
+    "type": "opera",
+    "genres": [
+      "opera",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2025-11-16T20:00:00+00:00",
+    "end_date": "2025-11-22T23:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 20,
+    "price_max": 65,
+    "currency": "EUR",
+    "description": "Wagner's opera The Flying Dutchman performed by Sinfónica de Tenerife Orchestra and Main Choir.",
+    "performers": [
+      "Sinfónica de Tenerife",
+      "Main Choir Ópera de Tenerife"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/opera/",
+    "created_at": "2025-10-16T10:26:40.369409Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251118_012",
+    "name": "Viola Fest - Timothy Ridout",
+    "type": "concert",
+    "genres": [
+      "classical",
+      "chamber music"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2025-11-18T19:30:00+00:00",
+    "end_date": "2025-11-18T21:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_5b469797",
+      "name": "Auditorio de Tenerife - Sala de Cámara",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 30,
+    "currency": "EUR",
+    "description": "Chamber music recital featuring viola player Timothy Ridout and pianist Federico Colli.",
+    "performers": [
+      "Timothy Ridout",
+      "Federico Colli"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369420Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251127_013",
+    "name": "Rafal Blechacz and Bomsori Kim",
+    "type": "concert",
+    "genres": [
+      "classical",
+      "chamber music"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2025-11-27T19:30:00+00:00",
+    "end_date": "2025-11-27T21:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_5b469797",
+      "name": "Auditorio de Tenerife - Sala de Cámara",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 20,
+    "price_max": 40,
+    "currency": "EUR",
+    "description": "Chamber music concert featuring violinist Bomsori Kim and pianist Rafal Blechacz.",
+    "performers": [
+      "Bomsori Kim",
+      "Rafal Blechacz"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369430Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251128_014",
+    "name": "Canciones de un compañero de viaje",
+    "type": "concert",
+    "genres": [
+      "symphonic",
+      "vocal",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2025-11-28T20:00:00+00:00",
+    "end_date": "2025-11-28T22:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 45,
+    "currency": "EUR",
+    "description": "Symphonic concert conducted by Nuno Coelho featuring mezzo-soprano Catriona Morison.",
+    "performers": [
+      "Nuno Coelho",
+      "Catriona Morison",
+      "Sinfónica de Tenerife"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369442Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251129_015",
+    "name": "Rodrigo Leão - Música portuguesa",
+    "type": "concert",
+    "genres": [
+      "portuguese",
+      "world music",
+      "contemporary"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2025-11-29T19:30:00+00:00",
+    "end_date": "2025-11-29T21:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_5b469797",
+      "name": "Auditorio de Tenerife - Sala de Cámara",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 35,
+    "currency": "EUR",
+    "description": "Portuguese music concert featuring composer and pianist Rodrigo Leão performing 'O rapaz da montanha'.",
+    "performers": [
+      "Rodrigo Leão"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369456Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251205_016",
+    "name": "Adiós a la bohemia",
+    "type": "opera",
+    "genres": [
+      "opera",
+      "zarzuela",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2025-12-05T20:00:00+00:00",
+    "end_date": "2025-12-06T23:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 20,
+    "price_max": 60,
+    "currency": "EUR",
+    "description": "Zarzuela opera by Pablo Sorozábal performed by Sinfónica de Tenerife Orchestra and Main Choir.",
+    "performers": [
+      "Sinfónica de Tenerife",
+      "Main Choir Ópera de Tenerife"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/opera/",
+    "created_at": "2025-10-16T10:26:40.369469Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251209_017",
+    "name": "Luis López - Piano Recital",
+    "type": "concert",
+    "genres": [
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2025-12-09T19:30:00+00:00",
+    "end_date": "2025-12-09T21:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_5b469797",
+      "name": "Auditorio de Tenerife - Sala de Cámara",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 30,
+    "currency": "EUR",
+    "description": "Piano recital by Luis López.",
+    "performers": [
+      "Luis López"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369481Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251212_018",
+    "name": "Rhapsody in Blue",
+    "type": "concert",
+    "genres": [
+      "symphonic",
+      "classical",
+      "jazz"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2025-12-12T20:00:00+00:00",
+    "end_date": "2025-12-12T22:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 45,
+    "currency": "EUR",
+    "description": "Symphonic concert featuring Gershwin's Rhapsody in Blue, conducted by Karen Kamensek with pianist Noelia Rodiles.",
+    "performers": [
+      "Karen Kamensek",
+      "Noelia Rodiles",
+      "Sinfónica de Tenerife"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369491Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251214_019",
+    "name": "Arquitecturas sonoras: 20 años de órgano",
+    "type": "concert",
+    "genres": [
+      "organ",
+      "baroque",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2025-12-14T12:00:00+00:00",
+    "end_date": "2025-12-14T14:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 10,
+    "price_max": 25,
+    "currency": "EUR",
+    "description": "Organ concert celebrating 20 years of the Auditorio's organ, performed by Juan de la Rubia.",
+    "performers": [
+      "Juan de la Rubia"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369502Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251216_020",
+    "name": "Quintetos para el Conde I",
+    "type": "concert",
+    "genres": [
+      "baroque",
+      "classical",
+      "chamber music"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2025-12-16T19:30:00+00:00",
+    "end_date": "2025-12-16T21:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_5b469797",
+      "name": "Auditorio de Tenerife - Sala de Cámara",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 30,
+    "currency": "EUR",
+    "description": "Chamber music concert by El Afecto Ilustrado ensemble.",
+    "performers": [
+      "El Afecto Ilustrado"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369517Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251218_021",
+    "name": "Himno de la alegría",
+    "type": "concert",
+    "genres": [
+      "symphonic",
+      "choral",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2025-12-18T20:00:00+00:00",
+    "end_date": "2025-12-19T22:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 50,
+    "currency": "EUR",
+    "description": "Beethoven's Ninth Symphony featuring vocal soloists and Main Choir, conducted by Pablo González.",
+    "performers": [
+      "Pablo González",
+      "María Espada",
+      "Cristina Faus",
+      "Airam Hernández",
+      "Sebastiá Peris",
+      "Main Choir Ópera de Tenerife",
+      "Sinfónica de Tenerife"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369529Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251218_022",
+    "name": "Quintetos para el Conde II",
+    "type": "concert",
+    "genres": [
+      "baroque",
+      "classical",
+      "chamber music"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2025-12-18T19:30:00+00:00",
+    "end_date": "2025-12-18T21:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_5b469797",
+      "name": "Auditorio de Tenerife - Sala de Cámara",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 30,
+    "currency": "EUR",
+    "description": "Chamber music concert by El Afecto Ilustrado ensemble - second part.",
+    "performers": [
+      "El Afecto Ilustrado"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369542Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251220_023",
+    "name": "Michael Jackson Happy Days - South Carolina Gospel Choir",
+    "type": "concert",
+    "genres": [
+      "soul",
+      "pop",
+      "gospel"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2025-12-20T21:00:00+00:00",
+    "end_date": "2025-12-20T23:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 20,
+    "price_max": 45,
+    "currency": "EUR",
+    "description": "Gospel concert by South Carolina Gospel Choir performing Michael Jackson tribute.",
+    "performers": [
+      "South Carolina Gospel Choir"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369556Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251222_024",
+    "name": "El Mesías - Handel",
+    "type": "concert",
+    "genres": [
+      "baroque",
+      "choral",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2025-12-22T19:30:00+00:00",
+    "end_date": "2025-12-22T22:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 20,
+    "price_max": 50,
+    "currency": "EUR",
+    "description": "Handel's Messiah performed by The Sixteen choir with vocal soloists.",
+    "performers": [
+      "The Sixteen",
+      "Sarah Tynan",
+      "Katie Bray",
+      "Mark Dobell",
+      "Henry Waddington"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369567Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260102_025",
+    "name": "Cantajuego - Mega Hits",
+    "type": "concert",
+    "genres": [
+      "entertainment",
+      "children's music",
+      "family"
+    ],
+    "tags": [
+      "indoor",
+      "family"
+    ],
+    "start_date": "2026-01-02T17:00:00+00:00",
+    "end_date": "2026-01-02T19:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 30,
+    "currency": "EUR",
+    "description": "Family entertainment show featuring children's songs and interactive performance.",
+    "performers": [
+      "Cantajuego"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369579Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260122_026",
+    "name": "Orfeo ed Euridice",
+    "type": "opera",
+    "genres": [
+      "opera",
+      "baroque",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2026-01-22T20:00:00+00:00",
+    "end_date": "2026-01-23T23:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 20,
+    "price_max": 60,
+    "currency": "EUR",
+    "description": "Gluck's opera Orpheus and Eurydice performed by Main Choir Ópera de Tenerife.",
+    "performers": [
+      "Main Choir Ópera de Tenerife"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/opera/",
+    "created_at": "2025-10-16T10:26:40.369592Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260202_027",
+    "name": "Allegro, concierto para clown y orquesta",
+    "type": "concert",
+    "genres": [
+      "entertainment",
+      "classical",
+      "family"
+    ],
+    "tags": [
+      "indoor",
+      "family"
+    ],
+    "start_date": "2026-02-02T18:00:00+00:00",
+    "end_date": "2026-02-02T19:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 10,
+    "price_max": 20,
+    "currency": "EUR",
+    "description": "Family symphonic concert combining clown performance with orchestra.",
+    "performers": [
+      "Sinfónica de Tenerife"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369603Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260212_028",
+    "name": "Salsa sinfónica",
+    "type": "concert",
+    "genres": [
+      "fusion",
+      "latin",
+      "salsa",
+      "jazz"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2026-02-12T20:00:00+00:00",
+    "end_date": "2026-02-12T22:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 20,
+    "price_max": 50,
+    "currency": "EUR",
+    "description": "Fusion concert combining salsa with symphonic orchestra, featuring Klazz Brothers & Cuba Percussion.",
+    "performers": [
+      "Isabel Rubio",
+      "Klazz Brothers & Cuba Percussion",
+      "Sinfónica de Tenerife"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369614Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260222_029",
+    "name": "Órgano y trombón: barroco y vanguardia",
+    "type": "concert",
+    "genres": [
+      "organ",
+      "contemporary",
+      "baroque",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2026-02-22T12:00:00+00:00",
+    "end_date": "2026-02-22T14:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 10,
+    "price_max": 25,
+    "currency": "EUR",
+    "description": "Organ and trombone concert blending baroque and contemporary music.",
+    "performers": [
+      "Johannes Berger",
+      "Ian Bousfield"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369626Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260227_030",
+    "name": "Muerte y transfiguración",
+    "type": "concert",
+    "genres": [
+      "symphonic",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2026-02-27T20:00:00+00:00",
+    "end_date": "2026-02-27T22:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 45,
+    "currency": "EUR",
+    "description": "Symphonic concert featuring Death and Transfiguration and other works, conducted by Pablo González.",
+    "performers": [
+      "Pablo González",
+      "Clara Andrada",
+      "Magdalena Hoffmann",
+      "Sinfónica de Tenerife"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369638Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260310_031",
+    "name": "Anna Tsybuleva - Piano Recital",
+    "type": "concert",
+    "genres": [
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2026-03-10T19:30:00+00:00",
+    "end_date": "2026-03-10T21:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_5b469797",
+      "name": "Auditorio de Tenerife - Sala de Cámara",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 30,
+    "currency": "EUR",
+    "description": "Piano recital by Anna Tsybuleva.",
+    "performers": [
+      "Anna Tsybuleva"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369650Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260315_032",
+    "name": "Roméo et Juliette",
+    "type": "opera",
+    "genres": [
+      "opera",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2026-03-15T20:00:00+00:00",
+    "end_date": "2026-03-21T23:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 20,
+    "price_max": 65,
+    "currency": "EUR",
+    "description": "Gounod's opera Romeo and Juliet performed by Sinfónica de Tenerife Orchestra and Main Choir.",
+    "performers": [
+      "Sinfónica de Tenerife",
+      "Main Choir Ópera de Tenerife"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/opera/",
+    "created_at": "2025-10-16T10:26:40.369660Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260327_033",
+    "name": "Paulus",
+    "type": "concert",
+    "genres": [
+      "oratorio",
+      "choral",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2026-03-27T20:00:00+00:00",
+    "end_date": "2026-03-27T22:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 45,
+    "currency": "EUR",
+    "description": "Mendelssohn's oratorio Paulus with vocal soloists and Main Choir, conducted by Víctor Pablo Pérez.",
+    "performers": [
+      "Víctor Pablo Pérez",
+      "Alicia Amo",
+      "Rinat Shaham",
+      "Airam Hernández",
+      "Josep Ramon Olivé",
+      "Main Choir Ópera de Tenerife",
+      "Sinfónica de Tenerife"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369671Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260407_034",
+    "name": "Martín García García - Piano Recital",
+    "type": "concert",
+    "genres": [
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2026-04-07T19:30:00+00:00",
+    "end_date": "2026-04-07T21:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_5b469797",
+      "name": "Auditorio de Tenerife - Sala de Cámara",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 30,
+    "currency": "EUR",
+    "description": "Piano recital by Spanish pianist Martín García García.",
+    "performers": [
+      "Martín García García"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369683Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260410_035",
+    "name": "Romper el silencio",
+    "type": "concert",
+    "genres": [
+      "symphonic",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2026-04-10T20:00:00+00:00",
+    "end_date": "2026-04-10T22:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 45,
+    "currency": "EUR",
+    "description": "Symphonic concert featuring cellist Pablo Ferrández, conducted by Pablo González.",
+    "performers": [
+      "Pablo González",
+      "Pablo Ferrández",
+      "Sinfónica de Tenerife"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369693Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260417_036",
+    "name": "Danzas de Galánta",
+    "type": "concert",
+    "genres": [
+      "symphonic",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2026-04-17T20:00:00+00:00",
+    "end_date": "2026-04-17T22:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 45,
+    "currency": "EUR",
+    "description": "Symphonic concert featuring Dances of Galánta and violin works, conducted by Ariane Matiakh with violinist Clara-Jumi Kang.",
+    "performers": [
+      "Ariane Matiakh",
+      "Clara-Jumi Kang",
+      "Sinfónica de Tenerife"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369703Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260425_037",
+    "name": "El castillo de Barbazul",
+    "type": "opera",
+    "genres": [
+      "opera",
+      "contemporary",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2026-04-25T20:00:00+00:00",
+    "end_date": "2026-04-26T22:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 20,
+    "price_max": 55,
+    "currency": "EUR",
+    "description": "Bartók's opera Bluebeard's Castle.",
+    "performers": [],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/opera/",
+    "created_at": "2025-10-16T10:26:40.369715Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 90.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260501_038",
+    "name": "Desde Italia",
+    "type": "concert",
+    "genres": [
+      "symphonic",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2026-05-01T20:00:00+00:00",
+    "end_date": "2026-05-01T22:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 45,
+    "currency": "EUR",
+    "description": "Symphonic concert featuring Italian repertoire, conducted by Jaume Santonja with pianist Nelson Goerner.",
+    "performers": [
+      "Jaume Santonja",
+      "Nelson Goerner",
+      "Sinfónica de Tenerife"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369725Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260502_039",
+    "name": "TOON STORY - Film Symphony Orchestra",
+    "type": "concert",
+    "genres": [
+      "film music",
+      "classical",
+      "family"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2026-05-02T19:00:00+00:00",
+    "end_date": "2026-05-03T22:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 25,
+    "price_max": 55,
+    "currency": "EUR",
+    "description": "Film music concert featuring animated movie soundtracks performed by Film Symphony Orchestra.",
+    "performers": [
+      "Film Symphony Orchestra"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369736Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260508_040",
+    "name": "El pájaro de fuego",
+    "type": "concert",
+    "genres": [
+      "symphonic",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2026-05-08T20:00:00+00:00",
+    "end_date": "2026-05-08T22:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 45,
+    "currency": "EUR",
+    "description": "Symphonic concert featuring Stravinsky's The Firebird, conducted by Pablo González with baritone Egils Silins.",
+    "performers": [
+      "Pablo González",
+      "Egils Silins",
+      "Sinfónica de Tenerife"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369750Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260510_041",
+    "name": "Guerra, paz y danza de la vida",
+    "type": "concert",
+    "genres": [
+      "organ",
+      "contemporary",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2026-05-10T12:00:00+00:00",
+    "end_date": "2026-05-10T14:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 10,
+    "price_max": 25,
+    "currency": "EUR",
+    "description": "Organ concert exploring themes of war, peace, and the dance of life, performed by Sarah Kim.",
+    "performers": [
+      "Sarah Kim"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369762Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260512_042",
+    "name": "Fetén sinfónico",
+    "type": "concert",
+    "genres": [
+      "entertainment",
+      "classical",
+      "family"
+    ],
+    "tags": [
+      "indoor",
+      "family"
+    ],
+    "start_date": "2026-05-12T18:00:00+00:00",
+    "end_date": "2026-05-12T19:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 10,
+    "price_max": 20,
+    "currency": "EUR",
+    "description": "Family symphonic concert by Sinfónica de Tenerife.",
+    "performers": [
+      "Sinfónica de Tenerife"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369773Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260519_043",
+    "name": "Paul Lewis - Piano Recital",
+    "type": "concert",
+    "genres": [
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2026-05-19T19:30:00+00:00",
+    "end_date": "2026-05-19T21:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_5b469797",
+      "name": "Auditorio de Tenerife - Sala de Cámara",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 20,
+    "price_max": 40,
+    "currency": "EUR",
+    "description": "Piano recital by renowned British pianist Paul Lewis.",
+    "performers": [
+      "Paul Lewis"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369782Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260522_044",
+    "name": "De Monteverdi a Beethoven",
+    "type": "concert",
+    "genres": [
+      "symphonic",
+      "baroque",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2026-05-22T20:00:00+00:00",
+    "end_date": "2026-05-22T22:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 45,
+    "currency": "EUR",
+    "description": "Symphonic concert spanning Monteverdi to Beethoven, conducted by Reinhard Goebel.",
+    "performers": [
+      "Reinhard Goebel",
+      "Sinfónica de Tenerife"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369794Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260529_045",
+    "name": "El Emperador",
+    "type": "concert",
+    "genres": [
+      "symphonic",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2026-05-29T20:00:00+00:00",
+    "end_date": "2026-05-29T22:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 45,
+    "currency": "EUR",
+    "description": "Symphonic concert featuring Beethoven's Emperor Concerto, conducted by Vasily Petrenko with pianist Xiaolu Zang.",
+    "performers": [
+      "Vasily Petrenko",
+      "Xiaolu Zang",
+      "Sinfónica de Tenerife"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369803Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260602_046",
+    "name": "Dúo del Valle",
+    "type": "concert",
+    "genres": [
+      "classical",
+      "chamber music"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2026-06-02T19:30:00+00:00",
+    "end_date": "2026-06-02T21:30:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_5b469797",
+      "name": "Auditorio de Tenerife - Sala de Cámara",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 30,
+    "currency": "EUR",
+    "description": "Chamber music recital by Dúo del Valle.",
+    "performers": [
+      "Dúo del Valle"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369813Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260612_047",
+    "name": "Clausura con Mahler",
+    "type": "concert",
+    "genres": [
+      "symphonic",
+      "vocal",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2026-06-12T20:00:00+00:00",
+    "end_date": "2026-06-12T23:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 15,
+    "price_max": 50,
+    "currency": "EUR",
+    "description": "Season closing concert featuring Mahler's works, conducted by Pablo González with violinist Peter Zimmermann and soprano Jone Martínez.",
+    "performers": [
+      "Pablo González",
+      "Peter Zimmermann",
+      "Jone Martínez",
+      "Sinfónica de Tenerife"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/",
+    "created_at": "2025-10-16T10:26:40.369826Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260625_048",
+    "name": "La verbena de la paloma",
+    "type": "opera",
+    "genres": [
+      "opera",
+      "zarzuela",
+      "classical"
+    ],
+    "tags": [
+      "indoor"
+    ],
+    "start_date": "2026-06-25T20:00:00+00:00",
+    "end_date": "2026-06-27T23:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_df4e3fd0",
+      "name": "Auditorio de Tenerife",
+      "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4560887,
+        "lng": -16.2515524
+      }
+    },
+    "price_min": 20,
+    "price_max": 60,
+    "currency": "EUR",
+    "description": "Spanish zarzuela La verbena de la paloma by Tomás Bretón, performed by Sinfónica de Tenerife Orchestra and Main Choir.",
+    "performers": [
+      "Sinfónica de Tenerife",
+      "Main Choir Ópera de Tenerife"
+    ],
+    "image_url": "",
+    "ticket_url": "https://tickets.auditoriodetenerife.com/",
+    "source": "Auditorio de Tenerife",
+    "source_url": "https://www.auditoriodetenerife.com/en/opera/",
+    "created_at": "2025-10-16T10:26:40.369837Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20241212_049",
+    "name": "NASTY KILLAH en TENERIFE",
+    "type": "live music",
+    "genres": [
+      "rock",
+      "alternative"
+    ],
+    "tags": [
+      "free-entry"
+    ],
+    "start_date": "2024-12-12T21:00:00+00:00",
+    "end_date": "2024-12-13T03:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_2f5f66e0",
+      "name": "Chirinstones Surf Rock Bar",
+      "address": "Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.467178,
+        "lng": -16.2507843
+      }
+    },
+    "price_min": 0,
+    "price_max": 20,
+    "currency": "EUR",
+    "description": "Live music performance by NASTY KILLAH at Chirinstones Surf Rock Bar.",
+    "performers": [
+      "NASTY KILLAH"
+    ],
+    "image_url": "",
+    "ticket_url": "https://www.eventbrite.com/",
+    "source": "Eventbrite",
+    "source_url": "https://www.eventbrite.com/d/spain/tenerife/",
+    "created_at": "2025-10-16T10:26:40.369847Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20241025_050",
+    "name": "Mose at Almaíso - live in Tenerife",
+    "type": "live music",
+    "genres": [
+      "electronic",
+      "contemporary"
+    ],
+    "tags": [],
+    "start_date": "2024-10-25T15:30:00+00:00",
+    "end_date": "2024-10-25T19:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_0b66261e",
+      "name": "Finca el Drago",
+      "address": "Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.467178,
+        "lng": -16.2507843
+      }
+    },
+    "price_min": 15,
+    "price_max": 30,
+    "currency": "EUR",
+    "description": "Live music performance by Mose at Finca el Drago in Santa Cruz de Tenerife.",
+    "performers": [
+      "Mose"
+    ],
+    "image_url": "",
+    "ticket_url": "https://www.eventbrite.com/",
+    "source": "Eventbrite",
+    "source_url": "https://www.eventbrite.com/d/spain/tenerife/",
+    "created_at": "2025-10-16T10:26:40.369861Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 90.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20241019_051",
+    "name": "CANARIAS DANCE STARS",
+    "type": "dance event",
+    "genres": [
+      "electronic",
+      "contemporary"
+    ],
+    "tags": [],
+    "start_date": "2024-10-19T18:30:00+00:00",
+    "end_date": "2024-10-19T22:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_3c614cf1",
+      "name": "Pabellón Rosendo Alonso Tapia",
+      "address": "Candelaria, Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.3546715,
+        "lng": -16.3710091
+      }
+    },
+    "price_min": 10,
+    "price_max": 25,
+    "currency": "EUR",
+    "description": "Dance competition and performances featuring top Canary Islands dance stars.",
+    "performers": [],
+    "image_url": "",
+    "ticket_url": "https://www.eventbrite.com/",
+    "source": "Eventbrite",
+    "source_url": "https://www.eventbrite.com/d/spain/tenerife/",
+    "created_at": "2025-10-16T10:26:40.369875Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 85.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260507_052",
+    "name": "Salsa Holidays in Tenerife",
+    "type": "festival",
+    "genres": [
+      "electronic",
+      "latin",
+      "salsa"
+    ],
+    "tags": [
+      "festival"
+    ],
+    "start_date": "2026-05-07T15:00:00+00:00",
+    "end_date": "2026-05-14T22:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_f2829a1e",
+      "name": "GF NOELIA Tenerife",
+      "address": "Puerto de la Cruz, Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4159024,
+        "lng": -16.5532956
+      }
+    },
+    "price_min": 400,
+    "price_max": 800,
+    "currency": "EUR",
+    "description": "Salsa dance holiday featuring workshops, live music, and performances with international instructors.",
+    "performers": [],
+    "image_url": "",
+    "ticket_url": "https://www.eventbrite.com/",
+    "source": "Eventbrite",
+    "source_url": "https://www.eventbrite.com/d/spain/tenerife/",
+    "created_at": "2025-10-16T10:26:40.369887Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 90.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251022_053",
+    "name": "Move On - Wednesday Night",
+    "type": "club night",
+    "genres": [
+      "house",
+      "pop",
+      "hits"
+    ],
+    "tags": [
+      "outdoor",
+      "weekly",
+      "club",
+      "beach",
+      "free-entry"
+    ],
+    "start_date": "2025-10-22T22:00:00+00:00",
+    "end_date": "2025-10-23T06:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_0ba5a380",
+      "name": "Papagayo Beach Club",
+      "address": "Veronicas Strip, Playa de las Américas, 38660 Arona, Tenerife, Spain",
+      "coordinates": {}
+    },
+    "price_min": 0,
+    "price_max": 15,
+    "currency": "EUR",
+    "description": "Weekly Wednesday night featuring hits and house music at Papagayo Beach Club.",
+    "performers": [],
+    "image_url": "",
+    "ticket_url": "https://papagayobeachclub.com/",
+    "source": "Papagayo Beach Club",
+    "source_url": "https://papagayobeachclub.com/en/events/",
+    "created_at": "2025-10-16T10:26:40.369902Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 80.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251023_054",
+    "name": "Latin Tech & Afro House - Thursday Night",
+    "type": "club night",
+    "genres": [
+      "techno",
+      "house",
+      "electronic"
+    ],
+    "tags": [
+      "outdoor",
+      "weekly",
+      "club",
+      "beach",
+      "free-entry"
+    ],
+    "start_date": "2025-10-23T22:00:00+00:00",
+    "end_date": "2025-10-24T06:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_0ba5a380",
+      "name": "Papagayo Beach Club",
+      "address": "Veronicas Strip, Playa de las Américas, 38660 Arona, Tenerife, Spain",
+      "coordinates": {}
+    },
+    "price_min": 0,
+    "price_max": 15,
+    "currency": "EUR",
+    "description": "Weekly Thursday night featuring Latin tech and Afro house music.",
+    "performers": [],
+    "image_url": "",
+    "ticket_url": "https://papagayobeachclub.com/",
+    "source": "Papagayo Beach Club",
+    "source_url": "https://papagayobeachclub.com/en/events/",
+    "created_at": "2025-10-16T10:26:40.369917Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 80.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251024_055",
+    "name": "Latin & Open Format - Friday Night",
+    "type": "club night",
+    "genres": [
+      "open format",
+      "latin",
+      "reggaeton"
+    ],
+    "tags": [
+      "outdoor",
+      "weekly",
+      "club",
+      "beach",
+      "free-entry"
+    ],
+    "start_date": "2025-10-24T22:00:00+00:00",
+    "end_date": "2025-10-25T06:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_0ba5a380",
+      "name": "Papagayo Beach Club",
+      "address": "Veronicas Strip, Playa de las Américas, 38660 Arona, Tenerife, Spain",
+      "coordinates": {}
+    },
+    "price_min": 0,
+    "price_max": 20,
+    "currency": "EUR",
+    "description": "Weekly Friday night featuring Latin and open format music with sunset ritual from 5pm to 7pm.",
+    "performers": [],
+    "image_url": "",
+    "ticket_url": "https://papagayobeachclub.com/",
+    "source": "Papagayo Beach Club",
+    "source_url": "https://papagayobeachclub.com/en/events/",
+    "created_at": "2025-10-16T10:26:40.369928Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 80.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251025_056",
+    "name": "Tech House - Saturday Night",
+    "type": "club night",
+    "genres": [
+      "techno",
+      "electronic"
+    ],
+    "tags": [
+      "outdoor",
+      "weekly",
+      "club",
+      "beach",
+      "free-entry"
+    ],
+    "start_date": "2025-10-25T22:00:00+00:00",
+    "end_date": "2025-10-26T06:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_0ba5a380",
+      "name": "Papagayo Beach Club",
+      "address": "Veronicas Strip, Playa de las Américas, 38660 Arona, Tenerife, Spain",
+      "coordinates": {}
+    },
+    "price_min": 0,
+    "price_max": 20,
+    "currency": "EUR",
+    "description": "Weekly Saturday night featuring tech house music.",
+    "performers": [],
+    "image_url": "",
+    "ticket_url": "https://papagayobeachclub.com/",
+    "source": "Papagayo Beach Club",
+    "source_url": "https://papagayobeachclub.com/en/events/",
+    "created_at": "2025-10-16T10:26:40.369942Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 80.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251026_057",
+    "name": "Minimal & Tech House - Sunday Night",
+    "type": "club night",
+    "genres": [
+      "techno",
+      "minimal",
+      "electronic"
+    ],
+    "tags": [
+      "outdoor",
+      "weekly",
+      "club",
+      "beach",
+      "free-entry"
+    ],
+    "start_date": "2025-10-26T22:00:00+00:00",
+    "end_date": "2025-10-27T06:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_0ba5a380",
+      "name": "Papagayo Beach Club",
+      "address": "Veronicas Strip, Playa de las Américas, 38660 Arona, Tenerife, Spain",
+      "coordinates": {}
+    },
+    "price_min": 0,
+    "price_max": 15,
+    "currency": "EUR",
+    "description": "Weekly Sunday night featuring minimal and tech house music.",
+    "performers": [],
+    "image_url": "",
+    "ticket_url": "https://papagayobeachclub.com/",
+    "source": "Papagayo Beach Club",
+    "source_url": "https://papagayobeachclub.com/en/events/",
+    "created_at": "2025-10-16T10:26:40.369952Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 80.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20250730_058",
+    "name": "Tom Zanetti Live at Tramps Tenerife",
+    "type": "live performance",
+    "genres": [
+      "electronic",
+      "house"
+    ],
+    "tags": [
+      "club"
+    ],
+    "start_date": "2025-07-30T22:00:00+00:00",
+    "end_date": "2025-07-31T06:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_a58dcaf0",
+      "name": "Tramps Tenerife",
+      "address": "Centro Comercial Starco, Veronicas Strip, 38660 Playa de las Américas, Santa Cruz de Tenerife, Spain",
+      "coordinates": {}
+    },
+    "price_min": 15,
+    "price_max": 40,
+    "currency": "EUR",
+    "description": "Live performance by international DJ and artist Tom Zanetti at Tramps Tenerife - The King of Clubs.",
+    "performers": [
+      "Tom Zanetti"
+    ],
+    "image_url": "",
+    "ticket_url": "https://www.trampstenerife.com/",
+    "source": "Tramps Tenerife",
+    "source_url": "https://www.trampstenerife.com/",
+    "created_at": "2025-10-16T10:26:40.369962Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 85.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20250815_059",
+    "name": "Clubland & Darren Styles 2025",
+    "type": "DJ night",
+    "genres": [
+      "electronic"
+    ],
+    "tags": [
+      "club",
+      "djset"
+    ],
+    "start_date": "2025-08-15T22:00:00+00:00",
+    "end_date": "2025-08-16T06:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_a58dcaf0",
+      "name": "Tramps Tenerife",
+      "address": "Centro Comercial Starco, Veronicas Strip, 38660 Playa de las Américas, Santa Cruz de Tenerife, Spain",
+      "coordinates": {}
+    },
+    "price_min": 15,
+    "price_max": 35,
+    "currency": "EUR",
+    "description": "Clubland event featuring DJ Darren Styles performing EDM and dance anthems.",
+    "performers": [
+      "Darren Styles"
+    ],
+    "image_url": "",
+    "ticket_url": "https://www.trampstenerife.com/",
+    "source": "Tramps Tenerife",
+    "source_url": "https://www.trampstenerife.com/",
+    "created_at": "2025-10-16T10:26:40.369974Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 85.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20250910_060",
+    "name": "Clubland / David Rust 2025",
+    "type": "DJ night",
+    "genres": [
+      "electronic",
+      "house"
+    ],
+    "tags": [
+      "club",
+      "djset"
+    ],
+    "start_date": "2025-09-10T22:00:00+00:00",
+    "end_date": "2025-09-11T06:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_a58dcaf0",
+      "name": "Tramps Tenerife",
+      "address": "Centro Comercial Starco, Veronicas Strip, 38660 Playa de las Américas, Santa Cruz de Tenerife, Spain",
+      "coordinates": {}
+    },
+    "price_min": 15,
+    "price_max": 35,
+    "currency": "EUR",
+    "description": "Clubland event featuring DJ David Rust with house and electronic music.",
+    "performers": [
+      "David Rust"
+    ],
+    "image_url": "",
+    "ticket_url": "https://www.trampstenerife.com/",
+    "source": "Tramps Tenerife",
+    "source_url": "https://www.trampstenerife.com/",
+    "created_at": "2025-10-16T10:26:40.369985Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 85.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251020_061",
+    "name": "GBX George Bowie 2025",
+    "type": "DJ night",
+    "genres": [
+      "electronic",
+      "house"
+    ],
+    "tags": [
+      "club",
+      "djset"
+    ],
+    "start_date": "2025-10-20T22:00:00+00:00",
+    "end_date": "2025-10-21T06:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_a58dcaf0",
+      "name": "Tramps Tenerife",
+      "address": "Centro Comercial Starco, Veronicas Strip, 38660 Playa de las Américas, Santa Cruz de Tenerife, Spain",
+      "coordinates": {}
+    },
+    "price_min": 15,
+    "price_max": 35,
+    "currency": "EUR",
+    "description": "GBX event featuring legendary Scottish DJ George Bowie.",
+    "performers": [
+      "George Bowie"
+    ],
+    "image_url": "",
+    "ticket_url": "https://www.trampstenerife.com/",
+    "source": "Tramps Tenerife",
+    "source_url": "https://www.trampstenerife.com/",
+    "created_at": "2025-10-16T10:26:40.369998Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 85.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20251231_062",
+    "name": "New Year's Eve at Tramps Tenerife",
+    "type": "party",
+    "genres": [
+      "electronic",
+      "house",
+      "pop"
+    ],
+    "tags": [
+      "club"
+    ],
+    "start_date": "2025-12-31T22:00:00+00:00",
+    "end_date": "2026-01-01T06:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_a58dcaf0",
+      "name": "Tramps Tenerife",
+      "address": "Centro Comercial Starco, Veronicas Strip, 38660 Playa de las Américas, Santa Cruz de Tenerife, Spain",
+      "coordinates": {}
+    },
+    "price_min": 30,
+    "price_max": 80,
+    "currency": "EUR",
+    "description": "New Year's Eve celebration at Tramps Tenerife with DJs, entertainment, and celebration until sunrise.",
+    "performers": [],
+    "image_url": "",
+    "ticket_url": "https://www.trampstenerife.com/",
+    "source": "Tramps Tenerife",
+    "source_url": "https://www.trampstenerife.com/",
+    "created_at": "2025-10-16T10:26:40.370008Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 80.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260605_063",
+    "name": "Tenerife Music Festival",
+    "type": "festival",
+    "genres": [
+      "urban",
+      "latin",
+      "pop",
+      "reggaeton"
+    ],
+    "tags": [
+      "festival"
+    ],
+    "start_date": "2026-06-05T18:00:00+00:00",
+    "end_date": "2026-06-07T23:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_666db74c",
+      "name": "Santa Cruz de Tenerife",
+      "address": "Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.467178,
+        "lng": -16.2507843
+      }
+    },
+    "price_min": 50,
+    "price_max": 150,
+    "currency": "EUR",
+    "description": "Major music festival in Tenerife featuring renowned international artists like Marc Anthony. A cultural celebration combining top-tier performances with the island's charm.",
+    "performers": [
+      "Marc Anthony"
+    ],
+    "image_url": "",
+    "ticket_url": "https://www.hellocanaryislands.com/events/tenerife/tenerife-music-festival/",
+    "source": "HelloCanaryIslands",
+    "source_url": "https://www.hellocanaryislands.com/events/tenerife/tenerife-music-festival/",
+    "created_at": "2025-10-16T10:26:40.370021Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20240629_064",
+    "name": "Reggaeton Beach Festival Tenerife",
+    "type": "festival",
+    "genres": [
+      "urban",
+      "latin",
+      "reggaeton"
+    ],
+    "tags": [
+      "festival"
+    ],
+    "start_date": "2024-06-29T16:00:00+00:00",
+    "end_date": "2024-06-30T23:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_901eff4c",
+      "name": "Puerto de la Cruz",
+      "address": "Puerto de la Cruz, Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4159024,
+        "lng": -16.5532956
+      }
+    },
+    "price_min": 40,
+    "price_max": 100,
+    "currency": "EUR",
+    "description": "Summer festival dedicated to reggaeton music featuring top international artists with beach parties and performances.",
+    "performers": [],
+    "image_url": "",
+    "ticket_url": "https://www.hellocanaryislands.com/",
+    "source": "HelloCanaryIslands",
+    "source_url": "https://www.hellocanaryislands.com/events/tenerife/reggaeton-beach-festival-tenerife/",
+    "created_at": "2025-10-16T10:26:40.370032Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 90.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20250419_065",
+    "name": "Mappa Festival",
+    "type": "festival",
+    "genres": [
+      "techno",
+      "electronic",
+      "deep house"
+    ],
+    "tags": [
+      "festival"
+    ],
+    "start_date": "2025-04-19T16:00:00+00:00",
+    "end_date": "2025-04-20T04:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_76844db8",
+      "name": "Adeje",
+      "address": "Adeje, Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.1219416,
+        "lng": -16.7241893
+      }
+    },
+    "price_min": 35,
+    "price_max": 70,
+    "currency": "EUR",
+    "description": "Electronic music festival featuring deep house, techno, and electronic performances by international and local artists.",
+    "performers": [],
+    "image_url": "",
+    "ticket_url": "https://www.hellocanaryislands.com/",
+    "source": "HelloCanaryIslands",
+    "source_url": "https://www.hellocanaryislands.com/events/tenerife/mappa-festival/",
+    "created_at": "2025-10-16T10:26:40.370104Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 90.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20250716_066",
+    "name": "Cook Music Fest",
+    "type": "festival",
+    "genres": [
+      "rock",
+      "contemporary",
+      "latin",
+      "pop"
+    ],
+    "tags": [
+      "family",
+      "festival"
+    ],
+    "start_date": "2025-07-16T18:00:00+00:00",
+    "end_date": "2025-07-18T23:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_666db74c",
+      "name": "Santa Cruz de Tenerife",
+      "address": "Santa Cruz de Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.467178,
+        "lng": -16.2507843
+      }
+    },
+    "price_min": 30,
+    "price_max": 80,
+    "currency": "EUR",
+    "description": "Multi-day music festival combining music performances, gastronomy, comedy shows, and family activities with renowned artists.",
+    "performers": [],
+    "image_url": "",
+    "ticket_url": "https://www.hellocanaryislands.com/",
+    "source": "HelloCanaryIslands",
+    "source_url": "https://www.hellocanaryislands.com/events/tenerife/cook-music-fest/",
+    "created_at": "2025-10-16T10:26:40.370117Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 90.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20250115_067",
+    "name": "Canary Islands International Music Festival",
+    "type": "festival",
+    "genres": [
+      "symphonic",
+      "classical",
+      "chamber music"
+    ],
+    "tags": [
+      "free-entry",
+      "festival"
+    ],
+    "start_date": "2025-01-15T19:00:00+00:00",
+    "end_date": "2025-02-28T22:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_315cc4c3",
+      "name": "Multiple venues across Tenerife",
+      "address": "Tenerife, Canary Islands, Spain",
+      "coordinates": {
+        "lat": 28.2935785,
+        "lng": -16.6214471
+      }
+    },
+    "price_min": 0,
+    "price_max": 50,
+    "currency": "EUR",
+    "description": "International classical music festival featuring over 100 works from 18th century to contemporary, performed by more than 1000 musicians with 61 concerts.",
+    "performers": [],
+    "image_url": "",
+    "ticket_url": "https://www.hellocanaryislands.com/",
+    "source": "HelloCanaryIslands",
+    "source_url": "https://www.hellocanaryislands.com/events/tenerife/canary-islands-international-music-festival/",
+    "created_at": "2025-10-16T10:26:40.370131Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 90.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20250704_068",
+    "name": "Festival Internacional Canarias Jazz & More",
+    "type": "festival",
+    "genres": [
+      "fusion",
+      "jazz"
+    ],
+    "tags": [
+      "free-entry",
+      "festival"
+    ],
+    "start_date": "2025-07-04T19:00:00+00:00",
+    "end_date": "2025-07-26T23:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_1b9cdf87",
+      "name": "Multiple venues - Santa Cruz, Adeje, La Laguna, Puerto de La Cruz",
+      "address": "Tenerife, Canary Islands, Spain",
+      "coordinates": {
+        "lat": 28.2935785,
+        "lng": -16.6214471
+      }
+    },
+    "price_min": 0,
+    "price_max": 30,
+    "currency": "EUR",
+    "description": "International jazz festival featuring renowned national and international artists with open-air concerts, improvisations, and sound fusions from classic jazz to innovative trends.",
+    "performers": [],
+    "image_url": "",
+    "ticket_url": "https://www.hellocanaryislands.com/",
+    "source": "HelloCanaryIslands",
+    "source_url": "https://www.hellocanaryislands.com/events/tenerife/festival-internacional-canarias-jazz-more/",
+    "created_at": "2025-10-16T10:26:40.370146Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 90.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20260320_069",
+    "name": "City of La Laguna Folk Festival",
+    "type": "festival",
+    "genres": [
+      "folk",
+      "world music",
+      "traditional"
+    ],
+    "tags": [
+      "free-entry",
+      "festival"
+    ],
+    "start_date": "2026-03-20T18:00:00+00:00",
+    "end_date": "2026-03-22T22:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_0a9dfcc7",
+      "name": "Plaza del Adelantado",
+      "address": "San Cristóbal de La Laguna, Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.4857715,
+        "lng": -16.3159422
+      }
+    },
+    "price_min": 0,
+    "price_max": 15,
+    "currency": "EUR",
+    "description": "Folk music festival featuring concerts by Korrontzi, Parranda Chasnera, and Piélago, with workshops on silbo gomero, timple, and Canarian percussion. Includes exhibition of traditional instruments.",
+    "performers": [
+      "Korrontzi",
+      "Parranda Chasnera",
+      "Piélago"
+    ],
+    "image_url": "",
+    "ticket_url": "https://www.hellocanaryislands.com/",
+    "source": "HelloCanaryIslands",
+    "source_url": "https://www.hellocanaryislands.com/events/tenerife/city-of-la-laguna-folk-festival/",
+    "created_at": "2025-10-16T10:26:40.370162Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 95.0
+    }
+  },
+  {
+    "event_id": "tenerife_music_20241217_070",
+    "name": "Festival Folk Canarias",
+    "type": "festival",
+    "genres": [
+      "traditional canarian",
+      "folk",
+      "world music"
+    ],
+    "tags": [
+      "free-entry",
+      "festival"
+    ],
+    "start_date": "2024-12-17T18:00:00+00:00",
+    "end_date": "2024-12-17T22:00:00+00:00",
+    "timezone": "Atlantic/Canary",
+    "venue": {
+      "venue_id": "venue_90a51048",
+      "name": "Arafo",
+      "address": "Arafo, Tenerife, Spain",
+      "coordinates": {
+        "lat": 28.3404454,
+        "lng": -16.4173287
+      }
+    },
+    "price_min": 0,
+    "price_max": 0,
+    "currency": "EUR",
+    "description": "Folk festival celebrating Canarian customs, roots, and traditions with concerts, gatherings, and performances of local folklore. Free entry for all audiences.",
+    "performers": [],
+    "image_url": "",
+    "ticket_url": "https://www.hellocanaryislands.com/",
+    "source": "HelloCanaryIslands",
+    "source_url": "https://www.hellocanaryislands.com/events/tenerife/festival-folk-canarias/",
+    "created_at": "2025-10-16T10:26:40.370175Z",
+    "metadata": {
+      "region": "Tenerife, Canary Islands, Spain",
+      "data_version": "1.0",
+      "quality_score": 90.0
+    }
+  }
+]

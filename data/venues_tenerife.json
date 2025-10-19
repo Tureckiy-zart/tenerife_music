@@ -1,0 +1,176 @@
+[
+  {
+    "venue_id": "venue_df4e3fd0",
+    "name": "Auditorio de Tenerife",
+    "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+    "coordinates": {
+      "lat": 28.4560887,
+      "lng": -16.2515524
+    },
+    "type": "concert_hall",
+    "website": "",
+    "events_count": 33
+  },
+  {
+    "venue_id": "venue_5b469797",
+    "name": "Auditorio de Tenerife - Sala de Cámara",
+    "address": "Avenida de la Constitución, 1, 38003 Santa Cruz de Tenerife, Spain",
+    "coordinates": {
+      "lat": 28.4560887,
+      "lng": -16.2515524
+    },
+    "type": "concert_hall",
+    "website": "",
+    "events_count": 15
+  },
+  {
+    "venue_id": "venue_2f5f66e0",
+    "name": "Chirinstones Surf Rock Bar",
+    "address": "Santa Cruz de Tenerife, Spain",
+    "coordinates": {
+      "lat": 28.467178,
+      "lng": -16.2507843
+    },
+    "type": "venue",
+    "website": "",
+    "events_count": 1
+  },
+  {
+    "venue_id": "venue_0b66261e",
+    "name": "Finca el Drago",
+    "address": "Santa Cruz de Tenerife, Spain",
+    "coordinates": {
+      "lat": 28.467178,
+      "lng": -16.2507843
+    },
+    "type": "venue",
+    "website": "",
+    "events_count": 1
+  },
+  {
+    "venue_id": "venue_3c614cf1",
+    "name": "Pabellón Rosendo Alonso Tapia",
+    "address": "Candelaria, Tenerife, Spain",
+    "coordinates": {
+      "lat": 28.3546715,
+      "lng": -16.3710091
+    },
+    "type": "venue",
+    "website": "",
+    "events_count": 1
+  },
+  {
+    "venue_id": "venue_f2829a1e",
+    "name": "GF NOELIA Tenerife",
+    "address": "Puerto de la Cruz, Tenerife, Spain",
+    "coordinates": {
+      "lat": 28.4159024,
+      "lng": -16.5532956
+    },
+    "type": "venue",
+    "website": "",
+    "events_count": 1
+  },
+  {
+    "venue_id": "venue_0ba5a380",
+    "name": "Papagayo Beach Club",
+    "address": "Veronicas Strip, Playa de las Américas, 38660 Arona, Tenerife, Spain",
+    "coordinates": {},
+    "type": "beach_club",
+    "website": "",
+    "events_count": 5
+  },
+  {
+    "venue_id": "venue_a58dcaf0",
+    "name": "Tramps Tenerife",
+    "address": "Centro Comercial Starco, Veronicas Strip, 38660 Playa de las Américas, Santa Cruz de Tenerife, Spain",
+    "coordinates": {},
+    "type": "nightclub",
+    "website": "",
+    "events_count": 5
+  },
+  {
+    "venue_id": "venue_666db74c",
+    "name": "Santa Cruz de Tenerife",
+    "address": "Santa Cruz de Tenerife, Spain",
+    "coordinates": {
+      "lat": 28.467178,
+      "lng": -16.2507843
+    },
+    "type": "venue",
+    "website": "",
+    "events_count": 2
+  },
+  {
+    "venue_id": "venue_901eff4c",
+    "name": "Puerto de la Cruz",
+    "address": "Puerto de la Cruz, Tenerife, Spain",
+    "coordinates": {
+      "lat": 28.4159024,
+      "lng": -16.5532956
+    },
+    "type": "venue",
+    "website": "",
+    "events_count": 1
+  },
+  {
+    "venue_id": "venue_76844db8",
+    "name": "Adeje",
+    "address": "Adeje, Tenerife, Spain",
+    "coordinates": {
+      "lat": 28.1219416,
+      "lng": -16.7241893
+    },
+    "type": "venue",
+    "website": "",
+    "events_count": 1
+  },
+  {
+    "venue_id": "venue_315cc4c3",
+    "name": "Multiple venues across Tenerife",
+    "address": "Tenerife, Canary Islands, Spain",
+    "coordinates": {
+      "lat": 28.2935785,
+      "lng": -16.6214471
+    },
+    "type": "venue",
+    "website": "",
+    "events_count": 1
+  },
+  {
+    "venue_id": "venue_1b9cdf87",
+    "name": "Multiple venues - Santa Cruz, Adeje, La Laguna, Puerto de La Cruz",
+    "address": "Tenerife, Canary Islands, Spain",
+    "coordinates": {
+      "lat": 28.2935785,
+      "lng": -16.6214471
+    },
+    "type": "venue",
+    "website": "",
+    "events_count": 1
+  },
+  {
+    "venue_id": "venue_0a9dfcc7",
+    "name": "Plaza del Adelantado",
+    "address": "San Cristóbal de La Laguna, Tenerife, Spain",
+    "coordinates": {
+      "lat": 28.4857715,
+      "lng": -16.3159422
+    },
+    "type": "venue",
+    "website": "",
+    "events_count": 1
+  },
+  {
+    "venue_id": "venue_90a51048",
+    "name": "Arafo",
+    "address": "Arafo, Tenerife, Spain",
+    "coordinates": {
+      "lat": 28.3404454,
+      "lng": -16.4173287
+    },
+    "type": "venue",
+    "website": "",
+    "events_count": 1
+  }
+]
