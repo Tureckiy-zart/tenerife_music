@@ -10,6 +10,12 @@ landing_analysis_report.md
 !.yarn/releases
 !.yarn/versions
 
+
+cursor/*
+cursor/**/*.json
+cursor/**/*.md
+cursor/**/*.log
+
 # testing
 /coverage
 
