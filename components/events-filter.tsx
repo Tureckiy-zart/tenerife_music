@@ -6,10 +6,19 @@ import { X } from 'lucide-react'
 
 interface EventsFilterProps {
   allEvents: any[]
-  formatDateRange: (start?: string, end?: string) => string
 }
 
-export default function EventsFilter({ allEvents, formatDateRange }: EventsFilterProps) {
+function formatDateRange(startISO?: string, endISO?: string) {
+  if (!startISO) return ''
+  const start = new Date(startISO)
+  const end = endISO ? new Date(endISO) : undefined
+  const opts: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'short', day: 'numeric' }
+  const startStr = start.toLocaleDateString('en-GB', opts)
+  const endStr = end ? end.toLocaleDateString('en-GB', opts) : undefined
+  return endStr && endStr !== startStr ? `${startStr} – ${endStr}` : startStr
+}
+
+export default function EventsFilter({ allEvents }: EventsFilterProps) {
   const [selectedGenres, setSelectedGenres] = useState<string[]>([])
   const [filterMode, setFilterMode] = useState<'OR' | 'AND'>('OR')
   const [searchQuery, setSearchQuery] = useState<string>('')

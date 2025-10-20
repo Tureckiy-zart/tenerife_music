@@ -15,15 +15,6 @@ export const metadata: Metadata = {
   alternates: { canonical: '/events' },
 }
 
-function formatDateRange(startISO?: string, endISO?: string) {
-  if (!startISO) return ''
-  const start = new Date(startISO)
-  const end = endISO ? new Date(endISO) : undefined
-  const opts: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'short', day: 'numeric' }
-  const startStr = start.toLocaleDateString('en-GB', opts)
-  const endStr = end ? end.toLocaleDateString('en-GB', opts) : undefined
-  return endStr && endStr !== startStr ? `${startStr} – ${endStr}` : startStr
-}
 
 export default async function EventsPage() {
   const allEvents = (events as any[]).slice(0, 36)
@@ -73,7 +64,7 @@ export default async function EventsPage() {
           </div>
 
           {/* Events List with Filter */}
-          <EventsFilter allEvents={allEvents} formatDateRange={formatDateRange} />
+          <EventsFilter allEvents={allEvents} />
         </section>
       </main>
       <Footer />
