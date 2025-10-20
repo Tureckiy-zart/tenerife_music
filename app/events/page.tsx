@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
+import { ArrowLeft } from 'lucide-react'
 import events from '@/data/events_tenerife.json'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
@@ -40,6 +42,17 @@ export default async function EventsPage() {
         </section>
 
         <section className="max-w-6xl mx-auto px-4 py-16">
+          {/* Back Navigation */}
+          <div className="mb-8">
+            <Link 
+              href="/" 
+              className="inline-flex items-center text-[#003A4D] hover:text-[#00A6A6] transition-colors duration-200 font-medium"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Home
+            </Link>
+          </div>
+
           <div className="text-center mb-12">
             <h2 className="text-2xl font-montserrat font-bold text-[#003A4D] mb-2">Upcoming Events</h2>
             <p className="text-gray-600">Real data from Tenerife events (MVP). Filters and detail pages will follow.</p>

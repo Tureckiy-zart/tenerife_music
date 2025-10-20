@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowLeft } from 'lucide-react'
 import venues from '@/data/venues_tenerife.json'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
@@ -29,6 +31,17 @@ export default async function VenuesPage() {
         </section>
 
         <section className="max-w-6xl mx-auto px-4 py-16">
+          {/* Back Navigation */}
+          <div className="mb-8">
+            <Link 
+              href="/" 
+              className="inline-flex items-center text-[#003A4D] hover:text-[#00A6A6] transition-colors duration-200 font-medium"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Home
+            </Link>
+          </div>
+
           <div className="text-center mb-12">
             <h2 className="text-2xl font-montserrat font-bold text-[#003A4D] mb-2">Music Venues Directory</h2>
             <p className="text-gray-600">Directory powered by real data (MVP). Details and maps will follow.</p>
