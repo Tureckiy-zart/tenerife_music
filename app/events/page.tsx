@@ -56,8 +56,10 @@ export default async function EventsPage() {
             </Link>
           </div>
 
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-montserrat font-bold text-[#003A4D] mb-4">Discover Tenerife's Music Scene</h2>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-[#003A4D] mb-6">
+              Discover Tenerife's Music Scene
+            </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               From intimate classical concerts to vibrant beach parties, explore the island's diverse music calendar. 
               Find your perfect event and immerse yourself in Tenerife's rich cultural landscape.

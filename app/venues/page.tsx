@@ -53,9 +53,13 @@ export default async function VenuesPage() {
             </Link>
           </div>
 
-          <div className="text-center mb-12">
-            <h2 className="text-2xl font-montserrat font-bold text-[#003A4D] mb-2">Music Venues Directory</h2>
-            <p className="text-gray-600">Directory powered by real data (MVP). Details and maps will follow.</p>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-[#003A4D] mb-6">
+              Music Venues Directory
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Directory powered by real data (MVP). Details and maps will follow.
+            </p>
           </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
