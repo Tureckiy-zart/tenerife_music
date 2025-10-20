@@ -97,39 +97,41 @@ export default function EventsFilter({ allEvents }: EventsFilterProps) {
         <div className="flex flex-col lg:flex-row lg:items-center gap-4 mb-6">
           <h3 className="text-xl font-bold text-[#003A4D]">Filter by Genre</h3>
           
-          {/* Improved Filter Mode Toggle */}
-          <div className="flex items-center bg-gray-50 rounded-xl p-1">
-            <button
-              onClick={() => setFilterMode('OR')}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                filterMode === 'OR'
-                  ? 'bg-[#00A6A6] text-white shadow-sm'
-                  : 'text-gray-600 hover:text-[#00A6A6]'
-              }`}
-            >
-              Show any genre
-            </button>
-            <button
-              onClick={() => setFilterMode('AND')}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                filterMode === 'AND'
-                  ? 'bg-[#00A6A6] text-white shadow-sm'
-                  : 'text-gray-600 hover:text-[#00A6A6]'
-              }`}
-            >
-              Show all genres
-            </button>
-          </div>
+          {/* Improved Filter Mode Toggle with Clear button */}
+          <div className="flex items-center gap-3">
+            <div className="flex items-center bg-gray-50 rounded-xl p-1">
+              <button
+                onClick={() => setFilterMode('OR')}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  filterMode === 'OR'
+                    ? 'bg-[#00A6A6] text-white shadow-sm'
+                    : 'text-gray-600 hover:text-[#00A6A6]'
+                }`}
+              >
+                Show any genre
+              </button>
+              <button
+                onClick={() => setFilterMode('AND')}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  filterMode === 'AND'
+                    ? 'bg-[#00A6A6] text-white shadow-sm'
+                    : 'text-gray-600 hover:text-[#00A6A6]'
+                }`}
+              >
+                Show all genres
+              </button>
+            </div>
 
-          {(selectedGenres.length > 0 || searchQuery.trim()) && (
-            <button
-              onClick={clearFilters}
-              className="inline-flex items-center text-sm text-gray-600 hover:text-[#00A6A6] transition-colors duration-200 ml-auto"
-            >
-              <X className="w-4 h-4 mr-1" />
-              Clear all
-            </button>
-          )}
+            {(selectedGenres.length > 0 || searchQuery.trim()) && (
+              <button
+                onClick={clearFilters}
+                className="inline-flex items-center text-sm text-gray-600 hover:text-[#00A6A6] transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-gray-100"
+              >
+                <X className="w-4 h-4 mr-1" />
+                Clear all
+              </button>
+            )}
+          </div>
         </div>
         
         <div className="flex flex-wrap gap-3 mb-4">
