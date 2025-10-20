@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, MapPin, Music2, Users } from "lucide-react";
+import { Calendar, MapPin, Music2, Users, Zap } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 
 export default function About() {
@@ -97,11 +97,14 @@ export default function About() {
               <div className="text-2xl font-bold text-[#00A6A6]">Q4 2025</div>
               <div className="text-sm text-gray-300">Launch Date</div>
             </div>
-            <div className="w-px h-12 bg-gray-500"></div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-[#00A6A6]">Free</div>
-              <div className="text-sm text-gray-300">For Everyone</div>
-            </div>
+            <div className="border-l border-white/20 mx-4 h-12"></div>
+            <a href="/contact" className="text-center hover:scale-105 transition-all duration-200 cursor-pointer">
+              <div className="flex items-center justify-center space-x-2">
+                <Zap className="w-6 h-6 text-cyan-300" />
+                <div className="text-2xl font-bold text-cyan-300 hover:drop-shadow-lg">Early Access</div>
+              </div>
+              <div className="text-sm text-gray-300 hover:drop-shadow-md">Launching first in Tenerife</div>
+            </a>
           </div>
         </motion.div>
       </div>
