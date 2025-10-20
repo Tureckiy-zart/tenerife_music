@@ -1,18 +1,15 @@
+'use client'
+
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, X } from 'lucide-react'
+import { useState, useMemo } from 'react'
 import events from '@/data/events_tenerife.json'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 
-export const revalidate = 600
-
-export const metadata: Metadata = {
-  title: 'Events — Tenerife.Music',
-  description: 'Discover music events across Tenerife: concerts, festivals, club nights.',
-  alternates: { canonical: '/events' },
-}
+// Note: Metadata moved to layout.tsx for client components
 
 function formatDateRange(startISO?: string, endISO?: string) {
   if (!startISO) return ''
@@ -24,8 +21,40 @@ function formatDateRange(startISO?: string, endISO?: string) {
   return endStr && endStr !== startStr ? `${startStr} – ${endStr}` : startStr
 }
 
-export default async function EventsPage() {
-  const list = (events as any[]).slice(0, 36)
+export default function EventsPage() {
+  const allEvents = (events as any[]).slice(0, 36)
+  const [selectedGenres, setSelectedGenres] = useState<string[]>([])
+
+  // Get all unique genres from events
+  const allGenres = useMemo(() => {
+    const genres = new Set<string>()
+    allEvents.forEach(event => {
+      if (event.genres) {
+        event.genres.forEach((genre: string) => genres.add(genre))
+      }
+    })
+    return Array.from(genres).sort()
+  }, [allEvents])
+
+  // Filter events based on selected genres
+  const filteredEvents = useMemo(() => {
+    if (selectedGenres.length === 0) return allEvents
+    return allEvents.filter(event => 
+      event.genres && event.genres.some((genre: string) => selectedGenres.includes(genre))
+    )
+  }, [allEvents, selectedGenres])
+
+  const toggleGenre = (genre: string) => {
+    setSelectedGenres(prev => 
+      prev.includes(genre) 
+        ? prev.filter(g => g !== genre)
+        : [...prev, genre]
+    )
+  }
+
+  const clearFilters = () => {
+    setSelectedGenres([])
+  }
 
   return (
     <>
@@ -63,13 +92,56 @@ export default async function EventsPage() {
             </Link>
           </div>
 
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h2 className="text-2xl font-montserrat font-bold text-[#003A4D] mb-2">Upcoming Events</h2>
             <p className="text-gray-600">Real data from Tenerife events (MVP). Filters and detail pages will follow.</p>
           </div>
 
+          {/* Filter Section */}
+          <div className="mb-8">
+            <div className="flex flex-wrap items-center gap-4 mb-4">
+              <h3 className="text-lg font-semibold text-[#003A4D]">Filter by Genre:</h3>
+              {selectedGenres.length > 0 && (
+                <button
+                  onClick={clearFilters}
+                  className="inline-flex items-center text-sm text-gray-600 hover:text-[#00A6A6] transition-colors duration-200"
+                >
+                  <X className="w-4 h-4 mr-1" />
+                  Clear all
+                </button>
+              )}
+            </div>
+            
+            <div className="flex flex-wrap gap-2 mb-4">
+              {allGenres.map((genre) => (
+                <button
+                  key={genre}
+                  onClick={() => toggleGenre(genre)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                    selectedGenres.includes(genre)
+                      ? 'bg-gradient-to-r from-[#00A6A6] to-[#00C4C4] text-white shadow-lg'
+                      : 'bg-white border border-gray-300 text-gray-700 hover:border-[#00A6A6] hover:text-[#00A6A6]'
+                  }`}
+                >
+                  {genre}
+                </button>
+              ))}
+            </div>
+
+            {selectedGenres.length > 0 && (
+              <div className="text-sm text-gray-600">
+                Showing {filteredEvents.length} of {allEvents.length} events
+                {selectedGenres.length > 0 && (
+                  <span className="ml-2">
+                    filtered by: <span className="font-semibold text-[#00A6A6]">{selectedGenres.join(', ')}</span>
+                  </span>
+                )}
+              </div>
+            )}
+          </div>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {list.map((e) => {
+          {filteredEvents.map((e) => {
             const img = e.image_url && e.image_url.length > 0 ? e.image_url : '/images/hero-festival.jpg'
             return (
               <article key={e.event_id} className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col group border border-gray-100 hover:border-[#00A6A6]/20">
@@ -90,9 +162,17 @@ export default async function EventsPage() {
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {(e.genres || []).slice(0, 3).map((g: string) => (
-                      <span key={g} className="bg-gradient-to-r from-[#00A6A6] to-[#00C4C4] text-white px-3 py-1 rounded-full text-xs font-semibold shadow-sm">
+                      <button
+                        key={g}
+                        onClick={() => toggleGenre(g)}
+                        className={`px-3 py-1 rounded-full text-xs font-semibold shadow-sm transition-all duration-200 ${
+                          selectedGenres.includes(g)
+                            ? 'bg-gradient-to-r from-[#00A6A6] to-[#00C4C4] text-white'
+                            : 'bg-gradient-to-r from-[#00A6A6] to-[#00C4C4] text-white hover:from-[#00C4C4] hover:to-[#00A6A6]'
+                        }`}
+                      >
                         {g}
-                      </span>
+                      </button>
                     ))}
                   </div>
                   <div className="mt-auto flex gap-3">
