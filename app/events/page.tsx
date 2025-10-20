@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, Calendar } from 'lucide-react'
 import events from '@/data/events_tenerife.json'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
