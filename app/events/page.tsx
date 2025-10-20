@@ -6,7 +6,6 @@ import events from '@/data/events_tenerife.json'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import EventsFilter from '@/components/events-filter'
-import BackNavigation from '@/components/back-navigation'
 
 export const revalidate = 600
 
@@ -44,30 +43,33 @@ export default async function EventsPage() {
           </div>
         </section>
 
-        <section className="max-w-6xl mx-auto px-4 py-16">
-          {/* Back Navigation */}
-          <div className="mb-8">
-            <Link 
-              href="/" 
-              className="inline-flex items-center text-[#003A4D] hover:text-[#00A6A6] transition-colors duration-200 font-medium"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Home
-            </Link>
-          </div>
+        {/* Events Section */}
+        <section className="py-20">
+          <div className="max-w-7xl mx-auto px-4">
+            {/* Back Navigation */}
+            <div className="mb-8">
+              <Link 
+                href="/" 
+                className="inline-flex items-center text-[#003A4D] hover:text-[#00A6A6] transition-colors duration-200 font-medium"
+              >
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Home
+              </Link>
+            </div>
 
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-[#003A4D] mb-6">
-              Discover Tenerife's Music Scene
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              From intimate classical concerts to vibrant beach parties, explore the island's diverse music calendar. 
-              Find your perfect event and immerse yourself in Tenerife's rich cultural landscape.
-            </p>
-          </div>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-[#003A4D] mb-6">
+                Discover Tenerife's Music Scene
+              </h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                From intimate classical concerts to vibrant beach parties, explore the island's diverse music calendar. 
+                Find your perfect event and immerse yourself in Tenerife's rich cultural landscape.
+              </p>
+            </div>
 
-          {/* Events List with Filter */}
-          <EventsFilter allEvents={allEvents} />
+            {/* Events List with Filter */}
+            <EventsFilter allEvents={allEvents} />
+          </div>
         </section>
       </main>
       <Footer />
