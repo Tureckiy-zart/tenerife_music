@@ -52,7 +52,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link 
-                  href="#events" 
+                  href="/events" 
                   className="text-gray-300 hover:text-[#00A6A6] transition-colors duration-300"
                 >
                   Events
@@ -60,7 +60,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  href="#venues" 
+                  href="/venues" 
                   className="text-gray-300 hover:text-[#00A6A6] transition-colors duration-300"
                 >
                   Venues
@@ -68,7 +68,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  href="#articles" 
+                  href="/news" 
                   className="text-gray-300 hover:text-[#00A6A6] transition-colors duration-300"
                 >
                   Blog

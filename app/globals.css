@@ -113,18 +113,20 @@
 
 /* Scrollbar styles */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #00A6A6;
-  border-radius: 3px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #003A4D;
+  background: #00C4C4;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
