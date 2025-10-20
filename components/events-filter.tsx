@@ -56,17 +56,12 @@ export default function EventsFilter({ allEvents }: EventsFilterProps) {
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {(e.genres || []).slice(0, 3).map((g: string) => (
-                    <button
+                    <span
                       key={g}
-                      onClick={() => toggleGenre(g)}
-                      className={`px-3 py-1 rounded-full text-xs font-semibold shadow-sm transition-all duration-200 ${
-                        selectedGenres.includes(g)
-                          ? 'bg-gradient-to-r from-[#00A6A6] to-[#00C4C4] text-white'
-                          : 'bg-gradient-to-r from-[#00A6A6] to-[#00C4C4] text-white hover:from-[#00C4C4] hover:to-[#00A6A6]'
-                      }`}
+                      className="bg-gradient-to-r from-[#00A6A6] to-[#00C4C4] text-white px-3 py-1 rounded-full text-xs font-semibold shadow-sm"
                     >
                       {g}
-                    </button>
+                    </span>
                   ))}
                 </div>
                 <div className="mt-auto flex gap-3">
