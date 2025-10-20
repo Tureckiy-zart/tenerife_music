@@ -32,8 +32,18 @@ export default async function EventsPage() {
       <Navigation />
       <main className="min-h-screen bg-gray-50">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-[#003A4D] to-[#00536B] text-white py-20">
-          <div className="max-w-6xl mx-auto px-4 text-center">
+        <section className="bg-gradient-to-br from-[#003A4D] to-[#00536B] text-white py-20 relative overflow-hidden">
+          {/* Decorative elements */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#00A6A6]/10 to-transparent"></div>
+          <div className="absolute top-10 left-10 w-20 h-20 bg-[#00A6A6]/20 rounded-full blur-xl"></div>
+          <div className="absolute bottom-10 right-10 w-32 h-32 bg-[#00C4C4]/20 rounded-full blur-xl"></div>
+          
+          <div className="max-w-6xl mx-auto px-4 text-center relative z-10">
+            <div className="flex items-center justify-center space-x-4 mb-6">
+              <div className="w-2 h-2 bg-[#00A6A6] rounded-full"></div>
+              <div className="w-4 h-4 bg-[#00A6A6] rounded-full"></div>
+              <div className="w-2 h-2 bg-[#00A6A6] rounded-full"></div>
+            </div>
             <h1 className="text-4xl md:text-5xl font-montserrat font-bold mb-4">Events</h1>
             <p className="text-xl text-gray-200 max-w-2xl mx-auto">
               Discover the best music events across Tenerife. From classical concerts to beach parties.
@@ -62,10 +72,13 @@ export default async function EventsPage() {
           {list.map((e) => {
             const img = e.image_url && e.image_url.length > 0 ? e.image_url : '/images/hero-festival.jpg'
             return (
-              <article key={e.event_id} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group">
+              <article key={e.event_id} className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col group border border-gray-100 hover:border-[#00A6A6]/20">
                 <div className="relative aspect-video bg-gray-200 overflow-hidden">
                   <Image src={img} alt={e.name} fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
+                    <span className="text-xs font-semibold text-[#003A4D]">Live</span>
+                  </div>
                 </div>
                 <div className="p-6 flex flex-col gap-4 flex-grow">
                   <h3 className="text-lg font-montserrat font-bold text-[#003A4D] group-hover:text-[#00A6A6] transition-colors duration-200">{e.name}</h3>
@@ -77,20 +90,20 @@ export default async function EventsPage() {
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {(e.genres || []).slice(0, 3).map((g: string) => (
-                      <span key={g} className="bg-[#00A6A6]/10 text-[#003A4D] px-3 py-1 rounded-full text-xs font-medium hover:bg-[#00A6A6]/20 transition-colors duration-200">
+                      <span key={g} className="bg-gradient-to-r from-[#00A6A6] to-[#00C4C4] text-white px-3 py-1 rounded-full text-xs font-semibold shadow-sm">
                         {g}
                       </span>
                     ))}
                   </div>
                   <div className="mt-auto flex gap-3">
                     {e.ticket_url && (
-                      <a href={e.ticket_url} target="_blank" rel="noopener noreferrer" className="flex-1 text-center text-white bg-[#00A6A6] hover:bg-[#00C4C4] px-4 py-2 rounded-lg text-sm font-poppins font-semibold transition-colors duration-200">
-                        Tickets
+                      <a href={e.ticket_url} target="_blank" rel="noopener noreferrer" className="flex-1 text-center text-white bg-gradient-to-r from-[#00A6A6] to-[#00C4C4] hover:from-[#00C4C4] hover:to-[#00A6A6] px-4 py-3 rounded-lg text-sm font-poppins font-semibold transition-all duration-200 shadow-lg hover:shadow-xl">
+                        Get Tickets
                       </a>
                     )}
                     {e.source_url && (
-                      <a href={e.source_url} target="_blank" rel="noopener noreferrer" className="text-[#003A4D] hover:text-[#00A6A6] underline text-sm font-medium transition-colors duration-200">
-                        Source
+                      <a href={e.source_url} target="_blank" rel="noopener noreferrer" className="text-[#003A4D] hover:text-[#00A6A6] underline text-sm font-medium transition-colors duration-200 flex items-center">
+                        Source →
                       </a>
                     )}
                   </div>
