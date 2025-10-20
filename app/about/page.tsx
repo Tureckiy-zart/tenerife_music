@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Music, Users, MapPin, Calendar, Heart, ArrowRight, Star, Globe } from 'lucide-react'
+import { Music, Users, MapPin, Calendar, Heart, ArrowRight, Star, Globe, ArrowLeft } from 'lucide-react'
 import Navigation from '@/components/navigation'
 import BackNavigation from '@/components/back-navigation'
 
