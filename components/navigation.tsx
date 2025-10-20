@@ -19,7 +19,7 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Close on Escape and trap focus in mobile menu
+  // Close on Escape, outside click, and trap focus in mobile menu
   useEffect(() => {
     if (!isOpen) return
 
@@ -51,6 +51,16 @@ export default function Navigation() {
       }
     }
 
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(e.target as Node) &&
+        !toggleButtonRef.current?.contains(e.target as Node)
+      ) {
+        setIsOpen(false)
+      }
+    }
+
     // Move focus to first link when opened
     const timer = window.setTimeout(() => {
       const firstLink = mobileMenuRef.current?.querySelector<HTMLElement>('a, button')
@@ -58,9 +68,11 @@ export default function Navigation() {
     }, 0)
 
     document.addEventListener('keydown', handleKeyDown)
+    document.addEventListener('mousedown', handleClickOutside)
     return () => {
       window.clearTimeout(timer)
       document.removeEventListener('keydown', handleKeyDown)
+      document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [isOpen])
 

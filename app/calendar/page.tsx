@@ -133,34 +133,35 @@ export default function CalendarPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4">
           {/* Calendar Header */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
-            <div className="flex items-center justify-between mb-8">
+          <div className="bg-white rounded-2xl shadow-lg p-4 md:p-8 mb-8">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 md:mb-8 gap-4">
               <div>
-                <h2 className="text-3xl font-bold text-[#003A4D] mb-2">
+                <h2 className="text-2xl md:text-3xl font-bold text-[#003A4D] mb-2">
                   {monthNames[today.getMonth()]} {today.getFullYear()}
                 </h2>
-                <p className="text-gray-600">Plan your musical adventures this month</p>
+                <p className="text-gray-600 text-sm md:text-base">Plan your musical adventures this month</p>
               </div>
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2 md:space-x-4 w-full sm:w-auto">
                 <button className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-300">
-                  <ChevronLeft className="w-5 h-5 text-gray-600" />
+                  <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 text-gray-600" />
                 </button>
                 <button className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-300">
-                  <ChevronRight className="w-5 h-5 text-gray-600" />
+                  <ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-gray-600" />
                 </button>
-                <button className="inline-flex items-center space-x-2 bg-[#00A6A6] text-white px-4 py-2 rounded-lg font-medium hover:bg-[#008A8A] transition-colors duration-300">
+                <button className="inline-flex items-center space-x-2 bg-[#00A6A6] text-white px-3 md:px-4 py-2 rounded-lg font-medium hover:bg-[#008A8A] transition-colors duration-300 text-sm md:text-base">
                   <Filter className="w-4 h-4" />
-                  <span>Filter</span>
+                  <span className="hidden sm:inline">Filter</span>
                 </button>
               </div>
             </div>
 
             {/* Calendar Grid */}
-            <div className="grid grid-cols-7 gap-1">
+            <div className="grid grid-cols-7 gap-1 overflow-x-auto">
               {/* Day Headers */}
               {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-                <div key={day} className="p-3 text-center text-sm font-semibold text-gray-600 bg-gray-50 rounded-lg">
-                  {day}
+                <div key={day} className="p-2 md:p-3 text-center text-xs md:text-sm font-semibold text-gray-600 bg-gray-50 rounded-lg min-w-[60px] md:min-w-auto">
+                  <span className="hidden sm:inline">{day}</span>
+                  <span className="sm:hidden">{day.slice(0, 1)}</span>
                 </div>
               ))}
               
@@ -168,7 +169,7 @@ export default function CalendarPage() {
               {calendarDays.map((day, index) => (
                 <div 
                   key={index} 
-                  className={`min-h-[120px] p-2 border rounded-lg transition-colors duration-200 ${
+                  className={`min-h-[80px] md:min-h-[120px] p-1 md:p-2 border rounded-lg transition-colors duration-200 min-w-[60px] md:min-w-auto ${
                     day.isCurrentMonth 
                       ? 'bg-white hover:bg-gray-50' 
                       : 'bg-gray-50 text-gray-400'
@@ -178,26 +179,27 @@ export default function CalendarPage() {
                       : ''
                   }`}
                 >
-                  <div className="flex items-center justify-between mb-2">
-                    <span className={`text-sm font-medium ${
+                  <div className="flex items-center justify-between mb-1 md:mb-2">
+                    <span className={`text-xs md:text-sm font-medium ${
                       day.isToday ? 'text-[#00A6A6]' : 'text-gray-700'
                     }`}>
                       {day.date.getDate()}
                     </span>
                     {day.events.length > 0 && (
-                      <span className="w-2 h-2 bg-[#00A6A6] rounded-full"></span>
+                      <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#00A6A6] rounded-full"></span>
                     )}
                   </div>
                   
                   {/* Events for this day */}
-                  <div className="space-y-1">
+                  <div className="space-y-0.5 md:space-y-1">
                     {day.events.slice(0, 2).map((event) => (
                       <div 
                         key={event.id}
-                        className="text-xs p-1 bg-[#00A6A6]/10 text-[#00A6A6] rounded truncate hover:bg-[#00A6A6]/20 transition-colors duration-200 cursor-pointer"
+                        className="text-xs p-0.5 md:p-1 bg-[#00A6A6]/10 text-[#00A6A6] rounded truncate hover:bg-[#00A6A6]/20 transition-colors duration-200 cursor-pointer"
                         title={event.title}
                       >
-                        {event.title}
+                        <span className="hidden md:inline">{event.title}</span>
+                        <span className="md:hidden">•</span>
                       </div>
                     ))}
                     {day.events.length > 2 && (
@@ -212,39 +214,39 @@ export default function CalendarPage() {
           </div>
 
           {/* Upcoming Events */}
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-6 md:gap-8">
             {/* This Week's Highlights */}
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-2xl shadow-lg p-8">
-                <h3 className="text-2xl font-bold text-[#003A4D] mb-6">This Week's Highlights</h3>
-                <div className="space-y-4">
+              <div className="bg-white rounded-2xl shadow-lg p-4 md:p-8">
+                <h3 className="text-xl md:text-2xl font-bold text-[#003A4D] mb-4 md:mb-6">This Week's Highlights</h3>
+                <div className="space-y-3 md:space-y-4">
                   {sampleEvents.map((event) => (
-                    <div key={event.id} className="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-200">
+                    <div key={event.id} className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 p-3 md:p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-200">
                       <div className="flex-shrink-0">
-                        <div className="w-12 h-12 bg-gradient-to-br from-[#00A6A6] to-[#003A4D] rounded-lg flex items-center justify-center">
-                          <Calendar className="w-6 h-6 text-white" />
+                        <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-[#00A6A6] to-[#003A4D] rounded-lg flex items-center justify-center">
+                          <Calendar className="w-5 h-5 md:w-6 md:h-6 text-white" />
                         </div>
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <h4 className="font-semibold text-[#003A4D] truncate">{event.title}</h4>
-                        <div className="flex items-center space-x-4 text-sm text-gray-600 mt-1">
+                      <div className="flex-1 min-w-0 w-full sm:w-auto">
+                        <h4 className="font-semibold text-[#003A4D] truncate text-sm md:text-base">{event.title}</h4>
+                        <div className="flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-4 text-xs md:text-sm text-gray-600 mt-1">
                           <div className="flex items-center space-x-1">
-                            <Clock className="w-4 h-4" />
+                            <Clock className="w-3 h-3 md:w-4 md:h-4" />
                             <span>{event.time}</span>
                           </div>
                           <div className="flex items-center space-x-1">
-                            <MapPin className="w-4 h-4" />
-                            <span>{event.venue}</span>
+                            <MapPin className="w-3 h-3 md:w-4 md:h-4" />
+                            <span className="truncate">{event.venue}</span>
                           </div>
                           <div className="flex items-center space-x-1">
-                            <Music className="w-4 h-4" />
+                            <Music className="w-3 h-3 md:w-4 md:h-4" />
                             <span>{event.genre}</span>
                           </div>
                         </div>
                       </div>
-                      <div className="flex-shrink-0 text-right">
-                        <div className="text-lg font-bold text-[#00A6A6]">{event.price}</div>
-                        <div className="text-sm text-gray-500">{event.area}</div>
+                      <div className="flex-shrink-0 text-left sm:text-right w-full sm:w-auto">
+                        <div className="text-base md:text-lg font-bold text-[#00A6A6]">{event.price}</div>
+                        <div className="text-xs md:text-sm text-gray-500">{event.area}</div>
                       </div>
                     </div>
                   ))}
@@ -262,28 +264,28 @@ export default function CalendarPage() {
             </div>
 
             {/* Quick Stats */}
-            <div className="space-y-6">
-              <div className="bg-white rounded-2xl shadow-lg p-6">
-                <h3 className="text-xl font-bold text-[#003A4D] mb-4">This Month</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-gray-600">Total Events</span>
-                    <span className="text-2xl font-bold text-[#00A6A6]">127</span>
+            <div className="space-y-4 md:space-y-6">
+              <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6">
+                <h3 className="text-lg md:text-xl font-bold text-[#003A4D] mb-3 md:mb-4">This Month</h3>
+                <div className="grid grid-cols-3 gap-4 md:space-y-4 md:grid-cols-1">
+                  <div className="text-center md:flex md:items-center md:justify-between">
+                    <span className="text-gray-600 text-sm md:text-base">Total Events</span>
+                    <span className="text-xl md:text-2xl font-bold text-[#00A6A6] block md:inline">127</span>
                   </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-gray-600">Venues</span>
-                    <span className="text-2xl font-bold text-[#00A6A6]">23</span>
+                  <div className="text-center md:flex md:items-center md:justify-between">
+                    <span className="text-gray-600 text-sm md:text-base">Venues</span>
+                    <span className="text-xl md:text-2xl font-bold text-[#00A6A6] block md:inline">23</span>
                   </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-gray-600">Genres</span>
-                    <span className="text-2xl font-bold text-[#00A6A6]">8</span>
+                  <div className="text-center md:flex md:items-center md:justify-between">
+                    <span className="text-gray-600 text-sm md:text-base">Genres</span>
+                    <span className="text-xl md:text-2xl font-bold text-[#00A6A6] block md:inline">8</span>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl shadow-lg p-6">
-                <h3 className="text-xl font-bold text-[#003A4D] mb-4">Popular Genres</h3>
-                <div className="space-y-3">
+              <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6">
+                <h3 className="text-lg md:text-xl font-bold text-[#003A4D] mb-3 md:mb-4">Popular Genres</h3>
+                <div className="space-y-2 md:space-y-3">
                   {[
                     { name: 'Electronic', count: 45, color: 'bg-purple-500' },
                     { name: 'Rock', count: 32, color: 'bg-red-500' },
@@ -291,22 +293,22 @@ export default function CalendarPage() {
                     { name: 'Pop', count: 22, color: 'bg-pink-500' }
                   ].map((genre, index) => (
                     <div key={index} className="flex items-center justify-between">
-                      <div className="flex items-center space-x-3">
-                        <div className={`w-3 h-3 rounded-full ${genre.color}`}></div>
-                        <span className="text-gray-700">{genre.name}</span>
+                      <div className="flex items-center space-x-2 md:space-x-3">
+                        <div className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full ${genre.color}`}></div>
+                        <span className="text-gray-700 text-sm md:text-base">{genre.name}</span>
                       </div>
-                      <span className="font-semibold text-[#003A4D]">{genre.count}</span>
+                      <span className="font-semibold text-[#003A4D] text-sm md:text-base">{genre.count}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-[#003A4D] to-[#00A6A6] rounded-2xl p-6 text-white">
-                <h3 className="text-xl font-bold mb-4">Get Notifications</h3>
-                <p className="text-white/90 mb-4 text-sm">
+              <div className="bg-gradient-to-br from-[#003A4D] to-[#00A6A6] rounded-2xl p-4 md:p-6 text-white">
+                <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">Get Notifications</h3>
+                <p className="text-white/90 mb-3 md:mb-4 text-xs md:text-sm">
                   Stay updated with the latest events and never miss your favorite artists.
                 </p>
-                <button className="w-full bg-white text-[#003A4D] px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-300">
+                <button className="w-full bg-white text-[#003A4D] px-3 md:px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-300 text-sm md:text-base">
                   Subscribe to Updates
                 </button>
               </div>

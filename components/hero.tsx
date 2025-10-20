@@ -10,6 +10,7 @@ export default function Hero() {
   const [showPreview, setShowPreview] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const previewPreviouslyFocusedRef = useRef<HTMLElement | null>(null);
+  const previewModalRef = useRef<HTMLDivElement | null>(null);
 
   const heroImages = [
     "/images/hero-festival.jpg",
@@ -27,6 +28,32 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
+  // Handle preview modal focus and ESC key
+  useEffect(() => {
+    if (!showPreview) return;
+
+    previewPreviouslyFocusedRef.current = document.activeElement as HTMLElement | null;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setShowPreview(false);
+        previewPreviouslyFocusedRef.current?.focus();
+      }
+    };
+
+    // Focus the modal when it opens
+    const timer = window.setTimeout(() => {
+      previewModalRef.current?.focus();
+    }, 0);
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.clearTimeout(timer);
+      document.removeEventListener('keydown', handleKeyDown);
+      previewPreviouslyFocusedRef.current?.focus();
+    };
+  }, [showPreview]);
+
   const PreviewModal = () => {
     if (!showPreview) return null;
 
@@ -36,17 +63,15 @@ export default function Hero() {
           className="absolute inset-0 bg-black/60 backdrop-blur-sm"
           onClick={() => setShowPreview(false)}
         />
-        <div className="relative bg-white rounded-2xl shadow-2xl p-8 max-w-lg w-full mx-4" tabIndex={-1}
-          onKeyDown={(e) => {
-            if (e.key === 'Escape') {
-              setShowPreview(false);
-              previewPreviouslyFocusedRef.current?.focus();
-            }
-          }}
+        <div 
+          ref={previewModalRef}
+          className="relative bg-white rounded-2xl shadow-2xl p-8 max-w-lg w-full mx-4" 
+          tabIndex={-1}
         >
           <button
             onClick={() => setShowPreview(false)}
             className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 transition-colors duration-200"
+            aria-label="Close preview modal"
           >
             <X className="w-5 h-5" />
           </button>
