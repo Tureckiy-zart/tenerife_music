@@ -24,6 +24,8 @@ function formatDateRange(startISO?: string, endISO?: string) {
 export default function EventsPage() {
   const allEvents = (events as any[]).slice(0, 36)
   const [selectedGenres, setSelectedGenres] = useState<string[]>([])
+  const [filterMode, setFilterMode] = useState<'OR' | 'AND'>('OR')
+  const [searchQuery, setSearchQuery] = useState<string>('')
 
   // Get all unique genres from events
   const allGenres = useMemo(() => {
@@ -36,15 +38,37 @@ export default function EventsPage() {
     return Array.from(genres).sort()
   }, [allEvents])
 
-  // Filter events based on selected genres (AND logic - must contain ALL selected genres)
+  // Filter events based on selected genres and search query
   const filteredEvents = useMemo(() => {
-    if (selectedGenres.length === 0) return allEvents
-    return allEvents.filter(event => 
-      event.genres && selectedGenres.every((selectedGenre: string) => 
-        event.genres.includes(selectedGenre)
+    let filtered = allEvents
+
+    // Apply search filter
+    if (searchQuery.trim()) {
+      filtered = filtered.filter(event => 
+        event.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (event.venue?.name && event.venue.name.toLowerCase().includes(searchQuery.toLowerCase()))
       )
-    )
-  }, [allEvents, selectedGenres])
+    }
+
+    // Apply genre filter
+    if (selectedGenres.length > 0) {
+      if (filterMode === 'AND') {
+        // Must contain ALL selected genres
+        filtered = filtered.filter(event => 
+          event.genres && selectedGenres.every((selectedGenre: string) => 
+            event.genres.includes(selectedGenre)
+          )
+        )
+      } else {
+        // Must contain ANY selected genre (OR logic)
+        filtered = filtered.filter(event => 
+          event.genres && event.genres.some((genre: string) => selectedGenres.includes(genre))
+        )
+      }
+    }
+
+    return filtered
+  }, [allEvents, selectedGenres, filterMode, searchQuery])
 
   const toggleGenre = (genre: string) => {
     setSelectedGenres(prev => 
@@ -95,19 +119,60 @@ export default function EventsPage() {
           </div>
 
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-montserrat font-bold text-[#003A4D] mb-2">Upcoming Events</h2>
-            <p className="text-gray-600">Real data from Tenerife events (MVP). Filters and detail pages will follow.</p>
+            <h2 className="text-3xl font-montserrat font-bold text-[#003A4D] mb-4">Discover Tenerife's Music Scene</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              From intimate classical concerts to vibrant beach parties, explore the island's diverse music calendar. 
+              Find your perfect event and immerse yourself in Tenerife's rich cultural landscape.
+            </p>
           </div>
 
           {/* Filter Section */}
-          <div className="mb-8">
-            <div className="flex flex-wrap items-center gap-4 mb-4">
-              <h3 className="text-lg font-semibold text-[#003A4D]">Filter by Genre:</h3>
-              <span className="text-sm text-gray-500">(must contain ALL selected)</span>
-              {selectedGenres.length > 0 && (
+          <div className="bg-white rounded-2xl shadow-lg p-6 mb-8 border border-gray-100">
+            {/* Search Input */}
+            <div className="mb-6">
+              <input
+                type="text"
+                placeholder="Search events by name or venue..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#00A6A6] focus:border-[#00A6A6] transition-colors duration-200 text-lg"
+              />
+            </div>
+
+            <div className="flex flex-col lg:flex-row lg:items-center gap-4 mb-6">
+              <h3 className="text-xl font-bold text-[#003A4D]">Filter by Genre</h3>
+              
+              {/* Improved Filter Mode Toggle */}
+              <div className="flex items-center bg-gray-50 rounded-xl p-1">
                 <button
-                  onClick={clearFilters}
-                  className="inline-flex items-center text-sm text-gray-600 hover:text-[#00A6A6] transition-colors duration-200"
+                  onClick={() => setFilterMode('OR')}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    filterMode === 'OR'
+                      ? 'bg-[#00A6A6] text-white shadow-sm'
+                      : 'text-gray-600 hover:text-[#00A6A6]'
+                  }`}
+                >
+                  Show any genre
+                </button>
+                <button
+                  onClick={() => setFilterMode('AND')}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    filterMode === 'AND'
+                      ? 'bg-[#00A6A6] text-white shadow-sm'
+                      : 'text-gray-600 hover:text-[#00A6A6]'
+                  }`}
+                >
+                  Show all genres
+                </button>
+              </div>
+
+              {(selectedGenres.length > 0 || searchQuery.trim()) && (
+                <button
+                  onClick={() => {
+                    clearFilters()
+                    setSearchQuery('')
+                  }}
+                  className="inline-flex items-center text-sm text-gray-600 hover:text-[#00A6A6] transition-colors duration-200 ml-auto"
                 >
                   <X className="w-4 h-4 mr-1" />
                   Clear all
@@ -115,15 +180,15 @@ export default function EventsPage() {
               )}
             </div>
             
-            <div className="flex flex-wrap gap-2 mb-4">
+            <div className="flex flex-wrap gap-3 mb-4">
               {allGenres.map((genre) => (
                 <button
                   key={genre}
                   onClick={() => toggleGenre(genre)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                     selectedGenres.includes(genre)
-                      ? 'bg-gradient-to-r from-[#00A6A6] to-[#00C4C4] text-white shadow-lg'
-                      : 'bg-white border border-gray-300 text-gray-700 hover:border-[#00A6A6] hover:text-[#00A6A6]'
+                      ? 'bg-gradient-to-r from-[#00A6A6] to-[#00C4C4] text-white shadow-lg transform scale-105'
+                      : 'bg-gray-100 text-gray-700 hover:bg-[#00A6A6] hover:text-white hover:shadow-md'
                   }`}
                 >
                   {genre}
@@ -131,12 +196,20 @@ export default function EventsPage() {
               ))}
             </div>
 
-            {selectedGenres.length > 0 && (
-              <div className="text-sm text-gray-600">
+            {(selectedGenres.length > 0 || searchQuery.trim()) && (
+              <div className="text-sm text-gray-600 bg-gray-50 rounded-lg p-3">
                 Showing {filteredEvents.length} of {allEvents.length} events
+                {searchQuery.trim() && (
+                  <span className="ml-2">
+                    matching "<span className="font-semibold text-[#00A6A6]">{searchQuery}</span>"
+                  </span>
+                )}
                 {selectedGenres.length > 0 && (
                   <span className="ml-2">
                     filtered by: <span className="font-semibold text-[#00A6A6]">{selectedGenres.join(', ')}</span>
+                    <span className="ml-1 text-gray-500">
+                      ({filterMode === 'AND' ? 'must contain ALL' : 'must contain ANY'})
+                    </span>
                   </span>
                 )}
               </div>
