@@ -51,7 +51,7 @@ export default async function NewsPage() {
                 href="/" 
                 className="inline-flex items-center text-[#003A4D] hover:text-[#00A6A6] transition-colors duration-200 font-medium"
               >
-                <ArrowLeftавайте начнем с фиксации высавайте начнем с фиксации выс className="w-4 h-4 mr-2" />
+                <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Home
               </Link>
             </div>
