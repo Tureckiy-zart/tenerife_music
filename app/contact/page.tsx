@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import ContactForm from '@/components/contact-form'
+import BackNavigation from '@/components/back-navigation'
 import { Mail, MapPin, Phone } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -18,6 +19,9 @@ export default function ContactPage() {
     <>
       <Navigation />
       <main className="min-h-screen bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 pt-20">
+          <BackNavigation />
+        </div>
         {/* Header */}
         <section className="bg-gradient-to-b from-[#003A4D] to-[#00536B] text-white py-20">
           <div className="max-w-6xl mx-auto px-4">

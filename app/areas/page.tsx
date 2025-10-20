@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { MapPin, Music, Users, Calendar, ArrowRight, Star, Clock } from 'lucide-react'
 import Navigation from '@/components/navigation'
+import BackNavigation from '@/components/back-navigation'
 
 export const metadata: Metadata = {
   title: 'Areas — Tenerife.Music',
@@ -77,6 +78,9 @@ export default function AreasPage() {
     <>
       <Navigation />
       <main className="min-h-screen bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 pt-20">
+          <BackNavigation />
+        </div>
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#003A4D] via-[#004A5D] to-[#00A6A6] text-white overflow-hidden">

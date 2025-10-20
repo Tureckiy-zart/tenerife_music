@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import posts from '@/data/news.json'
+import BackNavigation from '@/components/back-navigation'
 
 export const revalidate = 1800
 
@@ -39,6 +40,7 @@ export default async function NewsArticlePage({ params }: { params: Promise<{ sl
   return (
     <main className="min-h-screen bg-gray-50">
       <section className="max-w-3xl mx-auto px-4 py-16">
+        <BackNavigation href="/news" text="Back to News" />
         <div className="text-sm text-gray-500">{new Date(post.date).toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' })} • {post.readTime}</div>
         <h1 className="text-3xl md:text-4xl font-montserrat font-bold text-[#003A4D] mt-2">{post.title}</h1>
         <article className="prose max-w-none mt-6 text-gray-800">

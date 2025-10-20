@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Music, Calendar, MapPin, Users, ArrowRight, Star, Headphones, Mic, Disc3 } from 'lucide-react'
 import Navigation from '@/components/navigation'
+import BackNavigation from '@/components/back-navigation'
 
 export const metadata: Metadata = {
   title: 'Genres — Tenerife.Music',
