@@ -36,11 +36,13 @@ export default function EventsPage() {
     return Array.from(genres).sort()
   }, [allEvents])
 
-  // Filter events based on selected genres
+  // Filter events based on selected genres (AND logic - must contain ALL selected genres)
   const filteredEvents = useMemo(() => {
     if (selectedGenres.length === 0) return allEvents
     return allEvents.filter(event => 
-      event.genres && event.genres.some((genre: string) => selectedGenres.includes(genre))
+      event.genres && selectedGenres.every((selectedGenre: string) => 
+        event.genres.includes(selectedGenre)
+      )
     )
   }, [allEvents, selectedGenres])
 
@@ -101,6 +103,7 @@ export default function EventsPage() {
           <div className="mb-8">
             <div className="flex flex-wrap items-center gap-4 mb-4">
               <h3 className="text-lg font-semibold text-[#003A4D]">Filter by Genre:</h3>
+              <span className="text-sm text-gray-500">(must contain ALL selected)</span>
               {selectedGenres.length > 0 && (
                 <button
                   onClick={clearFilters}
