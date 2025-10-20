@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { FileText, Scale, AlertTriangle, Users, Shield, ArrowLeft, Mail, MapPin } from 'lucide-react'
+import { FileText, Scale, AlertTriangle, Users, Shield, Mail, MapPin } from 'lucide-react'
 import Navigation from '@/components/navigation'
 import BackNavigation from '@/components/back-navigation'
+import PageHeader from '@/components/page-header-fixed'
 
 export const metadata: Metadata = {
   title: 'Terms of Service — Tenerife.Music',
@@ -16,35 +17,16 @@ export default function TermsPage() {
       <Navigation />
       <main className="min-h-screen bg-gray-50">
       
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#003A4D] via-[#004A5D] to-[#00A6A6] text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
-        
-        <div className="relative max-w-6xl mx-auto px-4 py-24">
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 rounded-full mb-8">
-              <FileText className="w-10 h-10 text-white" />
-            </div>
-            <h1 className="text-4xl md:text-6xl font-montserrat font-bold mb-6">
-              Terms of Service
-            </h1>
-            <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
-              Please read these terms carefully before using our service. By using Tenerife.Music, you agree to these terms.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        icon={<FileText className="w-10 h-10 text-white" />}
+        title="Terms of Service"
+        description="Please read these terms carefully before using our service. By using Tenerife.Music, you agree to these terms."
+      />
 
       {/* Back to Home */}
       <section className="py-8 bg-white">
         <div className="max-w-6xl mx-auto px-4">
-          <Link 
-            href="/" 
-            className="inline-flex items-center space-x-2 text-[#00A6A6] hover:text-[#008A8A] transition-colors duration-300"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Back to Home</span>
-          </Link>
+          <BackNavigation />
         </div>
       </section>
 

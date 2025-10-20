@@ -6,7 +6,7 @@ import events from '@/data/events_tenerife.json'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import EventsFilter from '@/components/events-filter'
-import PageHeader from '@/components/page-header'
+import PageHeader from '@/components/page-header-fixed'
 import BackNavigation from '@/components/back-navigation'
 
 export const revalidate = 600
