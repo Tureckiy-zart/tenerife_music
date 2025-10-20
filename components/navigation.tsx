@@ -68,7 +68,11 @@ export default function Navigation() {
     { name: 'Home', href: '/' },
     { name: 'Events', href: '/events' },
     { name: 'Venues', href: '/venues' },
+    { name: 'Areas', href: '/areas' },
+    { name: 'Genres', href: '/genres' },
+    { name: 'Calendar', href: '/calendar' },
     { name: 'Blog', href: '/news' },
+    { name: 'About', href: '/about' },
     { name: 'Contact', href: '/contact' },
   ]
 

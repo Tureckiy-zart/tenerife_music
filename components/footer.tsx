@@ -68,10 +68,42 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
+                  href="/areas" 
+                  className="text-gray-300 hover:text-[#00A6A6] transition-colors duration-300"
+                >
+                  Areas
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/genres" 
+                  className="text-gray-300 hover:text-[#00A6A6] transition-colors duration-300"
+                >
+                  Genres
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/calendar" 
+                  className="text-gray-300 hover:text-[#00A6A6] transition-colors duration-300"
+                >
+                  Calendar
+                </Link>
+              </li>
+              <li>
+                <Link 
                   href="/news" 
                   className="text-gray-300 hover:text-[#00A6A6] transition-colors duration-300"
                 >
                   Blog
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/about" 
+                  className="text-gray-300 hover:text-[#00A6A6] transition-colors duration-300"
+                >
+                  About
                 </Link>
               </li>
               <li>
@@ -119,13 +151,19 @@ export default function Footer() {
             {/* Legal Links */}
             <div className="space-y-2">
               <Link 
-                href="#" 
+                href="/privacy" 
                 className="block text-gray-400 hover:text-gray-200 text-sm transition-colors duration-300"
               >
                 Privacy Policy
               </Link>
               <Link 
-                href="#" 
+                href="/terms" 
+                className="block text-gray-400 hover:text-gray-200 text-sm transition-colors duration-300"
+              >
+                Terms of Service
+              </Link>
+              <Link 
+                href="/cookies" 
                 className="block text-gray-400 hover:text-gray-200 text-sm transition-colors duration-300"
               >
                 Cookies Policy
