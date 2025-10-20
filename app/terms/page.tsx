@@ -15,9 +15,6 @@ export default function TermsPage() {
     <>
       <Navigation />
       <main className="min-h-screen bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 pt-20">
-          <BackNavigation />
-        </div>
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#003A4D] via-[#004A5D] to-[#00A6A6] text-white overflow-hidden">

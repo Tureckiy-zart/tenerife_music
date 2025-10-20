@@ -19,9 +19,6 @@ export default function ContactPage() {
     <>
       <Navigation />
       <main className="min-h-screen bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 pt-20">
-          <BackNavigation />
-        </div>
         {/* Header */}
         <section className="bg-gradient-to-b from-[#003A4D] to-[#00536B] text-white py-20">
           <div className="max-w-6xl mx-auto px-4">

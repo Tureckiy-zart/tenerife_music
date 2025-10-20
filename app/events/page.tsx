@@ -24,9 +24,6 @@ export default async function EventsPage() {
     <>
       <Navigation />
       <main className="min-h-screen bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 pt-20">
-          <BackNavigation />
-        </div>
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-[#003A4D] to-[#00536B] text-white py-20 relative overflow-hidden">
           {/* Decorative elements */}
