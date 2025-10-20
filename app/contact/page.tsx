@@ -7,7 +7,7 @@ import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import ContactForm from '@/components/contact-form'
 import BackNavigation from '@/components/back-navigation'
-import PageHeader from '@/components/page-header'
+import PageHeader from '@/components/page-header-fixed'
 import { Mail, MapPin, Phone } from 'lucide-react'
 
 export const metadata: Metadata = {

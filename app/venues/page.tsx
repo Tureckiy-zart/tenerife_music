@@ -4,7 +4,7 @@ import { MapPin } from 'lucide-react'
 import venues from '@/data/venues_tenerife.json'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
-import PageHeader from '@/components/page-header'
+import PageHeader from '@/components/page-header-fixed'
 import BackNavigation from '@/components/back-navigation'
 
 export const revalidate = 600

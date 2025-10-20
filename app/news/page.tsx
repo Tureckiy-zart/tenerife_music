@@ -3,7 +3,7 @@ import Link from 'next/link'
 import posts from '@/data/news.json'
 import Navigation from '@/components/navigation'
 import BackNavigation from '@/components/back-navigation'
-import PageHeader from '@/components/page-header'
+import PageHeader from '@/components/page-header-fixed'
 import { FileText } from 'lucide-react'
 
 export const revalidate = 1800

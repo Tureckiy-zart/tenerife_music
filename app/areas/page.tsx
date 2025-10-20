@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { MapPin, Music, Users, Calendar, ArrowRight, Star, Clock } from 'lucide-react'
 import Navigation from '@/components/navigation'
-import PageHeader from '@/components/page-header'
+import PageHeader from '@/components/page-header-fixed'
 import BackNavigation from '@/components/back-navigation'
 
 export const metadata: Metadata = {
