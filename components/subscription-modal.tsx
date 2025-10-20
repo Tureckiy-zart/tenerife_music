@@ -83,8 +83,8 @@ export default function SubscriptionModal({ isOpen, onClose }: SubscriptionModal
       }
     }
     const timer = window.setTimeout(() => {
-      const first = modalRef.current?.querySelector<HTMLElement>('input, button, a')
-      first?.focus()
+      const input = modalRef.current?.querySelector<HTMLInputElement>('input[type="email"]')
+      input?.focus()
     }, 0)
     document.addEventListener('keydown', handleKeyDown)
     return () => {
@@ -107,6 +107,7 @@ export default function SubscriptionModal({ isOpen, onClose }: SubscriptionModal
         {/* Close Button */}
         <button
           onClick={onClose}
+          tabIndex={-1}
           className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 transition-colors duration-200"
         >
           <X className="w-5 h-5" />

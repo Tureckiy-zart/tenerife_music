@@ -66,9 +66,9 @@ export default function Navigation() {
 
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'Events', href: '#events' },
-    { name: 'Venues', href: '#venues' },
-    { name: 'Blog', href: '#articles' },
+    { name: 'Events', href: '/events' },
+    { name: 'Venues', href: '/venues' },
+    { name: 'Blog', href: '/news' },
     { name: 'Contact', href: '/contact' },
   ]
 
@@ -102,8 +102,8 @@ export default function Navigation() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`font-poppins font-medium transition-all duration-300 hover:text-white hover:scale-105 ${
-                  isScrolled ? 'text-[#003A4D]' : 'text-white/90'
+                className={`font-poppins font-medium transition-all duration-300 hover:scale-105 ${
+                  isScrolled ? 'text-[#003A4D] hover:text-[#00A6A6]' : 'text-white/90 hover:text-white'
                 }`}
               >
                 {link.name}
