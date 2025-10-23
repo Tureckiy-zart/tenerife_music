@@ -27,6 +27,9 @@ export const metadata: Metadata = {
   authors: [{ name: 'Tenerife.Music' }],
   creator: 'Tenerife.Music',
   publisher: 'Tenerife.Music',
+  other: {
+    'impact-site-verification': '38b54250-bae6-45bf-aa41-cb8336c84d6d',
+  },
   alternates: {
     canonical: 'https://tenerife.music',
   },
