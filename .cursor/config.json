@@ -1,0 +1,103 @@
+{
+  "rules": [
+    "You are working on a Next.js 14+ project with TypeScript, Tailwind CSS, and shadcn/ui components.",
+    "The project is a music events website for Tenerife with the following structure:",
+    "- App router structure in /app directory",
+    "- Components in /components directory with shadcn/ui components in /components/ui",
+    "- Data files in /data directory (events_tenerife.json, news.json, venues_tenerife.json)",
+    "- Prisma schema for database",
+    "- Tailwind CSS for styling",
+    "Always follow these coding standards:",
+    "- Use TypeScript with strict typing",
+    "- Follow Next.js 14+ app router conventions",
+    "- Use Tailwind CSS classes for styling",
+    "- Use shadcn/ui components when possible",
+    "- Follow React best practices and hooks",
+    "- Use proper error handling and loading states",
+    "- Ensure responsive design",
+    "- Follow accessibility guidelines",
+    "- Use proper SEO practices with metadata",
+    "When working with this project:",
+    "- Always check existing components before creating new ones",
+    "- Use the existing data structure from JSON files",
+    "- Follow the established component patterns",
+    "- Ensure all new components are properly typed",
+    "- Test components for responsiveness",
+    "- Use proper Next.js Image optimization",
+    "- Follow the existing file naming conventions"
+  ],
+  "branching_policy": {
+  "rule": "NEVER COMMIT DIRECTLY TO MAIN",
+  "description": "All changes must be made in feature branches derived from 'main'. Each Cursor task must automatically create a new branch named according to the task type and ID.",
+  "pattern": "feat/{task_name}-{timestamp}",
+  "examples": [
+    "feat/fix-seo-tags-20251024",
+    "feat/add-affiliate-integration-20251025",
+    "feat/update-schema-jsonld-20251026"
+  ],
+  "enforcement": {
+    "commit_block": true,
+    "merge_review_required": true,
+    "auto_delete_branch_after_merge": true
+  }
+},
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.json",
+    "**/*.css",
+    "**/*.scss",
+    "**/*.md"
+  ],
+  "exclude": [
+    "node_modules/**",
+    ".next/**",
+    "dist/**",
+    "build/**",
+    ".git/**",
+    "*.log",
+    "*.tar.gz",
+    "*.zip"
+  ],
+  "composer": {
+    "rules": [
+      "Always provide complete, working code examples",
+      "Include proper imports and dependencies",
+      "Use TypeScript interfaces for data structures",
+      "Follow the existing component patterns in the project",
+      "Ensure all code is production-ready",
+      "Include proper error handling",
+      "Use semantic HTML elements",
+      "Follow accessibility best practices"
+    ]
+  },
+  "resource_limits": {
+  "enabled": true,
+  "max_tokens_per_response": 4800,
+  "max_total_tokens_per_task": 24000,
+  "context_window_limit": 32000,
+  "rate_limits": {
+    "requests_per_minute": 8,
+    "parallel_tasks": 3
+  },
+  "priority_rules": {
+    "critical": ["deploy", "security", "production-hotfix"],
+    "standard": ["seo", "frontend", "api", "search"],
+    "low": ["content", "design", "documentation"]
+  },
+  "auto_throttling": {
+    "enabled": true,
+    "behavior": "pause_low_priority_tasks_when_high_load"
+  },
+  "logging": {
+    "enabled": true,
+    "save_to": "cursor/logs/resource_usage/",
+    "rotate_daily": true,
+    "report_interval": "6h"
+  }
+}
+
+}
+

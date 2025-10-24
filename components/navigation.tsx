@@ -1,9 +1,10 @@
 
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { Menu, X, Music } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
+import Image from 'next/image'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -100,16 +101,30 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="bg-[#00A6A6] p-2 rounded-lg">
-              <Music className="w-6 h-6 text-white" />
+            <div className="relative">
+              {/* Light Logo */}
+              <Image
+                src="/images/logo-light.svg"
+                alt="Tenerife.Music"
+                width={120}
+                height={40}
+                className={`h-8 w-auto absolute transition-opacity duration-300 ${
+                  isScrolled ? 'opacity-0' : 'opacity-100'
+                }`}
+                priority
+              />
+              {/* Dark Logo */}
+              <Image
+                src="/images/logo-dark.svg"
+                alt="Tenerife.Music"
+                width={120}
+                height={40}
+                className={`h-8 w-auto transition-opacity duration-300 ${
+                  isScrolled ? 'opacity-100' : 'opacity-0'
+                }`}
+                priority
+              />
             </div>
-            <span
-              className={`font-montserrat font-bold text-xl transition-colors duration-300 ${
-                isScrolled ? 'text-[#003A4D]' : 'text-white'
-              }`}
-            >
-              TENERIFE.MUSIC
-            </span>
           </Link>
 
           {/* Desktop Navigation */}
