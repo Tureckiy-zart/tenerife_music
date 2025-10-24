@@ -54,6 +54,7 @@ const config: Config = {
       fontFamily: {
         montserrat: ['var(--font-montserrat)', 'sans-serif'],
         poppins: ['var(--font-poppins)', 'sans-serif'],
+        bounded: ['Bounded', 'sans-serif'],
       },
       borderRadius: {
         lg: 'var(--radius)',
