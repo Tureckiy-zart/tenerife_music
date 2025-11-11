@@ -28,10 +28,7 @@ export const metadata: Metadata = {
   creator: 'Tenerife.Music',
   publisher: 'Tenerife.Music',
   other: {
-    'impact-site-verification': [
-      '38b54250-bae6-45bf-aa41-cb8336c84d6d',
-      'b0930766-c41f-4b67-8796-0b2a58429806',
-    ],
+    'impact-site-verification': 'b0930766-c41f-4b67-8796-0b2a58429806',
   },
   alternates: {
     canonical: 'https://tenerife.music',
