@@ -76,6 +76,7 @@
 export const dynamic = "force-dynamic";
 
 import { NextResponse } from "next/server";
+import { sendWelcomeEmail } from "@/lib/email";
 
 export async function POST(request: Request) {
   try {
@@ -97,15 +98,28 @@ export async function POST(request: Request) {
       );
     }
 
+    // Normalize email
+    const normalizedEmail = email.toLowerCase().trim();
+
+    // Send welcome email
+    // We don't await this to avoid blocking the response, but we do catch errors
+    sendWelcomeEmail(normalizedEmail).catch((err: any) => {
+      console.error("❌ Failed to send welcome email:", err);
+      console.error("Error details:", {
+        message: err?.message,
+        statusCode: err?.statusCode,
+      });
+    });
+
     // Simulate success (no DB yet)
-    console.log("New subscription:", email);
+    console.log("New subscription:", normalizedEmail);
 
     return NextResponse.json(
       {
         message: "Successfully subscribed!",
         subscription: {
           id: Math.floor(Math.random() * 100000),
-          email: email.toLowerCase().trim(),
+          email: normalizedEmail,
           createdAt: new Date().toISOString(),
         },
       },

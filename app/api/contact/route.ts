@@ -89,6 +89,10 @@
 export const dynamic = "force-dynamic";
 
 import { NextResponse } from "next/server";
+import {
+  sendContactNotification,
+  sendContactConfirmation,
+} from "@/lib/email";
 
 export async function POST(request: Request) {
   try {
@@ -145,16 +149,47 @@ export async function POST(request: Request) {
       );
     }
 
+    // Normalize data
+    const normalizedData = {
+      name: name.trim(),
+      email: email.toLowerCase().trim(),
+      message: message.trim(),
+    };
+
+    // Send emails (both notification and confirmation)
+    // We don't await these to avoid blocking the response, but we do catch errors
+    Promise.all([
+      sendContactNotification(normalizedData).catch((err: any) => {
+        console.error("❌ Failed to send contact notification:", err);
+        console.error("Error details:", {
+          message: err?.message,
+          statusCode: err?.statusCode,
+        });
+      }),
+      sendContactConfirmation({
+        name: normalizedData.name,
+        email: normalizedData.email,
+      }).catch((err: any) => {
+        console.error("❌ Failed to send contact confirmation:", err);
+        console.error("Error details:", {
+          message: err?.message,
+          statusCode: err?.statusCode,
+        });
+      }),
+    ]).catch((err) => {
+      console.error("❌ Error sending emails:", err);
+    });
+
     // Placeholder for future database integration
-    console.log("Contact form received:", { name, email, message });
+    console.log("Contact form received:", normalizedData);
 
     return NextResponse.json(
       {
         message: "Contact form submitted successfully!",
         contact: {
           id: Math.floor(Math.random() * 100000),
-          name: name.trim(),
-          email: email.toLowerCase().trim(),
+          name: normalizedData.name,
+          email: normalizedData.email,
           createdAt: new Date().toISOString(),
         },
       },
