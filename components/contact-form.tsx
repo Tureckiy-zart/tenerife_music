@@ -32,15 +32,6 @@ export default function ContactForm() {
       const data = await response.json()
 
       if (response.ok) {
-        // Open Gmail compose
-        const gmailUrl = `mailto:ev.zhdanov@gmail.com?subject=${encodeURIComponent(
-          'Contact from Tenerife.Music'
-        )}&body=${encodeURIComponent(
-          `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-        )}`
-        
-        window.open(gmailUrl, '_blank')
-        
         setIsSuccess(true)
         setFormData({ name: '', email: '', message: '' })
         
@@ -72,7 +63,7 @@ export default function ContactForm() {
           Message Sent!
         </h3>
         <p className="text-gray-600">
-          Thank you for contacting us. We've opened your email client and saved your message. 
+          Thank you for contacting us! We've received your message and sent you a confirmation email. 
           We'll get back to you soon!
         </p>
       </div>
