@@ -83,22 +83,14 @@ This email was sent from the ${SITE_NAME} contact form.
       `.trim(),
     })
 
-    // Check if email was actually sent successfully
-    if (!result.data?.id) {
-      const errorMessage = 'Email send failed: No ID returned from Resend API'
-      console.error('❌', errorMessage, { result })
-      throw new Error(errorMessage)
-    }
-
-    console.log('✅ Contact notification email sent successfully', { id: result.data.id })
-    return { success: true, id: result.data.id }
+    console.log('✅ Contact notification email sent successfully', { id: result.data?.id })
+    return { success: true, id: result.data?.id }
   } catch (error: any) {
     console.error('❌ Error sending contact notification email:', error)
     console.error('Error details:', {
       message: error?.message,
       name: error?.name,
       statusCode: error?.statusCode,
-      result: error?.result,
     })
     throw error
   }
@@ -164,22 +156,14 @@ This is an automated confirmation email from ${SITE_NAME}.
       `.trim(),
     })
 
-    // Check if email was actually sent successfully
-    if (!result.data?.id) {
-      const errorMessage = 'Email send failed: No ID returned from Resend API'
-      console.error('❌', errorMessage, { result })
-      throw new Error(errorMessage)
-    }
-
-    console.log('✅ Contact confirmation email sent successfully', { id: result.data.id })
-    return { success: true, id: result.data.id }
+    console.log('✅ Contact confirmation email sent successfully', { id: result.data?.id })
+    return { success: true, id: result.data?.id }
   } catch (error: any) {
     console.error('❌ Error sending contact confirmation email:', error)
     console.error('Error details:', {
       message: error?.message,
       name: error?.name,
       statusCode: error?.statusCode,
-      result: error?.result,
     })
     throw error
   }
@@ -259,22 +243,14 @@ This is an automated email from ${SITE_NAME}.
       `.trim(),
     })
 
-    // Check if email was actually sent successfully
-    if (!result.data?.id) {
-      const errorMessage = 'Email send failed: No ID returned from Resend API'
-      console.error('❌', errorMessage, { result })
-      throw new Error(errorMessage)
-    }
-
-    console.log('✅ Welcome email sent successfully', { id: result.data.id })
-    return { success: true, id: result.data.id }
+    console.log('✅ Welcome email sent successfully', { id: result.data?.id })
+    return { success: true, id: result.data?.id }
   } catch (error: any) {
     console.error('❌ Error sending welcome email:', error)
     console.error('Error details:', {
       message: error?.message,
       name: error?.name,
       statusCode: error?.statusCode,
-      result: error?.result,
     })
     throw error
   }

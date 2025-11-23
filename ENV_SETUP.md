@@ -58,6 +58,3 @@ NEXT_PUBLIC_SITE_URL="http://localhost:3000"
 - For production, set these variables in your hosting platform's environment settings
 
 
-
-
-
